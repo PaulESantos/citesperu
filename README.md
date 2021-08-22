@@ -1,26 +1,26 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# ffperu <a href='https://github.com/PaulESantos/citesperu'><img src='man/figures/libro_rojo.jpg' align="right" height="220" width="150" /></a><img src='man/figures/flora_cites.jpg' align="left" height="220" width="150" /></a>
+# ffperu <a href='https://github.com/PaulESantos/ffperu'><img src='man/figures/libro_rojo.jpg' align="right" height="220" width="150" /></a><img src='man/figures/flora_cites.jpg' align="left" height="220" width="150" /></a>
 
 <!-- badges: start -->
 
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![CRAN
-status](https://www.r-pkg.org/badges/version/citesperu)](https://CRAN.R-project.org/package=citesperu)
-[![R-CMD-check](https://github.com/PaulESantos/citesperu/workflows/R-CMD-check/badge.svg)](https://github.com/PaulESantos/citesperu/actions)
+status](https://www.r-pkg.org/badges/version/ffperu)](https://CRAN.R-project.org/package=ffperu)
+[![R-CMD-check](https://github.com/PaulESantos/ffperu/workflows/R-CMD-check/badge.svg)](https://github.com/PaulESantos/ffperu/actions)
 <!-- badges: end -->
 
-The goal of citesperu is to …
+The goal of ffperu is to …
 
 ## Installation
 
-You can install the released version of citesperu from
+You can install the released version of ffperu from
 [CRAN](https://CRAN.R-project.org) with:
 
 ``` r
-#install.packages("citesperu")
+#install.packages("ffperu")
 ```
 
 ## Example
@@ -28,7 +28,7 @@ You can install the released version of citesperu from
 This is a basic example which shows you how to solve a common problem:
 
 ``` r
-#library(citesperu)
+#library(ffperu)
 ## basic example code
 ```
 
