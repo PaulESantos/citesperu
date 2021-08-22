@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# citesperu <a href='https://github.com/PaulESantos/citesperu'><img src='man/figures/libro_rojo.jpg' align="right" height="220" width="150" /></a><img src='man/figures/flora_cites.jpg' align="left" height="220" width="150" /></a>
+# ffperu <a href='https://github.com/PaulESantos/citesperu'><img src='man/figures/libro_rojo.jpg' align="right" height="220" width="150" /></a><img src='man/figures/flora_cites.jpg' align="left" height="220" width="150" /></a>
 
 <!-- badges: start -->
 

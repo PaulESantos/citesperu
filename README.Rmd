@@ -14,7 +14,7 @@ knitr::opts_chunk$set(
 ```
 
 
-# citesperu <a href='https://github.com/PaulESantos/citesperu'><img src='man/figures/libro_rojo.jpg' align="right" height="220" width="150" /></a><img src='man/figures/flora_cites.jpg' align="left" height="220" width="150" /></a>
+# ffperu <a href='https://github.com/PaulESantos/citesperu'><img src='man/figures/libro_rojo.jpg' align="right" height="220" width="150" /></a><img src='man/figures/flora_cites.jpg' align="left" height="220" width="150" /></a>
 
 <!-- badges: start -->
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
