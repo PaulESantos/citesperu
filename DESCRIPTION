@@ -1,13 +1,13 @@
 Package: ffperu
-Title: What the Package Does (One Line, Title Case)
+Title:List of Protected Flora and Fauna in Peru
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Paul Efren",
            family = "Santos Andrade",
            role = c("aut", "cre"),
            email = "paulefrens@gmail.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+           comment = c(ORCID = "0000-0002-6635-0375"))
+Description: Gives help to access the information from the "classification and categorization list of legally protected endangered species of wild flora and fauna".  The package contains a database with cleaned and standardized.
 License: MIT + file LICENSE
 Suggests: 
     testthat (>= 3.0.0)
