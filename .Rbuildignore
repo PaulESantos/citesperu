@@ -4,3 +4,6 @@
 ^README\.Rmd$
 ^cran-comments\.md$
 ^\.github$
+^\cleaning_code
+^\pdf_doc
+^\xlsx_files
