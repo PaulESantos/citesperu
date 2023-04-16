@@ -16,7 +16,8 @@ Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
-URL: https://github.com/PaulESantos/citesperu
+URL: https://github.com/PaulESantos/citesperu,
+    https://paulesantos.github.io/ffperu/
 BugReports: https://github.com/PaulESantos/citesperu/issues
 Imports: 
     lifecycle

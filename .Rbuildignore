@@ -7,3 +7,6 @@
 ^\cleaning_code
 ^\pdf_doc
 ^\xlsx_files
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
