@@ -1,0 +1,21 @@
+Package: citesperu
+Title: Peruvian Species Checklists from CITES Publications
+Version: 0.0.0.9000
+Authors@R: 
+    person("Paul E.", "Santos Andrade", , "paulefrens@gmail.com",
+           role = c("aut", "cre", "cph"),
+           comment = c(ORCID = "0000-0002-6635-0375"))
+Description: An R package under development for working with Peruvian fauna
+    and flora checklists published by the Ministry of the Environment (MINAM)
+    under the Convention on International Trade in Endangered Species of
+    Wild Fauna and Flora (CITES). Planned functionality includes reproducible
+    data preparation, checklist queries, scientific name matching and
+    summaries by appendix and taxonomic group. This initial version contains
+    package documentation; datasets and query functions are not yet included.
+License: MIT + file LICENSE
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+Config/roxygen2/version: 8.1.0

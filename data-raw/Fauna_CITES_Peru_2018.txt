@@ -1,0 +1,1778 @@
+N	Especie	Apendice	Categoria_nacional	UICN	Nativa_Endemica	Nombre_comun	Sinonimos	Autor	V1	V2	V3	V4	V5	V6	V7	V8	V9	V10
+			nacional															
+1	Arapaima gigas	II	-	DD	Nativa	Paiche, pirarucú, arapaima		(Schinze, 1822)										
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+2	Hippocampus ingens	II	-	VU	Nativa	Caballito de mar		(Girard, 1858)										
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+							Epipedobates femoralis											
+						Rana dardo venenosa, rana	Phyllobates femoralis											
+3	Allobates femoralis	II	-	LC	Nativa			(Boulenger, 1884)										
+						venenosa de muslos	Dendrobates femoralis											
+							Prostherapis femoralis											
+						Rana de punta de flecha de												
+4	Allobates myersi4	II	-	LC	Nativa		Epipedobates myersi	(Pyburn, 1981)										
+						Myers												
+							Epipedobates zaparo											
+5	Allobates zaparo	II	-	LC	Nativa	Rana dardo venenosa	Dendrobates zaparo	(  S ilverstone, 1976)										
+							Phyllobates zaparo											
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+						venenosa del río Madeira												
+						Rana venenosa de		Twomey & Brown,										
+7	Ameerega altamazonica	II	-	-	Endémica													
+						Tarapoto		2008										
+						Rana de punta de flecha de	Dendrobates bassleri											
+						Bassler, rana venenosa	Phobobates bassleri											
+8	Ameerega bassleri	II	NT	NT	Endémica			(Melin, 1941)										
+						agradable, rana dardo	Phyllobates bassleri											
+						venenosa	Epipedobates bassleri											
+						Rana venenosa												
+9	Ameerega bilinguis6	II	-	LC	Nativa		Epipedobates bilinguis	(Jungfer, 1989)										
+						ecuatoriana, rana venenosa												
+						Rana venenosa de	Epipedobates ardens											
+10	Ameerega cainarachi	II	NT	VU	Endémica	Cainarachi, rana dardo	Epipedobates	(Schulte, 1989)										
+						venenosa	cainarachi											
+							Dendrobates hahneli											
+							Epipedobates hahneli											
+11	Ameerega hahneli	II	-	LC	Nativa	Rana dardo venenosa		(Boulenger, 1884)										
+							Dendrobates pictus											
+							hahneli											
+								Brown & Twomey,										
+12	Ameerega ignipedis	II	-	-	Endémica	Rana dardo venenosa												
+								2009										
+							Hylaplesia labialis											
+13	Ameerega labialis	II	-	DD	Endémica	Rana dardo venenosa	Dendrobates labialis	(  C ope, 1874)										
+							Epipedobates labialis											
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+							Dendrobates											
+							smaragdinus											
+						Rana de punta de flecha												
+							Epipedobates											
+26	Ameerega smaragdina	II	DD	DD	Endémica	esmeralda, rana dardo		(Silverstone, 1976)										
+							smaragdinus											
+						amazónica												
+							Phyllobates											
+							smaragdinus											
+							Dendrobates											
+							tetravittatus											
+							Dendrobates											
+							trivittatus											
+							E. epipedobates											
+							trivittatus Hylaplesia											
+						Sapito dardo trilistado,												
+27	Ameerega trivittata	II	-	LC	Nativa		trivittata	(Spix, 1824)										
+						rana dardo venenosa												
+							Phobobates											
+							trivittatus											
+							Phyllobates trivittatus											
+							Hylaplesia nigerrima											
+							Hyla nigerrima											
+							Hyla trivittata											
+.						Yoshin, rana venenosa		Brown & Twomey,										
+	Ameerega yoshina	II	NT	-	Endémica													
+28						diabólica		2009										
+							Ameerega anthonyi											
+						Rana venenosa de Antonio,	Colostethus anthonyi											
+29	Epipedobates anthonyi	II	NT	NT	Nativa			(Noble, 1921)										
+						rana tricolor ecuatoriana	Dendrobates anthonyi											
+							Phyllobates anthonyi											
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+							Adelphobates											
+						Rana venenosa de Río	captivus Dendrobates											
+30	Excidobates captivus10	II	VU	LC	Nativa			(Myers, 1982)										
+						Santiago, rana venenosa	captivus											
+							Ranitomeya captiva											
+							Dendrobates											
+						Rana venenosa del												
+							mysteriosus											
+31	Excidobates mysteriosus	II	EN	EN	Endémica	Marañón, rana venenosa		(Myers, 1982)										
+							Ranitomeya											
+						misteriosa												
+							mysteriosa											
+							Dendrobates											
+							azureiventris											
+							Epipedobates											
+						Rana de punta de flecha de												
+							azureiventris	(Kneller & Henle,										
+32	Hyloxalus azureiventris	II	EN	EN	Endémica	vientre azul, rana venenosa												
+							Phyllobates	1985)										
+						azul cielo												
+							azureiventris											
+							Cryptophyllobates											
+							azureiventris											
+						Rana venenosa de Iquitos,	Dendrobates											
+33	Ranitomeya amazonica11		-	DD	Nativa			(Schulte, 1999)										
+						rana venenosa amazónica	amazonicus											
+								Brown, Twomey,										
+							Dendrobates											
+34	Ranitomeya benedicta	II	VU	VU	Endémica	Rana venenosa bendita		Pepper & Sanchez-										
+							benedicta											
+								Rodriguez, 2008										
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+								Perez-Peña, Chavez,										
+35	Ranitomeya cyanovittata	II	-	-	Endémica	Rana venenosa heroica		Twomey & Brown,										
+								2010										
+						Rana de punta de flecha	Dendrobates	(Boulenger, 1884										
+36	Ranitomeya fantastica	II	NT	NT	Endémica													
+						fantástica	fantasticus	“1833”)										
+						Rana venenosa de	Dendrobates											
+37	Ranitomeya flavovittata	II	-	LC12	Endémica			(Schulte, 1999)										
+						Tamshiyacu-Tahuayo	flavovittatus											
+							Dendrobates imitator											
+38	Ranitomeya imitator	II	-	LC	Endémica	Rana venenosa imitadora	Ranitomeya	(Schulte, 1986)										
+							intermedia											
+						Rana de punta de flecha	Ranitomeya ignea											
+39	Ranitomeya reticulata	II	-	LC	Nativa	reticulada, rana venenosa	Dendrobates	(Boulenger, 1884)										
+						reticulada	reticulatus											
+							Dendrobates											
+40	Ranitomeya rubrocephala13	II	-	-	Endémica	Rana dardo venenosa		(Schulte, 1999)										
+							rubrocephalus											
+							Dendrobates sirensis											
+							Dendrobates lamasi											
+41	Ranitomeya sirensis14	II	-	LC	Nativa	Rana venenosa del Sira		(Aichinger, 1991)										
+							Ranitomeya biolat											
+							R. ranitomeya lamasi											
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+								Brown, Twomey,										
+						Rana venenosa de												
+42	Ranitomeya summersi	II	EN	EN	Endémica			Pepper & Sanchez-										
+						Summers												
+								Rodriguez, 2008										
+43	Ranitomeya uakarii 15	II	-	LC	Nativa	Rana venenosa uakari	Dendrobates uakarii	(Brown, Schulte &										
+								Summers, 2006)										
+						Rana de punta de flecha de	Dendrobates											
+44	Ranitomeya vanzolinii	II	-	LC	Nativa			(Myers, 1982)										
+						Vanzolini	vanzolinii											
+						Rana de punta de flecha												
+45	Ranitomeya variabilis 16	II	-	DD	Nativa	variable, rana venenosa de	Dendrobates variabilis	(Zimmermann &										
+								Zimmermann, 1988)										
+						ZImmermann												
+							Andinobates minutus											
+							ventrimaculatus											
+							Dendrobates variabilis											
+46	Ranitomeya ventrimaculata	II	-	LC	Nativa	Rana venenosa amazónica	Dendrobates	(Shreve, 1935)										
+							ventrimaculatus											
+							D. dendrobates											
+							duellmani											
+								Pérez-Peña, Chávez,										
+47	Ranitomeya yavaricola	II	-	-	Endémica	Rana venenosa del Yavarí		Twomey & Brown,										
+								2010										
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+48	Telmatobius culeus17	I	CR	CR	Nativa	Rana gigante del Lago	Telmatobius albiventris	(Garman, 1875)										
+						Titicaca, rana del Titicaca	Telmatobius crawfordi											
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+							Sparvius bicolor											
+49	Accipiter bicolor	II	-	LC	Nativa	Gavilán bicolor		(Vieillot, 1817)										
+							Accipiter chilensis											
+						Gavilán												
+50	Accipiter collaris	II	VU	NT	Nativa			Sclater, 1860										
+						semiacollarado												
+						Gavilán de vientre												
+51	Accipiter poliogaster	II	-	NT	Nativa		Falco poliogaster	(Temminck, 1824)										
+						gris												
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+			-				Accipiter ventralis											
+52	Accipiter striatus	II		LC	Nativa	Gavilán pajarero	Accipiter erythronemius	Vieillot, 1807										
+							Accipiter chionogaster											
+			-															
+53	Accipiter superciliosus	II		LC	Nativa	Gavilán enano	Falco superciliosus	(Linnaeus, 1766)										
+			-			Gavilán de ciénaga,												
+54	Busarellus nigricollis	II		LC	Nativa		Falco nigricollis	(Latham, 1790)										
+						mamavieja												
+			-			Aguilucho de												
+55	Buteo albigula	II		LC	Nativa		Buteo brachyurus albigula	Philippi, 1899										
+						garganta blanca												
+			-			Aguilucho de cola												
+56	Buteo albonotatus	II		LC	Nativa			Kaup, 1847										
+						fajeada												
+			-			Aguilucho de cola												
+57	Buteo brachyurus	II		LC	Nativa			Vieillot, 1816										
+						corta												
+							Asturina nitida											
+						Gavilán gris,												
+58	Buteo nitidus	II	-	LC	Nativa		Falco nitidus	(Latham, 1790)										
+						gavilán gris lineado												
+							Asturina plagiata											
+						Aguilucho de ala												
+59	Buteo platypterus	II	-	LC	Nativa		Sparvius platypterus	(Vieillot, 1823)										
+						blanca												
+						Aguilucho de												
+60	Buteo swainsoni	II	-	LC	Nativa			Bonaparte, 1838										
+						Swainson												
+61	Buteogallus anthracinus	II	VU	LC	Nativa	Gavilán cangrejero	Buteogallus subtilis	(Thayer & Bangs, 1905)										
+							Heterospizias meridionalis											
+62	Buteogallus meridionalis	II	-	LC	Nativa	Gavilán sabanero		(Latham, 1790)										
+							Falco meridionalis											
+							Leucopternis schistaceus											
+63	Buteogallus schistaceus	II	-	LC	Nativa	Gavilán pizarroso	Asturina schistacea	(Sundevall, 1851)										
+							Leucopternis schistacea											
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+							Harpyhaliaetus solitarius											
+64	Buteogallus solitarius18	II	-	NT	Nativa	Águila solitaria		(Tschudi, 1844)										
+							Circaetus solitarius											
+65	Buteogallus urubitinga	II	-	LC	Nativa	Gavilán negro	Falco urubitinga	(Gmelin, 1788)										
+						Elanio de pico												
+66	Chondrohierax uncinatus	II	-	LC	Nativa		Falco uncinatus	(Temminck, 1822)										
+						ganchudo												
+67	Circus cinereus	II	-	LC	Nativa	Aguilucho cenizo		Vieillot, 1816										
+68	Elanoides forficatus	II	-	LC	Nativa	Gavilán tijereta		(Linnaeus, 1758)										
+69	Elanus leucurus 19	II	-	LC	Nativa	Elanio de cola	Milvus leucurus	(Vieillot, 1818)										
+						blanca	Elanus caeruleus leucurus											
+70	Gampsonyx swainsonii	II	-	LC	Nativa	Elanio perla		Vigors, 1825										
+71	Geranoaetus albicaudatus 20	II	-	LC	Nativa	Aguilucho de cola	Buteo albicaudatus	(Vieillot, 1816)										
+						blanca												
+						Aguilucho de												
+								(Vieillot, 1819)										
+72	Geranoaetus melanoleucus	II	-	LC	Nativa	pecho negro,	Spizaetus melanoleucus											
+						aguilucho grande												
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+			-				Buteo polyosoma											
+73	Geranoaetus polyosoma	II		LC	Nativa	Aguilucho variable	Buteo poecilochrous	(Quoy & Gaimard, 1824)										
+							Falco polyosoma											
+			-															
+74	Geranospiza caerulescens	II		LC	Nativa	Gavilán zancón	Sparvius caerulescens	(Vieillot, 1817)										
+		II	-															
+75	Harpagus bidentatus			LC	Nativa	Elanio bidentado	Falco bidentatus	(Latham, 1790)										
+						Águila arpía,												
+76	Harpia harpyja	I	VU	NT	Nativa		Vultur harpyja	(Linnaeus, 1758)										
+						harpía, arpía												
+						Elanio de pico	Rostrhamus hamatus											
+77	Helicolestes hamatus	II	-	LC	Nativa			(Temminck, 1821)										
+						delgado	Falco hamatus											
+						Elanio de												
+78	Ictinia mississippiensis21	II	-	LC	Nativa		Falco mississippiensis	(Wilson, 1811)										
+						Mississippi												
+79	Ictinia plumbea	II	-	LC	Nativa	Elanio plomizo	Falco plumbeus	(Gmelin, 1788)										
+							Leptodon forbesi											
+						Elanio de cabeza												
+80	Leptodon cayanensis		-	LC	Nativa		Falco cayanensis	(Latham, 1790)										
+		II				gris												
+							Odontriorchis forbesi											
+						Gavilán de ceja												
+81	Leucopternis kuhli	II	-	LC	Nativa			Bonaparte, 1850										
+						blanca												
+						Gavilán de cara												
+82	Leucopternis melanops	II	-	LC	Nativa		Falco melanops	(Latham, 1790)										
+						negra												
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+83	Morphnarchus princeps22	II	-	LC	Nativa	Gavilán barrado	Leucopternis princeps	(Sclater, 1865)										
+						Águila crestada,												
+84	Morphnus guianensis	II	VU	NT	Nativa	arpía menor,	Falco guianensis	(Daudin, 1800)										
+						harpía menor												
+						Aguilucho de lomo	Falco leucorrhous											
+85	Parabuteo leucorrhous	II	-	LC	Nativa			(Quoy & Gaimard, 1824)										
+						blanco	Buteo leucorrhous											
+						Gavilán acanelado,												
+86	Parabuteo unicinctus	II	-	LC	Nativa		Falco unicinctus	(Temminck, 1824)										
+						gavilán mixto												
+							Leucopternis albicollis											
+87	Pseudastur albicollis	II	-	LC	Nativa	Gavilán blanco		(Latham, 1790)										
+							Falco albicollis											
+						Gavilán de dorso	Leucopternis occidentalis											
+88	Pseudastur occidentalis	II	EN	EN	Nativa			(Salvin, 1876)										
+						gris	L. albicollis occidentalis											
+						Elanio caracolero,												
+89	Rostrhamus sociabilis	II	-	LC	Nativa	halcón caracolero,	Herpetotheres sociabilis	(Vieillot, 1817)										
+						milano caracolero												
+						Aguilucho												
+							Buteo magnirostris											
+90	Rupornis magnirostris	II	-	LC	Nativa	caminero		(Gmelin, 1788)										
+							Falco magnirostris											
+						gavilán teretaño												
+91	Spizaetus isidori	II	VU	EN 23	Nativa	Águila negra y	Oroaetus isidori	(Des Murs, 1845)										
+						castaña	Falco isidori											
+						Águila blanca y	Spizastur melanoleucus											
+92	Spizaetus melanoleucus	II	-	LC	Nativa			(Vieillot, 1816)										
+						negra	Buteo melanoleucus											
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+93	Spizaetus ornatus	II	-	NT	Nativa	Águila penachuda	Falco ornatus	(Daudin, 1800)										
+94	Spizaetus tyrannus	II	-	LC	Nativa	Águila negra	Falco tyrannus	(Wied, 1820)										
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+95	Pandion haliaetus	II	-	LC	Nativa	Águila pescadora	Falco haliaetus	(Linnaeus, 1758)										
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+96	Sarkidiornis melanotos	II	-	LC	Nativa	Pato crestudo	Anser melanotos	(Pennant, 1769)										
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+97	Adelomyia melanogenys	II	-	LC	Nativa	Colibrí jaspeado	Trochilus melanogenys	(Fraser, 1840)										
+						Rayo-de-sol de dorso												
+98	Aglaeactis aliciae	II	VU	EN	Endémica			Salvin, 1896										
+						púrpura												
+								(Bourcier & Mulsant,										
+99	Aglaeactis castelnaudii	II	-	LC	Endémica	Rayo-de-sol acanelado	Trochilus castelnaudii											
+								1848)										
+100	Aglaeactis cupripennis	II	-	LC	Nativa	Rayo-de-sol brillante	Trochilus cupripennis	(Bourcier, 1843)										
+							A. berlepschi / A. emmae											
+							Cyanolesbia berlepschi											
+101	Aglaiocercus kingi	II	-	LC	Nativa	Silfo de cola larga		(Lesson, 1832)										
+							C. emmae / Trochilus											
+							kingi											
+102	Amazilia amazilia	II	-	LC	Nativa	Colibrí de vientre rufo	Ornismya amazilia	(Lesson, 1828)										
+						Colibrí de vientre	Trochilus chionogaster											
+103	Amazilia chionogaster	II	-	LC	Nativa			(Tschudi, 1846)										
+						blanco	Leucippus chionogaster											
+						Colibrí de garganta	Trochilus fimbriatus											
+104	Amazilia fimbriata	II	-	LC	Nativa			(Gmelin, 1788)										
+						brillante	Polyerata fimbriata											
+							Trochilus franciae	(Bourcier & Mulsant,										
+105	Amazilia franciae	II	-	LC	Nativa	Colibrí andino												
+							Agyrtria franciae	1846)										
+							Ornismya lactea											
+106	Amazilia lactea	II	-	LC	Nativa	Colibrí de pecho zafiro		(Lesson, 1829)										
+							Polyerata lactea											
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+107	Amazilia tzacatl 24	II	-	LC	Nativa	Colibrí de cola rufa,	Amazilia handleyi	(De la Llave, 1833)										
+						colibrí cola canela	Trochilus tzacatl											
+108	Amazilia viridicauda	II	-	LC	Endémica	Colibrí verde y blanco	Leucippus viridicauda	(Berlepsch, 1883)										
+						Mango de garganta												
+109	Anthracothorax nigricollis	II	-	LC	Nativa		Trochilus nigricollis	(Vieillot, 1817)										
+						negra												
+						Mango de pecho												
+110	Anthracothorax prevostii25	II	-	LC	Nativa	verde, colibrí garganta	Trochilus prevostii	(Lesson, 1832)										
+						negra												
+						Colibrí de pecho												
+111	Boissonneaua matthewsii	II	-	LC	Nativa		Trochilus matthewsii	(Bourcier, 1847)										
+						castaño												
+112	Calliphlox amethystina	II	-	LC	Nativa	Estrellita amatista	Trochilus amethystinus	(Boddaert, 1783)										
+						Ala-de-sable de pecho												
+113	Campylopterus largipennis	II	-	LC	Nativa		Trochilus largipennis	(Boddaert, 1783)										
+						gris												
+	Campylopterus																	
+114		II	NT	NT	Nativa	Ala-de-sable del Napo	Trochilus villaviscensio	(Bourcier, 1851)										
+	villaviscensio																	
+115	Chaetocercus bombus	II	NT	VU	Nativa	Estrellita chica	Acestrura bombus	Gould, 1871										
+							Acestrura mulsant											
+						Estrellita de vientre												
+116	Chaetocercus mulsant	II	-	LC	Nativa		Chaetocercus mulsanti	(Bourcier, 1842)										
+						blanco												
+							Ornismya mulsant											
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+								(DeLattre & Bourcier,										
+117	Chalcostigma herrani	II	-	LC	Nativa	Pico-espina arcoíris	Trochilus herrani											
+								1846)										
+118	Chalcostigma olivaceum	II	-	LC	Nativa	Pico-espina oliváceo	Ramphomicron olivaceus	(Lawrence, 1864)										
+						Pico-espina de gorro	Trochilus ruficeps											
+119	Chalcostigma ruficeps	II	-	LC	Nativa			(Gould, 1846)										
+						rufo	Metallura ruficeps											
+						Pico-espina de dorso												
+120	Chalcostigma stanleyi	II	-	LC	Nativa		Trochilus stanleyi	(Bourcier, 1851)										
+						azul												
+121	Chalybura buffonii	II	-	LC	Nativa	Colibrí de Buffon	Trochilus buffonii	(Lesson, 1832)										
+							Chlorostilbon notatus											
+						Zafiro de barbilla azul,	Chlorestes notatus											
+122	Chlorestes notata	II	-	LC	Nativa			(G. C. Reich, 1793)										
+						colibrí verdecito	Trochilus notatus											
+							Chlorestes notata											
+							Chlorostilbon											
+						Esmeralda de vientre	aureoventris	(D'Orbigny & Lafresnaye,										
+123	Chlorostilbon lucidus	II	-	LC	Nativa													
+						dorado	Chlorostilbon lucidus	1838)										
+							Ornismya aureoventris											
+							C. salvini  / C. prasinus											
+							C. melanorhynchus											
+						Esmeralda de cola	C. gibsoni / C. vitticeps											
+124	Chlorostilbon mellisugus	II	-	LC	Nativa			(Linnaeus, 1758)										
+						azul	Ornismya prasina											
+							Prasitis vitticeps											
+							Trochilus gibsoni											
+125	Chrysuronia oenone	II	-	LC	Nativa	Zafiro de cola dorada	Ornismya oenone	(Lesson, 1832)										
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+126	Coeligena coeligena	II	-	LC	Nativa	Inca bronceado	Ornismya coeligena	(Lesson, 1833)										
+127	Coeligena iris	II	-	LC	Nativa	Inca arcoiris	Helianthea iris	(Gould, 1854)										
+								(DeLattre & Bourcier,										
+128	Coeligena lutetiae	II	-	LC	Nativa	Inca de ala anteada	Trochilus lutetiae											
+								1846)										
+							Coeligena inca											
+129	Coeligena torquata	II	-	LC	Nativa	Inca acollarado	Bourcieria inca	(Boissonneau, 1840)										
+							Ornismya torquata											
+						Inca de garganta												
+130	Coeligena violifer	II	-	LC	Nativa		Trochilus violifer	(Gould, 1846)										
+						violeta												
+						Oreja-violeta de												
+131	Colibri coruscans	II	-	LC	Nativa		Trochilus coruscans	(Gould, 1846)										
+						vientre azul												
+132	Colibri delphinae	II	-	LC	Nativa	Oreja-violeta parda	Ornismya delphinae	(Lesson, 1839)										
+								(Swainson, 1827)										
+133	Colibri thalassinus	II	-	LC	Nativa	Oreja-violeta verde	Trochilus thalassinus											
+						Colibrí de vientre												
+134	Damophila julie	II	-	LC	Nativa		Ornismya julie	(Bourcier, 1842)										
+						violeta												
+						Cola-cerda de vientre	Trochilus langsdorffi											
+135	Discosura langsdorffi	II	-	LC	Nativa			(Temminck, 1821)										
+						negro	Popelairia langsdorffi											
+							Trochilus popelairii											
+136	Discosura popelairii	II	-	NT	Nativa	Cola-cerda crestado		(DuBus & Gisignies, 1846)										
+							Popelairia popelairii											
+						Pico-lanza de frente												
+137	Doryfera johannae	II	-	LC	Nativa		Trochilus johannae	(Bourcier, 1847)										
+						azul												
+						Pico-lanza de frente		(Bourcier & Mulsant,										
+138	Doryfera ludovicae	II	-	LC	Nativa		Trochilus ludovicae											
+						verde		1847)										
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+139	Ensifera ensifera	II	-	LC	Nativa	Colibrí pico-espada	Ornismya ensifera	(Boissonneau, 1839)										
+						Calzadito de vientre												
+140	Eriocnemis alinae	II	-	LC	Nativa		Ornismya alinae	(Bourcier, 1842)										
+						esmeralda												
+							Eriocnemis sapphiropygia											
+141	Eriocnemis luciani	II	-	LC	Nativa	Calzadito de cola larga		(Bourcier, 1847)										
+							Trochilus luciani											
+							Eriocnemis vestitus											
+142	Eriocnemis vestita	II	-	LC	Nativa	Calzadito reluciente		(Lesson, 1838)										
+							Ornismya vestita											
+						Picaflor de Arica,												
+							Myrtis yarrellii											
+143	Eulidia yarrellii	II	-	CR26	Nativa	Colibrí de Arica,		(Bourcier, 1847)										
+							Trochilus yarrellii											
+						Estrellita chilena												
+						Colibrí de cola	Campylopterus											
+144	Eupetomena macroura	II	-	LC	Nativa	ahorquillada, Colibrí	macrourusTrochilus	(Gmelin, 1788)										
+						golondrina	macrourus											
+						Pico-de-hoz de puntas												
+145	Eutoxeres aquila	II	-	LC	Nativa		Trochilus aquila	(Bourcier, 1847)										
+						blancas												
+						Pico-de-hoz de cola												
+146	Eutoxeres condamini	II	-	LC	Nativa		Trochilus condamini	(Bourcier, 1851)										
+						canela												
+147	Florisuga mellivora	II	-	LC	Nativa	Colibrí de nuca blanca	Trochilus mellivorus	(Linnaeus, 1758)										
+							Trochilus hirsutus											
+						Ermitaño de pecho												
+148	Glaucis hirsutus	II	-	LC	Nativa		Glaucis hirsuta	(Gmelin, 1788)										
+						canela												
+							Threnetes grzimeki											
+						Calzadito de muslo	Eriocnemis assimilis											
+149	Haplophaedia assimilis	II	-	LC	Nativa			(Elliot, 1876)										
+						anteado	Haplophaedia aureliae											
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+							assimilis											
+								(Bourcier & Mulsant,										
+150	Haplophaedia aureliae	II	-	LC	Nativa	Calzadito verdoso	Trochilus aureliae											
+								1846)										
+							Ornismya amethysticollis											
+						Angel-de-sol de	Ornismya clarisse	(d'Orbigny & Lafresnaye,										
+151	Heliangelus amethysticollis		-		Nativa													
+		II		LC		garganta amatista	Heliangelus spencei	1938)										
+							Heliangelus clarisse											
+						Angel-de-sol chico,												
+152	Heliangelus micraster	II	-	LC	Nativa			Gould, 1872										
+						Colibrí lacero												
+153	Heliangelus regalis	II	VU	EN	Nativa 27	Angel-de-sol real		Fitzpatrick, Willard &										
+								Terborgh, 1979										
+						Angel-de-sol de												
+154	Heliangelus viola	II	-	LC	Nativa			(Gould, 1853)										
+						garganta púrpura												
+						Brillante de pecho	Trochilus aurescens											
+155	Heliodoxa aurescens	II	-	LC	Nativa			(Gould, 1846)										
+						castaño	Polyplancta aurescens											
+156	Heliodoxa branickii	II	-	LC	Nativa28	Brillante de ala canela	Lampraster branickii	(Taczanowski, 1874)										
+						Brillante de garganta	Aphantochroa gularis											
+157	Heliodoxa gularis	II	-	VU	Nativa			(Gould, 1860)										
+						rosada	Agapeta gularis											
+						Brillante de frente												
+158	Heliodoxa leadbeateri	II	-	LC	Nativa		Trochilus leadbeateri	(Bourcier, 1843)										
+						violeta												
+159	Heliodoxa rubinoides	II	-	LC	Nativa	Brillante de pecho	Trochilus rubinoides	(Bourcier & Mulsant,										
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+						anteado		1846)										
+						Brillante de garganta	Ionolaima schreibersii											
+160	Heliodoxa schreibersii	II	-	LC	Nativa			(Bourcier, 1847)										
+						negra	Trochilus schreibersii											
+161	Heliomaster longirostris	II	-	LC	Nativa	Colibrí de pico largo	Trochilus longirostris	(Audebert & Vieillot, 1801)										
+						Colibrí-hada de oreja	Heliothryx aurita											
+162	Heliothryx auritus	II	-	LC	Nativa			(Gmelin, 1788)										
+						negra	Trochilus auritus											
+						Colibrí-hada de corona												
+163	Heliothryx barroti29	II	-	LC	Nativa	púrpura, colibrí hada	Trochilus barroti	(Bourcier, 1843)										
+						enmascarada												
+						Zafiro de barbilla												
+164	Hylocharis cyanus	II	-	LC	Nativa		Trochilus cyanus	(Vieillot, 1818)										
+						blanca												
+						Zafiro de garganta												
+165	Hylocharis sapphirina	II	-	LC	Nativa		Trochilus sapphirinus	(Gmelin, 1788)										
+						rufa												
+						Colibrí de cabeza												
+166	Klais guimeti	II	-	LC	Nativa		Trochilus guimeti	(Bourcier, 1843)										
+						violeta												
+167	Lafresnaya lafresnayi	II	-	LC	Nativa	Colibrí aterciopelado	Trochilus lafresnayi	(Boissonneau, 1840)										
+						Colibrí de cola larga	Ornismya nuna											
+168	Lesbia nuna	II	-	LC	Nativa			(Lesson, 1832)										
+						verde	Lesbia gouldii											
+						Colibrí de cola larga		(Bourcier & Mulsant,										
+169	Lesbia victoriae	II	-	LC	Nativa		Trochilus victoriae											
+						negra		1846)										
+170	Leucippus baeri	II	-	LC	Nativa	Colibrí de Tumbes		Simon, 1901										
+171	Leucippus chlorocercus	II	-	LC	Nativa	Colibrí blanco y olivo	Talaphorus chlorocercus	(Gould, 1866)										
+172	Leucippus taczanowskii	II	-	LC	Endémica	Colibrí de	Thaumasius taczanowskii	(Sclater, 1879)										
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+						Taczanowski	Talaphorus taczanowskii											
+						Colibrí cola de												
+173	Loddigesia mirabilis	II	EN	EN	Endémica	espatula, Colibrí	Trochilus mirabilis	(Bourcier, 1847)										
+						admirable												
+			-				Polemistria chalybea											
+174	Lophornis chalybeus	II		NT	Nativa	Coqueta verde		(Vieillot, 1823)										
+							Trochilus chalybeus											
+						Coqueta de cresta	Ornismya delattrei											
+175	Lophornis delattrei	II	-	LC	Nativa			(Lesson, 1839)										
+						rufa	Lophornis melaniae											
+176	Lophornis stictolophus	II	-	LC	Nativa	Coqueta coronada		Salvin & Elliot, 1873										
+							Metallura malagae											
+177	Metallura aeneocauda	II	-	LC	Nativa	Colibrí escamoso		(Gould, 1846)										
+							Trochilus aeneocauda											
+						Colibrí de barba de												
+178	Metallura eupogon	II	-	LC	Endémica		Urolampra eupogon	(Cabanis, 1874)										
+						fuego												
+179	Metallura odomae	II	NT	LC	Nativa	Colibrí de neblina		Graves, 1980										
+180	Metallura phoebe	II	-	LC	Endémica	Colibrí negro	Ornismya phoebe	(Lesson & DeLattre, 1839)										
+181	Metallura theresiae	II	-	LC	Endémica	Colibrí cobrizo		Simon, 1902										
+182	Metallura tyrianthina	II	-	LC	Nativa	Colibrí tirio	Trochilus tyrianthinus	(Loddiges, 1832)										
+183	Myrmia micrura	II	-	LC	Nativa	Estrellita de cola corta	Calothorax micrurus	(Gould, 1854)										
+						Estrellita de color												
+184	Myrtis fanny	II	-	LC	Nativa		Ornismya fanny	(Lesson, 1838)										
+						púrpura												
+185	Ocreatus underwoodii30	II	-	LC	Nativa	Colibrí cola de raqueta	Ornismya underwoodii	(Lesson, 1832)										
+						Colibrí pico de												
+186	Opisthoprora euryptera	II	-	LC	Nativa		Trochilus eurypterus	(Loddiges, 1832)										
+						avoceta												
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+						Montañes barbudo,												
+187	Oreonympha nobilis	II	-	LC	Endémica			Gould, 1869										
+						colibrí noble												
+		II				Colibrí puneño,		(d'Orbigny & Lafresnaye,										
+188	Oreotrochilus estella		-	LC	Nativa													
+						estrella andina		1838)										
+		II				Estrella de pecho												
+189	Oreotrochilus melanogaster		-	LC	Endémica			Gould, 1847										
+						negro												
+190	Patagona gigas	II	-	LC	Nativa	Colibrí gigante	Trochilus gigas	(Vieillot, 1824)										
+		II				Ermitaño de garganta												
+191	Phaethornis atrimentalis		-	LC	Nativa			Lawrence, 1858										
+						negra												
+		II				Ermitaño de pico												
+192	Phaethornis bourcieri		-	LC	Nativa		Trochilus bourcieri	(Lesson, 1832)										
+						recto												
+		II				Ermitaño de barbilla	Phaethornis porcullae											
+193	Phaethornis griseogularis		-	LC	Nativa			Gould, 1851										
+						gris	Phaethornis zonura											
+194	Phaethornis guy	II	-	LC	Nativa	Ermitaño verde	Trochilus guy	(Lesson, 1833)										
+						Ermitaño de barba												
+195	Phaethornis hispidus	II	-	LC	Nativa		Trochilus hispidus	(Gould, 1846)										
+						blanca												
+196	Phaethornis koepckeae	II	NT	NT	Endémica	Ermitaño de Koepcke		Weske & Terborgh, 1977										
+					Nativa	Ermitaño de pico												
+197	Phaethornis longirostris	II	-	LC			Phaethornis baroni	(DeLattre, 1843)										
+						largo												
+							Phaethornis margarettae											
+						Ermitaño de pico	P. ochraceiventris											
+198	Phaethornis malaris	II	-	LC	Nativa			(Nordmann, 1835)										
+						grande	camargoim											
+							Trochilus malaris											
+		II			Nativa	Ermitaño de pico												
+199	Phaethornis philippii		-	LC			Trochilus philippii	(Bourcier, 1847)										
+						aguja												
+200	Phaethornis pretrei	II	-	LC	Nativa	Ermitaño del Planalto	Trochilus pretrei	(Lesson & DeLattre, 1839)										
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+201	Phaethornis ruber	II	-	LC	Nativa	Ermitaño rojizo	Trochilus ruber	(Linnaeus, 1758)										
+					Nativa	Ermitaño de ceja												
+202	Phaethornis stuarti	II	-	LC				Hartert, 1897										
+						blanca												
+						Ermitaño de vientre												
+203	Phaethornis syrmatophorus	II	-	LC	Nativa			Gould, 1851										
+						leonado												
+								Berlepsch & Stolzmann,										
+204	Phlogophilus harterti	II	NT	NT	Endémica	Cola-pintada peruano												
+								1901										
+						Cola-pintada												
+205	Phlogophilus hemileucurus	II	NT	VU	Nativa			Gould, 1860										
+						ecuatoriano												
+						Cometa de cola												
+206	Polyonymus caroli	II	-	LC	Endémica		Trochilus caroli	(Bourcier, 1847)										
+						bronceada												
+						Garganta-de-oro de												
+207	Polytmus guainumbi	II	-	LC	Nativa		Trochilus guainumbi	(Pallas, 1764)										
+						cola blanca												
+						Garganta-de-oro de	Smaragdites theresiae											
+208	Polytmus theresiae	II	-	LC	Nativa			(Da Silva Maia, 1843)										
+						cola verde	Ornismya theresiae											
+209	Pterophanes cyanopterus	II	-	LC	Nativa	Ala-zafiro grande	Trochilus cyanopterus	(Fraser, 1839)										
+	Ramphomicron					Pico-espina de dorso												
+210		II	-	LC	Nativa		Ornismya microrhyncha	(Boissonneau, 1839)										
+	microrhynchum					púpura												
+211	Rhodopis vesper	II	-	LC	Nativa	Colibrí de oasis	Ornismya vesper	(Lesson, 1829)										
+						Colibrí de pico cuña	Trochilus geoffroyi											
+212	Schistes geoffroyi	II	-	LC	Nativa			(Bourcier, 1843)										
+							Augastes geoffroyi											
+213	Taphrolesbia griseiventris	II	CR	EN	Endémica	Cometa de vientre gris	Cynanthus griseiventris	(Taczanowski, 1883)										
+							Leucippus hypostictus											
+214	Taphrospilus hypostictus	II	-	LC	Nativa	Colibrí multipunteado	Aphantochroa hyposticta	(Gould, 1862)										
+							Talaphorus hypostictus											
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+							Ornismya colombica											
+						Tucusito coronado,												
+215	Thalurania colombica31	II	-	LC	Nativa		Thalurania furcata	(Bourcier, 1843)										
+						ninfa coronada												
+							colombica											
+						Ninfa de cola												
+216	Thalurania furcata	II	-	LC	Nativa		Trochilus furcatus	(Gmelin, 1788)										
+						ahorquillada												
+217	Thaumastura cora	II	-	LC	Nativa	Colibrí de Cora	Orthorhyncus cora	(Lesson, 1827)										
+							Threnetes cristinae / T.											
+							niger											
+						Ermitaño de cola												
+217	Threnetes leucurus	II	-	LC	Nativa		T. loehkeni / Trochilus	(Linnaeus, 1758)										
+						pálida												
+							leucurus											
+							Trochilus niger											
+219	Topaza pyra	II	-	LC	Nativa	Topacio de fuego	Trochilus pyra	(Gould, 1846)										
+220	Urochroa bougueri	II	-	LC	Nativa	Estrella de cola blanca	Trochilus bougueri	(Bourcier, 1851)										
+						Colibrí de subcaudales												
+221	Urosticte ruficrissa	II	-	LC	Nativa		Urosticte benjamini	(Bourcier, 1851)										
+						rufas												
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+222	Vultur gryphus 32	I	EN	NT	Nativa	Cóndor andino, kuntur,	Falco haliaetus	Linnaeus, 1758										
+						cóndor												
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+223	Jabiru mycteria	I	NT	LC	Nativa	Jabirú, garzón soldado	Ciconia mycteria	(Lichtenstein, 1819)										
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+224	Caracara cheriway	II	-	LC	Nativa	Caracara crestado	Falco cheriway	(Jacquin, 1784)										
+						Caracara carancho,	Polyborus plancus											
+225	Caracara plancus	II	-	LC	Nativa			(J. F. Miller, 1777)										
+						guaraguau	Falco plancus											
+226	Daptrius ater	II	-	LC	Nativa	Chihuango negro		Vieillot, 1816										
+227	Falco columbarius	II	-	LC	Nativa	Halcón esmerejón		Linnaeus, 1758										
+228	Falco deiroleucus	II	-	NT	Nativa	Halcón pecho naranja		Temminck, 1825										
+229	Falco femoralis	II	-	LC	Nativa	Halcón aplomado		Temminck, 1822										
+							Falco madens											
+230	Falco peregrinus	I	NT	LC	Nativa	Halcón peregrino		Tunstall, 1771										
+							Falco kreyenborgi											
+						Halcón caza murciélagos												
+231	Falco rufigularis	II	-	LC	Nativa			Daudin, 1800										
+232	Falco sparverius	II	-	LC	Nativa	Cernícalo, quillicho		Linnaeus, 1758										
+	Herpetotheres																	
+233		II	-	LC	Nativa	Huacabó	Falco cachinnans	(Linnaeus, 1758)										
+	cachinnans																	
+							Daptrius americanus											
+234	Ibycter americanus	II	-	LC	Nativa	Caracara vientre blanco		(Boddaert, 1783)										
+							Falco americanus											
+						Halcón montés de												
+235	Micrastur buckleyi	II	-	LC	Nativa		M. melanoleucus buckleyi	Swann, 1919										
+						Buckley												
+236	Micrastur gilvicollis	II	-	LC	Nativa	Halcón montés de ojo	Sparvius gilvicollis	(Vieillot, 1817)										
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+						blanco	Micrastur ruficollis gilvicollis											
+						Halcón montés de dorso												
+237	Micrastur mirandollei	II	-	LC	Nativa		Astur mirandollei	(Schlegel, 1862)										
+						gris												
+238	Micrastur ruficollis	II	-	LC	Nativa	Halcón montés barrado	Sparvius ruficollis	(Vieillot, 1817)										
+						Halcón montés												
+239	Micrastur semitorquatus	II	-	LC	Nativa		Sparvius semitorquatus	(Vieillot, 1817)										
+						acollarado												
+240	Milvago chimachima	II	-	LC	Nativa	Chimachima	Polyborus chimachima	(Vieillot, 1816)										
+	Phalcoboenus					Caracara cordillerano												
+241		II	-	LC	Nativa		Aquila megaloptera	(Meyen, 1834)										
+	megalopterus					chinalinda												
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+						Pava aliblanca, pava												
+242	Penelope albipennis33	I	CR	CR	Endémica			Taczanowski, 1878										
+						de ala blanca												
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+						Gallito de las rocas,												
+243	Rupicola peruvianus	II	-	LC	Nativa		Rupicola peruviana	(Latham, 1790)										
+						tunqui												
+	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+						Parina grande, flamenco												
+244	Phoenicoparrus andinus	II	VU	VU	Nativa		Phoenicopterus andinus	(Philippi, 1854)										
+						andino												
+		II				Parina chica, flamenco												
+245	Phoenicoparrus jamesi		VU	NT	Nativa		Phoenicopterus jamesi	(P. L. Sclater, 1886)										
+						andino chico												
+246	Phoenicopterus chilensis	II	NT	NT	Nativa	Flamenco chileno		Molina, 1782										
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+247	Ramphastos toco	II	NT	LC	Nativa	Tucán toco		P. L. S. Müller, 1776										
+		II				Tucán de garganta												
+248	Ramphastos tucanus		-	VU	Nativa			Linnaeus, 1758										
+						blanca												
+		II				Tucán de pico												
+249	Ramphastos vitellinus		-	VU	Nativa			Lichtenstein, 1823										
+						acanalado												
+N.°	Especie	Ap.			N/E	Nombre común	Sinónimos	Autor										
+			nacional	N														
+250	Amazona amazonica	II	-	LC	Nativa	Loro de ala naranja	Psittacus amazonicus	(Linnaeus, 1766)										
+251	Amazona farinosa	II	-	NT35	Nativa	Loro harinoso	Psittacus farinosus	(Boddaert, 1783)										
+252	Amazona festiva	II	NT	NT36	Nativa	Loro de lomo rojo	Psittacus festivus	(Linnaeus, 1758)										
+							Amazona mercenaria											
+253	Amazona mercenarius	II	-	LC	Nativa	Loro de nuca escamosa		(Tschudi, 1844)										
+							Psittacus mercenarius											
+254	Amazona	II	-	LC	Nativa	Loro de corona amarilla	Psittacus ochrocephalus	(Gmelin, 1788)										
+N.°	Especie	Ap.			N/E	Nombre común	Sinónimos	Autor										
+			nacional	N														
+	ochrocephala																	
+							Sittace caninde											
+						Guacamayo azul y												
+255	Ara ararauna	II	-	LC	Nativa		Psittacus ararauna	(Linnaeus, 1758)										
+						amarillo												
+							Ara caninde											
+256	Ara chloropterus	II	NT	LC	Nativa	Guacamayo rojo y verde	Ara chloroptera	G. R. Gray, 1859										
+257	Ara macao	I	NT	LC	Nativa	Guacamayo escarlata	Psittacus macao	(Linnaeus, 1758)										
+258	Ara militaris	I	-	VU	Nativa	Guacamayo militar	Psittacus militaris	(Linnaeus, 1766)										
+						Gucamayo de frente	Psittacus severus											
+259	Ara severus	II	-	LC	Nativa			(Linnaeus, 1758)										
+						castaña	Ara severa											
+						Cotorra de cabeza	Eupsittula weddellii											
+260	Aratinga weddellii	II	-	LC	Nativa			(Deville, 1851)										
+						oscura	Conurus weddellii											
+261	Bolborhynchus lineola	II	-	LC	Nativa	Perico barrado	Psittacula lineola	(Cassin, 1853)										
+							Bolborhynchus andicolus											
+							Psittacula andicola											
+	Bolborhynchus					Perico andino, catita												
+262		II	-	LC	Nativa		Psilopsiagon aurifrons	(Souancé, 1856)										
+	orbygnesius					andina												
+							orbygnesius											
+							Myiopsitta orbygnesia											
+							Brotogeris gustavi											
+263	Brotogeris cyanoptera	II	-	LC	Nativa	Perico de ala cobalto		(Pelzeln, 1870)										
+							Sittace cyanoptera											
+							Psittacus pyrrhopterus											
+264	Brotogeris pyrrhoptera	II	EN	EN	Nativa	Perico de mejilla gris		(Latham, 1801)										
+							Brotogeris pyrrhopterus											
+	Brotogeris																	
+265		II	-	LC	Nativa	Perico tui	Psittacus sanctithomae	(P. L. S. Müller, 1776)										
+	sanctithomae																	
+266	Brotogeris versicolurus	II	-	LC	Nativa	Perico de ala amarilla	Psittacus versicolurus	(P. L. S. Müller, 1776)										
+267	Deroptyus accipitrinus	II	NT	LC	Nativa	Loro de abanico	Psittacus accipitrinus	(Linnaeus, 1758)										
+268	Diopsittaca nobilis	II	-	LC	Nativa	Guacamayo enano	Psittacus nobilis	(Linnaeus, 1758)										
+N.°	Especie	Ap.			N/E	Nombre común	Sinónimos	Autor										
+			nacional	N														
+							Ara nobilis											
+						Cotorra de frente	Aratinga aurea											
+269	Eupsittula aurea	II	-	LC	Nativa			(Gmelin, 1788)										
+						dorada	Psittacus aureus											
+270	Forpus coelestis	II	-	LC	Nativa	Periquito esmeralda	Agapornis coelestis	(Lesson, 1847)										
+							Forpus sclateri											
+271	Forpus modestus	II	-	LC	Nativa	Periquito de pico oscuro		(G. R. Gray, 1859)										
+							Psittacula sclateri											
+						Periquito de cara	Forpus coelestis xanthops											
+272	Forpus xanthops	II	VU	VU	Endémica			(Salvin, 1895)										
+						amarilla	Psittacula xanthops											
+							Forpus crassirostris											
+	Forpus						Forpus passerinus											
+273			-	LC	Nativa	Periquito de ala azul		(Spix, 1824)										
+	xanthopterygius	II					crassirostris Psittacula											
+							crassirostris											
+	Graydidascalus																	
+274		II	-	LC	Nativa	Loro de ala corta	Psittacus brachyurus	(Kuhl, 1820)										
+	brachyurus																	
+	Hapalopsittaca																	
+275		II	VU	LC	Nativa	Loro de ala negra	Pionus melanotis	(Lafresnaye, 1847)										
+	melanotis																	
+							Hapalopsittaca amazonina											
+	Hapalopsittaca																	
+276		II	VU	VU	Nativa	Loro de cara roja	pyrrhops	(Salvin, 1876)										
+	pyrrhops																	
+							Pionopsitta pyrrhops											
+								Berlepsch &										
+277	Leptosittaca branickii	II	VU	VU	Nativa	Perico de mejilla dorada												
+								Stolzmann, 1894										
+	Nannopsittaca							O'Neil, Munn &										
+278		II	NT	NT	Nativa	Periquito amazónico												
+	dachilleae							Franke, 1991										
+							Orthopsittaca manilatus											
+	Orthopsittaca					Guacamayo de vientre												
+279		II	-	LC	Nativa		Psittacus manilatus	(Boddaert, 1783)										
+	manilatus					rojo												
+							Ara manilata											
+N.°	Especie	Ap.			N/E	Nombre común	Sinónimos	Autor										
+			nacional	N														
+280	Pionites leucogaster	II	-	EN37	Nativa	Loro de vientre blanco	Psittacus leucogaster	(Kuhl, 1820)										
+	Pionites						Psittacus melanocephalus											
+281		II	-	LC	Nativa	Loro de cabeza negra		(Linnaeus, 1758)										
+	melanocephalus						Pionites melanocephala											
+						Loro de ala bronceada												
+282	Pionus chalcopterus	II	NT	LC	Nativa		Psittacus chalcopterus	(Fraser, 1841)										
+283	Pionus menstruus	II	-	LC	Nativa	Loro de cabeza azul	Psittacus menstruus	(Linnaeus, 1766)										
+284	Pionus sordidus	II	-	LC	Nativa	Loro de pico rojo	Psittacus sordidus	(Linnaeus, 1758)										
+							Psittacus seniloides											
+285	Pionus tumultuosus	II	-	LC	Nativa	Loro tumultuoso	Psittacus tumultuosus	(Tschudi, 1844)										
+							Pionus seniloides											
+						Guacamayo de cabeza	Ara couloni											
+286	Primolius couloni	I	VU	VU	Nativa			(P. L. Sclater, 1876)										
+						azul	Propyrrhura couloni											
+							Bolborhynchus aurifrons											
+287	Psilopsiagon aurifrons	II	-	LC	Nativa	Perico cordillerano		(Lesson, 1830)										
+							Psittacus aurifrons											
+	Psittacara																	
+288		II	-	NT	Nativa	Cotorra de cabeza roja	Aratinga erythrogenys	(Lesson, 1844)										
+	erythrogenys																	
+							Aratinga leucophthalma											
+	Psittacara						Psittacus leucophthalmus											
+289		II	-	LC	Nativa	Cotorra de ojo blanco		(P. L. S. Müller, 1776)										
+	leucophthalmus						Aratinga leucophthalmus											
+							Psittacara leucophthalma											
+							Aratinga mitrata											
+							Aratinga alticola											
+290	Psittacara mitratus	II	-	LC	Nativa	Cotorra mitrada		(Tschudi, 1844)										
+							Conurus mitratus											
+							Psittacara mitrata											
+291	Psittacara wagleri	II	-	NT	Nativa	Cotorra de frente	Aratinga wagleri	(G. R. Gray, 1845)										
+N.°	Especie	Ap.			N/E	Nombre común	Sinónimos	Autor										
+			nacional	N														
+						escarlata	Conurus wagleri											
+							Pionopsitta barrabandi											
+292	Pyrilia barrabandi	II	-	NT	Nativa	Loro de mejilla naranja	Psittacus barrabandi	(Kuhl, 1820)										
+							Gypopsitta barrabandi											
+293	Pyrrhura albipectus	II	VU	VU	Nativa	Perico de cuello blanco		Chapman, 1914										
+							Pyrrhura picta											
+							Pyrrhura roseifrons											
+294	Pyrrhura lucianii		-		Nativa	Perico de Bonaparte		(Deville, 1851)										
+		II		LC			Pyrrhuraamazonum											
+							Psittacus pictus											
+295	Pyrrhura melanura	II	-	LC	Nativa	Perico de cola marrón	Aratinga melanurus	(Spix, 1824)										
+							Pyrrhura parvifrons											
+						Perico de frente rosada,	Py  r r  hu  r  ap  i cta											
+296	Pyrrhura roseifrons	II	-	LC	Nativa38			(Gray, GR, 1859)										
+						cotorra pintada	Pyrrhuraamazonum											
+							Psittacus pictus											
+297	Pyrrhura rupicola	II	-	NT	Nativa	Perico de gorro negro	Aratinga melanurus	(Tschudi, 1844)										
+298	Touit huetii	II	-	VU	Nativa	Periquito de ala roja		(Temminck, 1830)										
+299	Touit purpuratus	II	-	LC	Nativa	Periquito de lomo zafiro		Chapman, 1929										
+						Periquito de ala												
+300	Touit stictopterus	II	VU	VU	Nativa	punteada, periquito de		(Sclater, 1862)										
+						alas moteadas												
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+							Pterocnemia pennata											
+	Rhea pennata garlepii						garlepii											
+301	Rhea pennata	I	CR	NT	Nativa	Suri, ñandú petizo	Pterocnemia pennata	(d'Orbigny, 1834)										
+	tarapacensis39						tarapacensis											
+							Rhea tarapacensis											
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+302	Spheniscus humboldti	I	EN	VU	Nativa	Pingüino de Humboldt		Meyen, 1834										
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+						Lechucita de frente												
+303	Aegolius harrisii	II	-	LC	Nativa		Nyctale harrisii	(Cassin, 1849)										
+						anteada												
+								(Pontoppidan,										
+304	Asio flammeus	II	-	LC	Nativa	Lechuza de oreja corta	Strix flammea											
+								1763)										
+305	Asio stygius	II	-	LC	Nativa	Búho estigio	Nyctalops stygius	(Wagler, 1832)										
+							Strix cunicularia											
+306	Athene cunicularia	II	-	LC	Nativa	Lechuza terrestre		(Molina, 1782)										
+							Speotyto cunicularia											
+							Bubo magellanicus											
+307	Bubo virginianus	II	-	LC	Nativa	Búho americano		(Gmelin, 1788)										
+							Strix virginiana											
+							Strix albitarsis											
+308	Ciccaba albitarsis	II	-	LC	Nativa	Búho rufo bandeado	Ciccaba albitarsus	(Bonaparte, 1850)										
+							Syrnium albitarse											
+309	Ciccaba huhula	II	-	LC	Nativa	Búho negro bandeado	Strix huhula	(Daudin, 1800)										
+310	Ciccaba nigrolineata		-		Nativa	Búho blanco y negro	Strix nigrolineata	(Sclater, 1859)										
+		II		LC														
+							Strix virgata											
+311	Ciccaba virgata	II	-	LC	Nativa	Búho café		(Cassin, 1850)										
+							Syrnium virgatum											
+						Lechucita de las												
+312	Glaucidium bolivianum	II	-	LC	Nativa			König, 1991										
+						yungas												
+313	Glaucidium brasilianum	II	-	LC	Nativa	Lechucita ferruginosa	Strix brasiliana	(Gmelin, 1788)										
+314	Glaucidium hardyi	II	-	LC	Nativa	Lechucita amazónica		Vielliard, 1989										
+315	Glaucidium jardinii		-	LC	Nativa	Lechucita andina	Phalaenopsis jardinii	(Bonaparte, 1855)										
+								Robbins & Howell,										
+316	Glaucidium parkeri	II	-	LC	Nativa	Lechucita subtropical												
+								1995										
+317	Glaucidium peruanum	II	-	LC	Nativa	Lechucita peruana		König, 1991										
+318	Lophostrix cristata	II	-	LC	Nativa	Búho penachudo	Strix cristata	(Daudin, 1800)										
+						Lechuza de garganta												
+319	Megascops albogularis	II	-	LC	Nativa		Otus albogularis	(Cassin, 1850)										
+						blanca												
+							Otus choliba											
+320	Megascops choliba	II	-	LC	Nativa	Lechuza tropical		(Vieillot, 1817)										
+							Strix choliba											
+						Lechuza vermiculada,												
+321	Megascops guatemalae40	II	-	LC	Nativa		Otus guatemalae	(Sharpe, 1875)										
+						autillo guatemalteco												
+							Ciccaba minima											
+322	Megascops ingens	II	-	LC	Nativa	Lechuza rojiza	Otus minimus / Otus ingen	(  Sa  l vin, 1897)										
+							Scops ingens											
+					Endémic													
+323	Megascops koepckeae	II	-	LC		Lechuza de Koepcke	Otus koepckeae	Hekstra, 1982										
+					a													
+						Lechuza de bosque de		Weske &										
+324	Megascops marshalli	II	NT	NT	Nativa		Otus marshalli											
+						neblina		Terborgh, 1981										
+								Fitzpatrick &										
+325	Megascops petersoni	II	-	LC	Nativa	Lechuza canela	Otus petersoni											
+								O'Neill, 1986										
+								Bangs & Noble,										
+326	Megascops roboratus	II	-	LC	Nativa	Lechuza peruana	Otus roboratus											
+								1918										
+						Lechuza de vientre												
+327	Megascops watsonii	II	-	LC	Nativa		Otus usta	(Cassin, 1848)										
+						leonado												
+							Otus watsonii											
+							Asio clamator											
+328	Pseudoscops clamator	II	-	LC	Nativa	Búho listado	Bubo clamator	(Vieillot, 1808)										
+							Rhinoptynx clamator											
+						Búho de vientre												
+329	Pulsatrix melanota	II	-	LC	Nativa		Noctua melanota	(Tschudi, 1844)										
+						bandeado												
+330	Pulsatrix perspicillata	II	-	LC	Nativa	Búho de anteojos	Strix perspicillata	(Latham, 1790)										
+					Endémic			O'Neill & Graves,										
+331	Xenoglaux loweryi	II	EN	EN		Lechucita bigotona												
+					a			1977										
+						Lechuza de	Strix alba											
+332	Tyto alba	II	-	LC	Nativa			(Scopoli, 1769)										
+						campanario	Tyto detorta											
+N.°	Especie Ap.			UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+	Carcharhinus							(Müller & Henle,										
+333	falciformis42	II	-	NT	Nativa	Tiburón sedoso	Carcharias falciformis	1839)										
+							Carcharius insularum											
+							Carcharius obtusus											
+						Tiburón oceánico	Pterolamiops budkeri											
+334	Carcharhinus longimanus	II	-	VU	Nativa	Tiburón oceánico de puntas	Pterolamiops	(Poey, 1861)										
+						blancas	longimanus											
+							Pterolamiops											
+							magnipinnis											
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+							Cestracion leeuwenii											
+							Cestracion oceánica	(Griffith & Smith,										
+335	Sphyrna lewini	II	-	EN	Nativa	Tiburón martillo común												
+							Sphyrna diplana	1834)										
+							Zygaena erythraea											
+			-															
+336	Sphyrna mokarran	II		EN	Nativa	Tiburón martillo gigante	Zygaena mokarran	(Rüppell, 1837)										
+			-															
+337	Sphyrna zygaena	II		VU	Nativa	Tiburón martillo liso		(Linnaeus, 1758)										
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+						Tiburón zorro pelágico,												
+338	Alopias pelagicus	II	-	VU	Nativa			Nakamura, 1935										
+						rabudo												
+339	Alopias superciliosus	II	-	VU	Nativa	Tiburón zorro ojón, rabudo	Alopecias superciliosus	Lowe, 1841										
+						Tiburón zorro común,												
+340	Alopias vulpinus	II	-	VU	Nativa	adiamantado, rabudo,	Squalus vulpinus	(Bonnaterre, 1788)										
+						pichirrata												
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+							C. blainvillei / C. maccoyi											
+							Halsydrus pontoppidani											
+34						Tiburón peregrino												
+	Cetorhinus maximus	II	-	VU	Nativa		Polyprosopus macer	(Gunnerus, 1765)										
+1						tiburón canasta												
+							Tetroras angiova											
+							Selachus pennantii											
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+							Carcharodon apensis											
+							C. smithi / C.albimors											
+	Carcharodon						Carcharias maso / C.											
+342		II	-	VU	Nativa	Tiburón blanco		(Linnaeus, 1758)										
+	carcharias						vulgarisC.											
+							rondeletti / C. lamia											
+							C.  atwoodi / C. verus											
+							Lamna philippi / L											
+							.philippii											
+							L. punctate / L. whitleyi											
+							Oxyrhina daekayi											
+							Selanonius walker											
+343	Lamna nasus	II	-	VU	Nativa	Tiburón cailón	Squalus cornubicus	Bonnaterre, 1788										
+							S.cornubiensis / S.											
+							glaucus											
+							S. monensis / S.											
+							pennanti											
+							S. selanonus											
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+						Manta Cornuda, manta												
+						diablo, manta gigante,	Manta hamiltoni											
+344	Manta birostris	II	-	VU	Nativa			(Walbaum, 1792)										
+						manta raya, manta	Raja birostris											
+						voladora												
+							Cephaloptera											
+						Manta de espina, manta												
+345	Mobula japanica	II	-	NT	Nativa		japanica	Latham, 1794										
+						de aguijón												
+							Mobula japonica											
+						Diabolo manta, manta												
+								Notarbartolo-di-										
+346	Mobula munkiana	II	-	NT	Nativa	raya, manta violácea,												
+								Sciara, 1987										
+						tortilla												
+						Diabolo gigante de												
+							Cephaloptera											
+347	Mobula tarapacana	II	-	VU	Nativa	Guinea, Raya, raya		(Philippi, 1892)										
+							tarapacana											
+						cornuda, vaquetilla												
+						Chupasangre, diablo	Dicerobatis											
+348	Mobula thurstoni	II	-	NT	Nativa	chupasangre, manta	thurstoni	(Lloyd, 1908)										
+						diablo,  Murciélago	Mobula lucasana											
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+							Micristodus punctatus											
+349	Rhincodon typus	II	-	EN	Nativa	Tiburón ballena		Smith, 1828										
+							Rhinodon pentalineatus											
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+							Pristis acutirostris / P.											
+							granulosa											
+350	Pristis pectinata45	I	-	CR	Nativa	Pez sierra	P. megalodon / P. serra	Latham, 1794										
+							P. woermanni											
+							Pristobatus occa											
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+351	Chrysocyon brachyurus	II	-	NT	Nativa	Lobo de crin	Canis brachyurus	(Illiger, 1815)										
+						Zorro andino, zorro	Dusicyon culpaeus											
+352	Lycalopex culpaeus	II	-	LC	Nativa			(Molina, 1782)										
+						colorado, zorro culpeo	Pseudalopex culpaeus											
+							Dusicyon griseus											
+353	Lycalopex griseus	II	DD	LC	Nativa	Zorro gris		(Gray, 1837)										
+							Pseudalopex griseus											
+354	Speothos venaticus	I	-	NT	Nativa	Zorro vinagre, sachaperro		Lund, 1842										
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+							Felis colocolo											
+						Gato del pajonal, chinchay,												
+355	Leopardus colocolo	II	DD	NT	Nativa		Oncifelis colocolo	(Molina, 1782)										
+						oscollo												
+							Lynchailurus colocolo											
+							Leopardus jacobitus											
+356	Leopardus jacobita46	I	EN	EN	Nativa	Gato andino, gato montés	Oreailurus jacobita	(Cornalia, 1865)										
+							Felis jacobita											
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+						Ocelote, tigrillo, gato onza,												
+357	Leopardus pardalis	I	-	LC	Nativa		Felis pardalis	(Linnaeus, 1758)										
+						matsonsori												
+						Gato tigre común, tigrino,												
+358	Leopardus tigrinus	I	DD	VU	Nativa		Felis tigrina	(Schreber, 1775)										
+						oncilla												
+359	Leopardus wiedii	I	DD	NT	Nativa	Huamburushu, margay	Felis wiedii	(Schinz, 1821)										
+						Jaguar, otorongo, uturuncu,												
+360	Panthera onca	I	NT	NT	Nativa		Felis onca	(Linnaeus, 1758)										
+						puágkat, jenocri												
+						Puma, león, lluichu-puma,												
+361	Puma concolor	II	NT	LC	Nativa		Felis concolor	(Linnaeus, 1771)										
+						kirajari matsonsori												
+						Yaguarundi, jaguarundi,												
+							Felis yaguarondi	(É. Geoffroy Saint-										
+362	Puma yagouaroundi	II	-	LC	Nativa	yahuarundi, eira, postari,	Herpailurus yaguarondi47	Hilaire, 1803)										
+						matsonsori												
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+						Chancho marino,												
+363	Lontra felina	I	EN	EN	Nativa		Lutra felina	(Molina, 1782)										
+						chingungo, huallaque												
+						Lobo pequeño de río,	Lontra incarum / L. enudris											
+364	Lontra longicaudis	I	-	NT48	Nativa	nutria, mayopuma (aya,	L. mesopetes / L. annectens	(Olfers, 1818)										
+						apur, Cuzco)	L. platensis / Lutra longicaudis											
+						Lobo grande de río,	Mustela brasilinensis											
+365	Pteronura brasiliensis	I	EN	EN	Nativa			(Gmelin, 1788)										
+						nutria grande, shabaropa	Pteronura sambachii											
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+						Lobo marino fino, Lobo												
+366	Arctocephalus australis	II	EN	LC	Nativa	fino, Lobo de dos pelos,	Arctophoca australis	(Zimmermann, 1783)										
+						cochapuma												
+						Lobo fino de Juan												
+367	Arctocephalus philippii	II	-	LC	Nativa		Arctophoca philippii	(Peters, 1866)										
+						Fernández												
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+						Elefante marino del sur,												
+368	Mirounga leonina49	II	-	LC	Nativa			(Linnaeus, 1758)										
+						elefante marino												
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+						Oso andino, ukumari,												
+369	Tremarctos ornatus	I	VU	VU	Nativa			(F. G. Cuvier, 1825)										
+						ucucu, oso de anteojos												
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+370	Eubalaena australis	I	-	LC	Nativa	Ballena franca austral	Balaena glacialis australis	(Desmoulins, 1822)										
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+						Ballena minke austral,												
+371	Balaenoptera bonaerensis50	I	-	DD	Nativa	ballena minke antártica,		(Burmeister, 1867)										
+						rorcual austral												
+						Ballena de Sei, ballena												
+372	Balaenoptera borealis	I	-	EN	Nativa			Lesson, 1828										
+						boba												
+373	Balaenoptera edeni	I	-	DD	Nativa	Ballena de Bryde	Balaenoptera brydei	Anderson, 1879										
+						Ballena azul, rorcual												
+374	Balaenoptera musculus	I	-	EN	Nativa		Sibbaldius musculus	(Linnaeus, 1758)										
+						gigante												
+						Ballena de aleta, rorcual												
+375	Balaenoptera physalus	I	-	EN	Nativa			(Linnaeus, 1758)										
+						de aleta, rorcual común												
+376	Megaptera novaeangliae	I	-	LC	Nativa	Ballena jorobada, yubarta		(Borowski, 1781)										
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+377	Lama guanicoe	II	CR	LC	Nativa	Guanaco	Lama glama guanicoe	(P. L. S. Müller, 1776)										
+378	Vicugna vicugna	II	NT	LC	Nativa	Vicuña	Lama vicugna	(Molina, 1782)										
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+379	Blastocerus dichotomus	I	VU	VU	Nativa	Ciervo de los pantanos		(Illiger, 1815)										
+380	Hippocamelus antisensis	I	VU	VU	Nativa	Taruca, tarugo, taruka		(d'Orbigny, 1834)										
+381	Pudu mephistophiles	II	VU	VU	Nativa	Sachacabra, pudu		(de Winton, 1896)										
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+						Delfín común de hocico												
+382	Delphinus capensis52	II	-	DD	Nativa			Gray, 1828										
+						largo												
+						Delfín común de hocico												
+383	Delphinus delphis53	II	-	LC	Nativa		Delphinus tropicalis	Linnaeus, 1758										
+						corto												
+384	Feresa attenuata	II	-	DD	Nativa	Orca enana, orca pigmea	Feresa occulta	Gray, 1874										
+	Globicephala					Delfín piloto de aleta												
+385		II	-	DD	Nativa		Globicephala sieboldii	Gray, 1846										
+	macrorhynchus					corta												
+						Delfín piloto de aleta	Globicephala melaena											
+386	Globicephala melas	II	-	DD	Nativa			(Traill, 1809)										
+						larga	Globicephala edwardii											
+387	Grampus griseus	II	-	LC	Nativa	Delfín gris, delfìn de Risso		(G. Cuvier, 1812)										
+388	Lagenodelphis hosei54	II	-	LC	Nativa	Delfín de Fraser		Fraser, 1956										
+							Lagenorhynchus superciliosus											
+389	Lagenorhynchus obscurus55	II	-	DD	Nativa	Delfín obscuro		(Gray, 1828)										
+							Sagmatias obscurus											
+						Delfín liso, delfín de												
+390	Lissodelphis peronii	II	-	DD	Nativa	perón, tunina sinaleta,		(Lacépède, 1804)										
+						delfìn liso austral												
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+						Orca, espadante, orca	Orcinus nanus											
+391	Orcinus orca	II	-	DD	Nativa			(Linnaeus, 1758)										
+						verdadera, tonina	Orcinus glacialis											
+						Delfín cabeza de melón,												
+392	Peponocephala electra	II	-	LC	Nativa		Lagenorhynchus electra	(Gray, 1846)										
+						Electra												
+						Falsa orca común, orca												
+393	Pseudorca crassidens	II	-	DD	Nativa			(Owen, 1846)										
+						falsa												
+394	Sotalia fluviatilis 56	I	DD	DD	Nativa	Bufeo gris, bufeo negro,	Sotalia brasiliensis	(Gervais & Deville,										
+						tucuxi		1853)										
+							Stenella malayana											
+						Delfín con brida, delfín												
+395	Stenella attenuata	II	-	LC	Nativa		Stenella dubia attenuata	(Gray, 1846)										
+						manchado pantropical												
+							Stenella graffmani											
+						Delfín rayado, delfín												
+396	Stenella coeruleoalba	II	-	LC	Nativa		Stenella styx	(Meyen, 1833)										
+						listado												
+						Delfín hilandero, delfín	Stenella microps											
+397	Stenella longirostris	II	-	DD	Nativa			(Gray, 1828)										
+						tornillo	Stenella roseiventris											
+								(G. Cuvier in Lesson,										
+398	Steno bredanensis	II	-	LC	Nativa	Delfín de dientes rugosos												
+								1828)										
+						bufeo común, delfín pico	Tursiops nuuanu											
+399	Tursiops truncatus57	II	--	LC	Nativa	de botella, delfín nariz de	Tursiops nesarnack	(Montagu, 1821)										
+						botella, delfín mular	Tursiops gillii											
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+400	Inia geoffrensis 58	II	DD	DD	Nativa	Bufeo colorado, delfín	Inia boliviensis	(de Blainville, 1817)										
+						rosado del Amazonas												
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+						Marsopa espinosa,												
+401	Phocoena spinipinnis	II	-	DD	Nativa			Burmeister, 1865										
+						chancho marino												
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+						Cachalote de cabeza												
+402	Kogia breviceps	II	-	DD	Nativa	pequeña, cachalote		(Blainville, 1838)										
+						pigmeo												
+403	Kogia sima	II	-	DD	Nativa	Cachalote enano		(Owen, 1866)										
+	Physeter catodon																	
+404	Physeter macrocephalus 59	I	-	VU	Nativa	Cachalote		Linnaeus, 1758										
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+							Dicotyles tajacu											
+405	Pecari tajacu	II	-	LC	Nativa	Sajino, pecarí de collar	Tayassu tajacu	(Linnaeus, 1758)										
+							Pecari maximus											
+406	Tayassu pecari	II	NT	VU	Nativa	Huagana, pecarí labiado	Tayassu albirostris	(Link, 1795)										
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+						Ballena de pico de Gray,												
+407	Mesoplodon grayi	II	-	DD	Nativa			Von Haast, 1876										
+						zifio de Gray												
+						ballena picuda, zifio												
+								Reyes, Mead & Van										
+408	Mesoplodon peruvianus	II	-	DD	Nativa	peruano, ballena de pico												
+								Waerebeek, 1991										
+						peruana, zifio menor												
+						Ballena de pico de Cuvier,												
+409	Ziphius cavirostris	II	-	LC	Nativa	ballena picuda de Cuvier,		G. Cuvier, 1823										
+						Zifio de Cuvier												
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+						Yungunturo, armadillo												
+410	Priodontes maximus	I	VU	VU	Nativa	gigante, tatú, carachupa,	Priodontes giganteus	(Kerr, 1792)										
+						kintéro												
+411	Chaetophractus nationi Chaetophractus vellerosus 60	II 61	EN	LC	Nativa	Quirquincho andino, armadillo peludo andino	Euphractus nationi	(Thomas, 1894) (Gray, 1865)										
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+412	Tapirus pinchaque62	I	CR	EN	Nativa	Tapir de montaña, ante,	Tapirus roulinii	(Roulin, 1829)										
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+						tapir andino, pinchaque,												
+						gran bestia												
+						Tapir amazónico, tapir del												
+413	Tapirus terrestris	II	NT	VU	Nativa	llano amazónico,		(Linnaeus, 1758)										
+						sachavaca, kemari.												
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+						Perezoso de tres dedos,	Bradypus boliviensis											
+414	Bradypus variegatus	II	-	LC	Nativa	pelejo, perezoso	Bradypus infuscatus	Schinz, 1825										
+							Bradypus griseus											
+N.°	Especie	Ap.	UICN	N/E	Nombre común		Sinónimos	Autor										
+			nacional															
+Hormiguero gigante, oso 415	Myrmecophaga tridactyla	II	VU VU	Nativa			Myrmecophaga jubata	Linnaeus, 1758										
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+							A. azarai / A.miriquouina											
+						Mono nocturno de Azara,												
+416	Aotus azarae	II	-	LC	Nativa		A. boliviensis / A. bidentatus	(Humboldt, 1811)										
+						musmuqui, mono lechuza												
+							A. infulatus / A. roberti											
+						Mono nocturno peruano,												
+						mono nocturno andino,	Aotus trivirgatus											
+417	Aotus miconax	II	VU	VU	Endémica			Thomas, 1927										
+						tuta, tutamono, tutacho,	Aotus trivirgatus miconax											
+						musmuqui												
+						Mono nocturno de Nancy												
+418	Aotus nancymaae	II	-	VU	Nativa	Ma,musmuqui, mono	Aotus trivirgatus nancymaae	Hershkovitz, 1983										
+						lechuza												
+						Mono nocturno												
+419	Aotus nigriceps	II	-	LC	Nativa	cabecinegro, musmuqui,	Aotus senex	Dollman, 1909										
+						mono lechuza												
+						Mono nocturno												
+							A. gularis / A. microdon											
+420	Aotus vociferans	II	-	LC	Nativa	vociferante, buri-buri,		(Spix, 1823)										
+							A. oseryi / A.rufipes / A.spixi											
+						musmuqui, mono lechuza												
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+						Mono coto de Tumbes,	Alouatta aequatorialis											
+421	Alouatta palliata	I	EN64	LC	Nativa	coto mono de Tumbes,	A. inclamax / A. mexicana	(Gray, 1849)										
+						mono aullador, mono	A. inconsonans / A. matagalpae											
+						coto negro	A. niger /  A. quichua											
+							A. seniculus sara											
+							A. auratus / A. bogotensis											
+							A. caquetensis / A. aniger											
+						Mono aullador rojo, mono												
+422	Alouatta seniculus 65	II	VU	-	Nativa	aullador colorado, mono	A.caucensis  / A. chrysurus	(Linnaeus, 1766)										
+							A. juara / A. rubicunda											
+						coto, cotomono												
+							A. arctoidea / A. ursina											
+							A. amazónica / A. juruana											
+							A.  puruensis / A. sara											
+						Mono araña de vientre												
+							A. bartlettii / A. braccatus											
+						amarillo, maquisapa												
+423	Ateles belzebuth	II	EN	EN	Nativa		A. brissonii /  A. chuva	É.Ge  o ffroy, 1806										
+						cenizo, maquisapa de												
+							A. fuliginosus A.variegatus											
+						frente amarilla, manilargo												
+						Maquisapa, mono araña	A. longimembris											
+424	Ateles chamek	II	EN	EN	Nativa			(Humboldt, 1812)										
+						negro, maquisapa negra,	A. peruvianus											
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+						manilargo												
+							Lagothrix barrigo / L. cana											
+	Lagothrix lagothricha66						L. poeppigii / L. caparro											
+425	L. lagothrix cana 67	II	EN	VU	Nativa	Mono choro común,	L. caroarensis / L. geoffroyi	(Humboldt, 1812)										
+	L. lagothrix poeppigii 68					mono lanudo común	L. humboldtii / L. infumatus											
+							Lagothrix cana tschudii											
+						Mono choro cola amarilla,												
+						choro coliamarilla, mono												
+426	Lagothrix flavicauda 69	I	CR	CR	Endémica	barrigudo andino, choba,	Oreonax flavicauda	(Humboldt, 1812)										
+						tupa, pacu runtu,	Lagothrix hendeei											
+						quillecorote, maquisapa												
+						chusca, ginebra, chú												
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+						Pichico falso de Goeldi,												
+427	Callimico goeldii	I	VU	VU	Nativa	pichico negro, supay	C. snethlageri	(Thomas, 1904)										
+						pichico, maquisapita												
+						Tití enano, leoncito,	Callithrix pygmaea											
+428	Cebuella pygmaea	II	-	LC	Nativa	leoncillo, mono de	C. nigra / C. leoninus	( Spix, 1823)										
+						bolsillo.	C. niveiventris											
+						Pichico común, pichico,												
+429	Saguinus fuscicollis 71	II	-	-	Nativa	pichico barba blanca,	Saguinus fuscicollis	(Spix, 1823)										
+						pichico boca blanca,												
+						pichico pardo												
+430	Saguinus illigeri 72	II	-	-	Endémica	Pichico común	Hapale illigeri	(Pucheran, 1845)										
+							Saguinus fuscicollis illigeri											
+						Pichico emperador,												
+431	Saguinus imperator	II	-	LC	Nativa	pichico bigotudo o pichico	Saguinus subgrisescens	(Goeldi, 1907)										
+						cenizo												
+						Pichico de barriga	Saguinus elegantulus											
+						anaranjada, pichico de	S. erythrogaster / S.	(E. Geoffroy in										
+432	Saguinus labiatus	II	EN	LC	Nativa													
+						pecho anaranjado, pichico	griseovertexS. rufiventer / S.	Humboldt, 1812)										
+						huapito	thomasi											
+433	Saguinus lagonotus73	II	-	-	Nativa	Pichico común	Midas lagonotus	(Jimenez de la										
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+							Saguinus fuscicollis lagonotus	Espada, 1870)										
+						Pichico común, pichico	Midas leucogenys											
+434	Saguinus leucogenys74	II	-	-	Endémica			(Gray, 1866)										
+						andino	Saguinus fuscicollis leucogenys											
+						Pichico de bigote o												
+435	Saguinus mystax	II	-	LC	Nativa	bigotudo, pichico barba	Saguinus pluto	(Spix, 1823)										
+						blanca o cervecero												
+436	Saguinus nigricollis 75	II	-	-	Nativamic	Pichico común, pichico	Midas nigricollis	(Spix, 1823)										
+						barba blanca	Saguinus nigricollis											
+					a													
+								(I. Geoffroy Saint-										
+437	Saguinus nigrifrons76	II	-	-	Endémica	Pichico común	Hapale nigrifrons											
+								Hilaire, 1850)										
+						Pichico de manto dorado	Midas tripartitus											
+438	Saguinus tripartitus 77	II	VU	-	Nativa	pichico barba blanca	Saguinus fuscicollis	(Milne Edwards,										
+								1878)										
+						pichico común	Saguinus fuscicollis tripartitus											
+439	Saguinus weddelli78	II	-	-	Nativa	Pichico común	Hapale weddelli	(Deville, 1849)										
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+							Saguinus  fusicollis											
+							melanoleucus											
+							Saguinus  fusicollis weddelli											
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+						Capuchino blanco												
+440	Cebus aequatorialis79	II	-	CR	Nativa		C. albifrons aequatorialis	J. A. Allen, 1914										
+						ecuatoriano												
+						Machín blanco, mono												
+441	Cebus cuscinus80	II	-	NT	Nativa	blanco, capuchino cabeza	Cebus albifrons ssp. cuscinus	Thomas, 1901										
+						choque												
+						Machín blanco, mono												
+442	Cebus unicolor 81	II	-	-	Nativa	blanco, capuchino frente	Cebus albifrons	Spix, 1823										
+							Cebus albifrons unicolor											
+						blanca												
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+						Machín blanco, mono												
+							Cebus albifrons											
+443	Cebus yuracus82	II	-	-	Nativa	blanco, capuchino frente		Hershkovitz, 1949										
+							Cebus albifrons aequatorialis											
+						blanca del Marañón												
+							Cebus apella / C. avus											
+						Machín, machín	C. barbatus / C. buffonii / C.											
+						capuchino, machín negro,	fulvusC. griseus /											
+	Sapajus apella					mono negro, capuchino	C. trepida	Linnaeus, 1758										
+444	Sapajus macrocephalus83	II	-	LC	Nativa	cabeza grande, mono	C. fatuellus / C.tocantinus	(Spix, 1823)										
+						martín, mono sortero	C. margaritae / C. peruanus											
+						mono choclero	C. magnus / C. maranonis											
+							C.  macrocephalus											
+						Mono fraile boliviano,	S. entomophagus											
+								(I. Geoffroy &										
+445	Saimiri boliviensis	II	-	LC	Nativa	frailecillo, fraile, mono	S. jaburuensis / S. nigriceps											
+								Blainville, 1834)										
+						ardilla, huasa	S. pluvialis / S. peruviensis											
+							Saimiri apedia / S. albigena											
+							S. caquetensis / S.											
+						Mono ardilla, fraile,	cassiquiarensis  S. codajazensis /											
+446	Saimiri sciureus	II	-	LC	Nativa			(Linnaeus, 1758)										
+						frailecito, huasa	S. collinsi											
+							S. leucopsis / S. lunulatus											
+							S. macrodon / S.morta											
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+							S. nigriceps / S. nigrivittata											
+							S. saimiri											
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+						Huapo colorado, huapo												
+							Cacajao alba / C. novaesi											
+447	Cacajao calvus	I	VU	VU	Nativa	rojo		(I. Geoffroy, 1847)										
+							C. rubicundus / C. ucayalii											
+						Mono inglés, puca huapo												
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+						Tocón de collar, tocón de												
+448	Cheracebus lucifer 84	II	VU	LC	Nativa	patas amarillas, tocón	Callicebus lucifer	Thomas, 1914										
+							Callicebus torquatus											
+						negro												
+							Callicebus cupreus / C. acreanus											
+							C. caligatus / C. discolor / C.											
+449	Plecturocebus cupreus85	II	-	LC	Nativa	Tocón cobrizo, tocón	dubiusC. egeria	(Spix, 1823)										
+						rojo, tocón colorado												
+							/ C. ornatus											
+							C. stephennashi / C. toppinii											
+							Callicebus discolor											
+450	Plecturocebus discolor 86	II	-	LC	Nativa	Toconcillo rojo, tocón	C. leucometopa / C. napoleon	(I. Geoffroy & Deville,										
+						rojo, tocón colorado	C. paenulatus / C. rutteri	1848)										
+							C. subrufus											
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+						Mono tocón de San												
+451	Plecturocebus oenanthe87	II	CR	CR	Endémica	Martín, tocón del río	Callicebus oenanthe	(Thomas, 1924)										
+						Mayo88												
+452	Plecturocebus toppini89	II	-	-	Nativa	Mono tocón	Callicebus toppini	(Thomas, 1914)										
+	Plecturocebus					Mono tocón de		Vermeer & Tello-										
+453	urubambensis 90	II	-	-	Endémica	Urubamba	Callicebus urubambensis	Alvarado, 2015.										
+						Huapo ecuatorial, huapo												
+454	Pithecia aequatorialis91	II	-	LC	Endémica		Pithecia monachus	Hershkovitz, 1987										
+						negro												
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+455	Pithecia hirsuta92	II	-	-	Nativa	Huapo negro		(Spix, 1823)										
+456	Pithecia inusta93	II	-	-	Nativa	Huapo negro	Pithecia monachus monachus	(Spix, 1823)										
+						Huapo negro, huapo de												
+457	Pithecia irrorata	II	-	-	Nativa		Pithecia hirsuta	(Gray, 1842)										
+						Gray												
+458	Pithecia isabela 94	II	-	-	Endémica	Huapo negro, huapo de	Pithecia monachus monachus	Hershkovitz, 1987										
+						Isabel												
+								(É. Geoffroy Saint-										
+459	Pithecia monachus	II	-	-	Nativa	Huapo negro, yana huapo	Simia monacha											
+								Hilaire, 1812)										
+460	Pithecia napensis 95	II	-	-	Nativa	Huapo negro	Pithecia monachus monachus	(Lönnberg, 1938)										
+							P. monachus napensis											
+461	Pithecia rylandsi96	II	-	-	Nativa	Huapo negro	Pithecia irrorata / P. monachus	Marsh, 2014										
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+							P. hirsuta.											
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+						Chinchilla, chinchilla de												
+462	Chinchilla chinchilla	I	DD	EN	Nativa		Chinchilla brevicaudata	(Lichtenstein, 1829)										
+						cola corta												
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+						Manatí amazónico, vaca												
+463	Trichechus inunguis	I	VU	VU	Nativa			(Natterer, 1883)										
+						marina, manatí												
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+							Lacerta crocodilus											
+							Jacare hirticollis											
+						Babilla, caimán blanco,	Caiman sclerops											
+464	Caiman crocodilus	II	-	LC	Nativa			(Linnaeus, 1758)										
+						caimán común	Crocodilus caiman											
+							Crocodilus sclerops											
+							Jacaretinga crocodilus											
+						Caimán negro, lagarto												
+465	Melanosuchus niger	I	NT	LC	Nativa		Caiman niger	(Spix, 1825)										
+						negro												
+							Crocodilus palpebrosus											
+						Caimán enano, dirin												
+							Caiman palpebrosus											
+466	Paleosuchus palpebrosus	II	EN	LC	Nativa	dirin, lagarto caimán de		(Cuvier, 1807)										
+							Champsa gibbiceps											
+						quebrada tirtir												
+							Jacaretinga moschifer											
+							Crocodilus trigonatus											
+						Lagarto enano, caimán												
+							Paleosuchus trigomatus											
+467	Paleosuchus trigonatus	II	NT	LC	Nativa	frentiplano, caimán de		(Schneider, 1801)										
+							Paleosuchus niloticus											
+						quebrada tirtir												
+							Caiman trigonatus											
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+						Cocodrilo de Tumbes,	Alligator lacordairei											
+						cocodrilo americano,	Crocodylus  biscutatus	(Cuvier, 1807)										
+468	Crocodylus acutus	I	CR	VU	Nativa													
+						lagarto  aguja, lagarto	C. lewyanus / C. mexicanus											
+						blanco	C. floridanus / C. pacificus											
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+						Iguana, pacaso, gallina												
+469	Iguana iguana	II	-	-	Nativa		Iguana rhinolopha	Linnaeus, 1758										
+						de palo, Iguana verde												
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+470	Crocodilurus amazonicus	II	DD	LC	Nativa	Lagarto dragón	Crocodilurus lacertinus	(Spix, 1825)										
+471	Dracaena guianensis	II	-	-	Nativa	Dracaena, camaleón rojo		Daudin, 1802										
+						Iguana negra												
+							Tupinambis nigropunctatus											
+472	Tupinambis teguixin97		-	-	Nativa	Tegués de la selva		(Linnaeus, 1758)										
+							Tupinambis nigropunctatus											
+						Lagarto overo												
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+							B. c. isthmica/ B. c.											
+							longicauda											
+							B. c. melanogaster											
+							B.  c. nebulosa											
+							Boa orophias / Boa eques											
+							Boa diviniloqua mexicana											
+						Boa, boa constrictor	B  oa  diviniloqua / Boa ortonii											
+473	Boa constrictor 98	II	EN 99	-	Nativa	boa mantona, boa de	Boa imperator/Boa	Linnaeus, 1758										
+						costa, boa peruana,	mexicana											
+						boa macanche	Constrictor auspex											
+							Constrictor constrictor											
+							Constrictor diviniloquus											
+							Constrictor formosissimus											
+							Constrictor orophias											
+							Constrictor rexserpentum											
+							Epicrates sabogae											
+						Boa verde, boa												
+474	Corallus batesii100	II	-	-	Nativa		Corallus batesi / C. caninus	(Gray, 1860)										
+						esmeralda												
+							maculatus											
+							Corallus obtusirostris											
+							Coluber bitis											
+							Boa ambleocephala / B.											
+						Boa arborícola	enydris											
+475	Corallus hortulanus	II	-	LC	Nativa	amazónica, boa	B. merremi / B. modesta	(Linnaeus, 1758)										
+						arborícola de jardín	B. obtusiceps / B. elegans											
+							B. hortulana / Vipera bitis											
+							Vipera madarensis											
+							Xiphosoma dorsuale											
+							X. hortulanum/ X. merremi											
+							Xiphosoma ornatum											
+							E. c. alvarezi  / E. c. assisi											
+							E. c. barbouri / E. c. gaigei											
+							E. c. hygrophilus / E. c.											
+							polylepisE. c.											
+							xerophilus / Boa cenchria B.											
+476	Epicrates cenchria	II	-	-	Nativa	Boa arcoíris		(Linnaeus, 1758)										
+							annulifer / B. aboma											
+							B. ternatea / Cliftia fusca											
+							Coluber tamachia											
+							Epicratescupreus											
+							Epicarsius cupreus											
+							Eunectes scytale											
+						Yacumama, anaconda,	Eunectes barbouri											
+477	Eunectes murinus	II	-	-	Nativa			(Linnaeus, 1758)										
+						sucury	Boa murina/ Boa gigas											
+							Boa anacondo/ Boa aquatica											
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+							Clelia plumbea											
+						Aguaje machaco,	Pseudoboa clelia											
+478	Clelia clelia	II	-	-	Nativa			(Daudin, 1803)										
+						afaninga negra	Boiruna maculata											
+							Clelia occipitolutea											
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+							Ungaliophis paucisquamis											
+	Tropidophis					Boa enana, boa enana												
+479		II	-	-	Nativa		Ungalia brasiliensis	(Müller, 1901)										
+	paucisquamis					brasilera												
+							Ungalia paucisquamis											
+	Tropidophis					Boa enana de												
+480		II	-	-	Nativa		Ungalia taczanowskyi	(Steindachner, 1880)										
+	taczanowskyi					Taczanowski												
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+481	Caretta caretta101	I	EN	VU	Nativa	Tortuga boba, cayuma	Testudo caretta	(Linnaeus, 1758)										
+							Chelonia agassizii											
+							C. bicarinata / C. formosa											
+							C. lata / C. lachrymata											
+							C. maculosa / C. marmorata											
+							C. tenuis / C. virgata											
+						Tortuga verde, tortuga	Caretta cepedii											
+482	Chelonia mydas	I	EN	EN	Nativa			(Linnaeus, 1758)										
+						blanca	Caretta esculenta											
+							Caretta thunbergii											
+							Testudo cepediana											
+							Testudo japonica / T.											
+							mydasT. rugosa / T.											
+							viridis											
+							Caretta rostrata/ C.											
+							squamosa											
+							Chelone imbricata											
+						Tortuga carey, tortuga												
+483	Eretmochelys imbricata	I	CR	CR	Nativa		Chelonia pseudocaretta	(  L  i nn  ae  us  ,1  766)										
+						de carey												
+							C. pseudomydas / C. radiata											
+							Eretmochelys squamata											
+							Onychochelys kraussi											
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+							Testudo imbricata											
+							Chelonia olivácea/C.											
+						Tortuga pico de loro,												
+							dussumierii											
+484	Lepidochelys olivacea	I	VU	VU	Nativa	tortuga olivácea,		(Eschscholtz, 1829)										
+							Caretta remivaga											
+						Tortuga golfina												
+							Caretta caretta olivacea											
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+							Sphargis angusta											
+							Testudo coriacea											
+							Dermatochelys porcata											
+						Tortuga dorso de cuero	Sphargis mercurialis/ S.											
+485	Dermochelys coriacea	I	EN	VU	Nativa	tortuga de mar gigante	coriacea	(Vandelli, 1761)										
+						tortuga laud	Testudo arcuata/ T.											
+							tuberculata											
+							Chelonias lutaria											
+							Testudo lyra											
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+							Podocnemis tracaxa											
+							Emys tracaxa											
+						Tortuga cabezona												
+							Emys dumeriliana											
+	Peltocephalus					amazónica, cabezón,												
+486		II	CR	VU	Nativa		Emys macrocephala	(Schweigger, 1812)										
+	dumerilianus					guacamayo charapa,												
+							Chelys lata											
+						charapa												
+							Podocnemis dumeriliana											
+							Peltocephalus tracaxa											
+							Emys amazonica											
+						Charapa, tortuga												
+487	Podocnemis expansa	II	EN	LC	Nativa		Emys expansa	(  S  c  h  weigger, 1812)										
+						charapa												
+							Emys arrau											
+							Podocnemis expansa											
+	Podocnemis					Cupiso, charapa, pitiu,												
+488		II	VU	VU	Nativa		sextuberculata,	Cornalia, 1849										
+	sextuberculata					tortuga charapa												
+							Bartlettia pitipii											
+489	Podocnemis unifilis	II	VU	VU	Nativa	Taricaya	Emys cayannensis	Troschel, 1848										
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+						Jabuti, supay motelo,	Geochelone carbonaria											
+	Chelonoidis carbonaria					karumbé, motelo de	Testudo boiei											
+490		II	VU	-	Nativa			(Spix, 1824)										
+						patas rojas, tortuga de	Testudo carbonaria											
+						patas rojas												
+							Geochelone denticulata											
+						Tortuga motelo, motelo,												
+							Testudo cagado / T.											
+						tortuga de patas												
+491	Chelonoidis denticulata	II	-	VU	Nativa		tessellataTestudo	(Linnaeus, 1766)										
+						amarillas motelo de												
+							tabulata /T.denticulata											
+						patas amarillas												
+							Testudo hercules / T.sculpta											
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+							Polymyces tannerensis											
+492	Deltocyathus parvulus	II	-	-	Nativa	Anémona, coral	Flabellum tannerense	Keller, 1982										
+							Flabellum montereyense											
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+							Polymyces tannerensis											
+493	Polymyces montereyensis	II	-	-	Nativa	Anémona, coral	Flabellum tannerense	(Durham, 1947)										
+							Flabellum montereyense											
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+							Polymyces tannerensis											
+494	Fungiacyathus	II	-	-	Nativa	Anémona, coral	Flabellum tannerense	(Durham, 1947)										
+	marenzelleri						Flabellum montereyense											
+	Fungiacyathus																	
+495		II	-	-	Nativa	Anémona, coral		Keller, 1976										
+	pseudostephanus																	
+N.°	Especie	Ap.		UICN	N/E	Nombre común	Sinónimos	Autor										
+			nacional															
+							Astrangia sanfelipensis											
+							Astrangia concinna											
+							Astrangia cortezi											
+							Astrangia oaxacensis											
+							Astrangia coronadosensis											
+496	Astrangia haimei	II	-	-	Nativa	Anémona, coral	Astrangia pulchella	Verrill, 1866										
+							Astrangia hancocki											
+							Astrangia concepcionensis											
+							Astrangia insignifica											
+							Astrangia lajollaensis											
+							A. pedersenii / A. caboensis											
+									N.°	Especie	Ap.		UICN	N/E		Nombre común	Sinónimos	Autor
+												nacional						
+									6	Adelphobates quinquevittatus 5	II	-	LC	Nativa	Rana	de punta de flecha	Dendrobates	(Steindachner, 1864)
+															pentaestriada,	rana	quinquevittatus	
+									N.°	Especie	Ap.		UICN	N/E		Nombre común	Sinónimos	Autor
+												nacional						
+									14	Ameerega macero  7	II	-	LC	Nativa	Rana	venenosa del Manu,	Epipedobates macero	(Rodríguez & Myers,
+															macero			1993)
+																	Colostethus festae	
+																	Dendrobates parvulus	
+																	Epipedobates	
+									15	Ameerega parvula	II	-	LC	Nativa	Rana dardo venenosa		parvulus	(Boulenger, 1882)
+																	Phyllobates festae	
+																	Phyllobates parvulus	
+																	Prostherapis festae	
+																		Brown & Twomey,
+									16	Ameerega pepperi	II	-	-	Endémica	Rana venenosa de Pepper			
+																		2009
+																	Epipedobates	
+									17	Ameerega peruviridis	II	-	-	Endémica	Rana dardo venenosa		epipedobates	Bauer, 1986
+																	trivittatus	
+																	Dendrobates petersi	
+															Rana de punta de flecha de			
+									18	Ameerega petersi	II	-	LC	Endémica			Phyllobates petersi	(Silverstone, 1976)
+															Peters, tentékiti			
+																	Epipedobates petersi	
+																	Hylaplesia picta	
+																	Dendrobates pictus	
+															Rana de punta de flecha		Phyllobates pictus	(Bibron in Tschudi,
+									19	Ameerega picta	II	-	LC	Nativa				
+															picta, sapito pintado		Epipedobates pictus	1838)
+																	Dendrobates	
+																	eucnemis	
+									N.°	Especie	Ap.		UICN	N/E		Nombre común	Sinónimos	Autor
+												nacional						
+															Rana	venenosa de	Epipedobates	(Morales & Velazco,
+									20	Ameerega planipaleae	II	CR	CR	Endémica				
+															Oxapampa, rana alpinista		planipaleae	1998)
+																	Epipedobates	
+									21	Ameerega pongoensis	II	-	VU8	Endémica	Rana dardo venenosa			(Schulte, 1999)
+																	pongoensis	
+																	Ameerega hahneli	
+																		(Lötters, Debold,
+																	rubriventris	
+									22	Ameerega rubriventris	II	DD	DD	Endémica	Rana venenosa			Henle, Glaw &
+																	Epipedobates	
+																		Kneller, 1997)
+																	rubriventris	
+																		Serrano-Rojas,
+																		Whitworth,
+															Rana venenosa de			Villacampa-Ortega,
+									23	Ameerega shihuemoy	II	-	-	Endémica				
+															Amarakaeri			von May, Gutiérrez,
+																		Padial & Chaparro,
+																		2017
+																	Dendrobates	
+																	silverstonei	
+															Rana de punta de flecha de			
+									24	Ameerega silverstonei	II	EN	EN 9	Endémica	Silverstone,	rana peruana,	Epipedobates	(Myers & Daly, 1979)
+																	silverstonei	
+															rana venenosa			
+																	Phobobates	
+																	silverstonei	
+																	Epipedobates	(Myers, Rodriguez &
+									25	Ameerega simulans	II	-	LC	Endémica	Rana venenosa de Puno			
+																	simulans	Icochea, 1998)
+									banderón									
