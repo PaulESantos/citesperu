@@ -19,5 +19,5 @@ Config/testthat/edition: 3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 Config/roxygen2/version: 8.1.0
-URL: https://github.com/PaulESantos/citesperu
+URL: https://github.com/PaulESantos/citesperu, https://paulesantos.github.io/citesperu/
 BugReports: https://github.com/PaulESantos/citesperu/issues

@@ -6,14 +6,11 @@ output: github_document
 
 # citesperu
 
-Paquete de R en desarrollo para consultar y organizar los listados de fauna
-y flora del Perú publicados por el Ministerio del Ambiente (MINAM) en el
-marco de la Convención sobre el Comercio Internacional de Especies Amenazadas
-de Fauna y Flora Silvestres (CITES).
+**citesperu** es un paquete de R en desarrollo para consultar, estructurar y analizar de manera reproducible los listados oficiales de fauna y flora silvestres del Perú incluidas en los Apéndices de la **Convención sobre el Comercio Internacional de Especies Amenazadas de Fauna y Flora Silvestres (CITES)**, publicados por el **Ministerio del Ambiente (MINAM)** como Autoridad Científica CITES del país.
 
-**Estado:** base documental inicial, versión `0.0.0.9000`. Todavía no incluye
-datasets ni funciones de consulta, matching o actualización. Las interfaces
-de este documento son propuestas y pueden cambiar durante el desarrollo.
+**Estado:** Versión documental y metadatos `0.0.0.9000`. Integra la especificación técnica de las ediciones oficiales de Fauna y Flora 2018, la referencia de acrónimos departamentales y las directrices institucionales del MINAM.
+
+---
 
 ## Autor
 
@@ -22,74 +19,95 @@ de este documento son propuestas y pueden cambiar durante el desarrollo.
 - Correo: <paulefrens@gmail.com>
 - ORCID: [0000-0002-6635-0375](https://orcid.org/0000-0002-6635-0375)
 
-## Fuentes previstas
+---
 
-Se utilizará el [compendio oficial del MINAM](https://www.gob.pe/institucion/minam/colecciones/609-listados-de-especies-de-fauna-y-flora-cites-peru).
-La revisión inicial del 15 de septiembre de 2026 identificó estas ediciones
-candidatas, cuyos adjuntos aún deben descargarse y validarse:
+## Marco Institucional CITES en el Perú
 
-| Dataset previsto | Edición | Formato anunciado |
-|---|---|---|
-| `fauna_cites_pe` | [Fauna 2023](https://www.gob.pe/institucion/minam/informes-publicaciones/4042047-listado-de-fauna-cites-peru-2023) | XLS |
-| `flora_cites_pe` | [Flora 2018](https://www.gob.pe/institucion/minam/informes-publicaciones/395685-listado-flora-cites-peru-2018) | PDF |
+El Perú es Estado signatario de la Convención CITES desde 1975 (Decreto Ley N.° 21080). La gobernanza nacional comprende:
 
-Cada dataset conservará su edición y procedencia. No se presentará una mezcla
-de ambos como un listado actualizado a un único año. Los resultados describirán
-la edición consultada; no encontrar un nombre no demuestra que esté excluido
-de CITES. Véanse los [detalles de las fuentes](docs/FUENTES.md).
+* **Autoridad Científica:** [Ministerio del Ambiente (MINAM)](https://www.gob.pe/minam), a través de la Dirección General de Diversidad Biológica (DGDB). Asesora científicamente, formula los Dictámenes de Extracción No Perjudicial (DENP) y elabora los listados oficiales nacionales.
+* **Autoridades Administrativas:** [SERFOR](https://www.gob.pe/serfor) (flora y fauna silvestre terrestre) y [PRODUCE / SANIPES](https://www.gob.pe/produce) (recursos hidrobiológicos marinos y continentales). Emiten los permisos y certificados CITES.
+* **Entidades de Observancia:** SUNAT (Aduanas), Policía Nacional (DIRMEAMB), DICAPI (Marina de Guerra) y FEMA (Fiscalías Ambientales).
 
-## Funcionalidad planificada
+Para más detalles, consulta la [Guía Técnica de Contexto CITES en el Perú](docs/CONTEXTO_CITES_PERU.md).
+
+---
+
+## Fuentes Oficiales y Cobertura (MINAM Colección 609)
+
+Los datos se obtienen del [compendio oficial del MINAM](https://www.gob.pe/institucion/minam/colecciones/609-listados-de-especies-de-fauna-y-flora-cites-peru). Cada conjunto de datos conserva estrictamente su propia edición y alcance temporal:
+
+| Dataset en desarrollo | Edición / Título Oficial | Grupo | Cobertura Oficial | Formato de Origen |
+|---|---|:---:|---|:---:|
+| `cites_fauna_peru_2018` | [Listado Fauna CITES Perú - 2018](https://www.gob.pe/institucion/minam/informes-publicaciones/395692-listado-fauna-cites-peru-2018) | Fauna | **496 especies** (48 en Ap. I, 448 en Ap. II, 16 en Ap. III\*) | PDF oficial |
+| `cites_flora_peru_2018` | [Listado Flora CITES Perú - 2018](https://www.gob.pe/institucion/minam/informes-publicaciones/395685-listado-flora-cites-peru-2018) | Flora | **2506 taxa** en 9 familias botánicas (12 Ap. I, 2493 Ap. II, 1 Ap. III) | PDF oficial |
+| `cites_fauna_peru_2023` | [Listado de Fauna CITES Perú 2023](https://www.gob.pe/institucion/minam/informes-publicaciones/4042047-listado-de-fauna-cites-peru-2023) | Fauna | En proceso de importación y control de calidad | XLS oficial |
+| `codigos_departamentos_pe` | Acrónimos Biogeográficos de Lamas & Encarnación (1976) | Geografía | 24 acrónimos estándar departamentales | Referencia técnica |
+
+*\* En fauna, las 16 especies registradas en el Apéndice III fueron incluidas a propuesta de otros países Parte. Como el Perú no ha solicitado inclusiones en dicho apéndice, el MINAM no las suma al total nacional oficial.*
+
+### Síntesis de Fauna Silvestre CITES Perú (2018)
+- **Por Clase:** Actinoperigios (2), Anfibios (46), Antozoos (5), Aves (284), Condrictios (18), Mamíferos (113), Reptiles (28). Total: **496 especies**.
+- **Categorías de Conservación Integradas:** D.S. n.° 004-2014-MINAGRI y Lista Roja de la UICN (CR, EN, VU, NT, LC, DD).
+- **Armonización CoP17:** Incorporación de novedades de Johannesburgo 2016 (*Alopias* spp., *Mobula* spp., *Telmatobius culeus*).
+
+### Síntesis de Flora Silvestre CITES Perú (2018)
+- **Familias Botánicas Representadas:** Orchidaceae (2215 taxa), Cactaceae (186 taxa, según *CITES Cactaceae Checklist* 3.ª ed., Hunt 2016), Cyatheaceae (79 taxa), Fabaceae (11 taxa), Zamiaceae (9 taxa), Dicksoniaceae (2 taxa), Meliaceae (2 taxa), Lauraceae (1 taxón), Euphorbiaceae (1 taxón). Total: **2506 taxa**.
+- **Distribución Geográfica:** Codificada mediante los 24 acrónimos de Lamas y Encarnación (1976) (`AM`, `CU`, `LO`, etc.). El símbolo `?` denota registro fehaciente en el Perú sin localidad o departamento precisado en etiqueta.
+- **Herbarios Consultados:** USM (San Marcos), MOL (La Molina), MO (Missouri), US (Smithsonian), NY (New York), F (Field Museum).
+
+Consulta el historial de entregas y control de procedencia en [FUENTES.md](docs/FUENTES.md).
+
+---
+
+## Funcionalidad Planificada de la API
 
 | Función | Propósito |
 |---|---|
-| `cites_pe_list()` | Consultar y filtrar por fauna/flora y apéndice. |
-| `is_cites_pe()` | Devolver una coincidencia exacta como vector lógico. |
-| `match_cites_pe()` | Consultar nombres, sinónimos documentados y candidatos aproximados. |
-| `update_cites_pe()` | Recuperar una edición en caché, con validación y metadatos. |
-| `summary.cites_pe()` | Resumir registros y taxones por apéndice, familia o grupo. |
+| `cites_pe_list()` | Consultar y filtrar el listado por reino (`fauna`/`flora`), apéndice (`I`, `II`, `III`), clase o familia. |
+| `is_cites_pe()` | Evaluación booleana exacta y normalizada (vector del mismo largo que la entrada). |
+| `match_cites_pe()` | Búsqueda y concordancia taxonómica: coincidencia exacta, resolución por sinónimos oficiales o candidatos aproximados (*fuzzy*). |
+| `summary.cites_pe()` | Método S3 para resumir registros y conteo de taxones por apéndice, familia, clase o departamento. |
 
-La coincidencia aproximada propondrá candidatos; los sinónimos necesitarán
-una relación taxonómica respaldada por una fuente. Las coincidencias ambiguas
-se conservarán para revisión.
-
-## Ejemplo de la API propuesta
-
-Este ejemplo **no es ejecutable todavía**:
+### Ejemplo de Uso Propuesto
 
 ```r
 library(citesperu)
 
-fauna <- cites_pe_list(taxon = "fauna", apendice = c("I", "II"))
-is_cites_pe(c("Vicugna vicugna", "Panthera onca"))
-match_cites_pe("Pantera onca", method = "fuzzy")
-summary(fauna, by = "familia")
+# Consultar especies de fauna en Apéndice I
+fauna_ap1 <- cites_pe_list(taxon = "fauna", apendice = "I")
+
+# Verificar si una lista de especies se encuentra incluida en CITES Perú
+especies <- c("Tremarctos ornatus", "Panthera onca", "Cedrela odorata", "Homo sapiens")
+is_cites_pe(especies)
+
+# Búsqueda aproximada o resolución de sinónimos
+match_cites_pe("Phragmipedium caudatum", method = "synonym")
+
+# Resumen taxonómico
+summary(cites_pe_list(taxon = "flora"), by = "familia")
 ```
 
-## Desarrollo local
+---
 
-La publicación en CRAN y la URL del repositorio quedan pendientes. Desde la
-raíz del proyecto se puede construir la base documental con R:
+## Desarrollo Local
 
-```sh
-R CMD build .
-```
-
-Para regenerar la ayuda y este README se usarán `roxygen2` y `rmarkdown`,
-respectivamente, como herramientas de desarrollo:
+Para compilar el paquete y generar la documentación en un entorno local con R:
 
 ```r
+# Generar la documentación roxygen2
 roxygen2::roxygenise()
+
+# Renderizar el archivo README
 rmarkdown::render("README.Rmd")
 ```
 
-El [plan de desarrollo](docs/PLAN.md) define el esquema propuesto, los contratos
-de las funciones, la estructura objetivo y los criterios de validación.
-La primera etapa será inspeccionar los archivos oficiales y construir una
-importación reproducible antes de implementar las consultas.
+El diseño de arquitectura detallado, el contrato de las funciones y los criterios de validación se describen en el [Plan de Desarrollo](docs/PLAN.md).
 
-## Licencia y atribución
+---
 
-El código se distribuye bajo [MIT](LICENSE.md). La procedencia y las condiciones
-de reutilización de los datos del MINAM se documentarán por separado antes
-de distribuirlos. El autor del paquete es distinto del organismo productor
-de los listados; se citarán tanto el software como la edición de los datos.
+## Licencia y Atribución
+
+El software y código fuente de **citesperu** se distribuyen bajo la licencia de código abierto [MIT](LICENSE.md).
+
+La información original de los listados pertenece al **Ministerio del Ambiente del Perú (MINAM)**. Los datasets empaquetados preservan íntegramente la cita a la publicación oficial de origen y a sus autores intelectuales.
