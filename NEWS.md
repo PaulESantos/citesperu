@@ -1,4 +1,4 @@
-# citesperu 0.0.0.9000
+# citesperu 0.1.0
 
 * **Base documental y gobernanza CITES:**
   * Se incorporó el marco institucional oficial del Perú: el Ministerio del Ambiente (MINAM) como Autoridad Científica CITES, el Servicio Nacional Forestal y de Fauna Silvestre (SERFOR) y el Ministerio de la Producción (PRODUCE/SANIPES) como Autoridades Administrativas, y la SUNAT, PNP (DIRMEAMB), DICAPI y FEMA como Entidades de Observancia (`docs/CONTEXTO_CITES_PERU.md`).
@@ -31,4 +31,8 @@
     * `is_cites()` (y alias `is_cites_pe()`): evaluación booleana vectorizada ultrarrápida (`TRUE`/`FALSE`/`NA`).
   * Se compiló el backbone interno pre-indexado en `R/sysdata.rda` integrando 5,816 registros taxonómicos (3,053 aceptados y 2,763 sinónimos oficiales) con acceso hash O(1).
   * Se incorporaron pruebas unitarias completas en `tests/testthat/test-matching.R` alcanzando 72 pruebas exitosas en el paquete (`0 FAIL | 0 WARN | 72 PASS`).
+* **Mensaje de inicio e interactividad estilo tidyverse (`R/zzz.R`):**
+  * Se implementó el hook `.onAttach()` con la estética visual y diseño de reglas de `{cli}` al estilo `{tidyverse}`: encabezado con versión (destacando sufijos `.9000` en rojo), cuadrícula en dos columnas con marcas de verificación (`tick`) para los 4 listados oficiales y el motor de matching, enlaces interactivos y notas institucionales de autoridades CITES Perú (MINAM, SERFOR, PRODUCE).
+  * Se integró detección de conflictos homónimos (`citesperu_conflicts()`) y soporte para silenciado mediante `options(citesperu.quiet = TRUE)` y `suppressPackageStartupMessages()`.
+
 

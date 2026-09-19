@@ -71,9 +71,16 @@ Consulta el historial de entregas y control de procedencia en [FUENTES.md](docs/
 
 *Nota: Se mantienen los alias `cites_matching()`, `match_cites_pe()`, `is_cites_pe()` y `classify_spnames()` para máxima compatibilidad con el ecosistema de `wcvpmatch`.*
 
-### Ejemplos de Uso
+# Instalacion 
 
 ```r
+pak::pak("PaulESantos/citesperu")
+```
+
+
+### Ejemplos de Uso
+
+```{r}
 library(citesperu)
 
 # 1. Verificación booleana rápida
@@ -100,21 +107,6 @@ cites_classify_names(c(
 ))
 ```
 
----
-
-## Desarrollo Local
-
-Para compilar el paquete y generar la documentación en un entorno local con R:
-
-```r
-# Generar la documentación roxygen2
-roxygen2::roxygenise()
-
-# Renderizar el archivo README
-rmarkdown::render("README.Rmd")
-```
-
-El diseño de arquitectura detallado, el contrato de las funciones y los criterios de validación se describen en el [Plan de Desarrollo](docs/PLAN.md).
 
 ---
 

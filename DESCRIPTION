@@ -1,6 +1,6 @@
 Package: citesperu
 Title: Peruvian Species Checklists from CITES Publications
-Version: 0.0.0.9000
+Version: 0.1.0
 Authors@R: 
     person("Paul E.", "Santos Andrade", , "paulefrens@gmail.com",
            role = c("aut", "cre", "cph"),
@@ -24,6 +24,7 @@ BugReports: https://github.com/PaulESantos/citesperu/issues
 Depends: 
     R (>= 3.5)
 Imports: 
+    cli,
     dplyr,
     tibble
 LazyData: true
