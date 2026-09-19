@@ -1,0 +1,220 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Lora:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+
+/* ==============================================================================
+   citesperu - Estilo y Paleta Sobria Inspirada en el Perú
+   Adaptado con arquitectura moderna bslib / Bootstrap 5 para pkgdown
+   ============================================================================== */
+
+:root {
+  --peru-red: #8B1E22;            /* Rojo carmesí institucional peruano */
+  --peru-red-dark: #6B1317;       /* Guinda profundo para títulos */
+  --peru-red-light: #A61C24;      /* Carmesí vibrante para acentos activos */
+  --peru-sand: #E8D8C8;           /* Tono arena andina / vicuña */
+  --peru-sand-soft: #F5EFEB;      /* Crema suave para fondos de píldoras */
+  --peru-bg: #FCFBF9;             /* Blanco cálido fibra de alpaca */
+  --peru-text: #1E1E24;           /* Carbón de alto contraste (WCAG AAA) */
+  --peru-gold: #B48B42;           /* Dorado solar andino */
+  --peru-green: #2D5A27;          /* Verde flora amazónica */
+}
+
+/* Tipografía y Espaciado General ------------------------------------------ */
+
+body {
+  background-color: var(--peru-bg);
+  color: var(--peru-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--peru-red-dark);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+.contents h2, .contents h3, .contents h4 {
+  margin-bottom: 1.25rem;
+  margin-top: 2rem;
+}
+
+.row {
+  margin-top: 1.25em;
+}
+
+@media (min-width: 768px) {
+  .contents {
+    padding-right: 3.5em;
+  }
+}
+
+/* Barra de Navegación (Navbar) -------------------------------------------- */
+
+.navbar {
+  padding-top: 0.85em;
+  padding-bottom: 0.85em;
+  border-bottom: 2.5px solid var(--peru-red);
+  background-color: var(--peru-bg) !important;
+  box-shadow: 0 2px 10px rgba(107, 19, 23, 0.04);
+}
+
+.navbar-brand {
+  font-weight: 800;
+  color: var(--peru-red-dark) !important;
+  font-size: 1.25rem;
+  letter-spacing: -0.02em;
+}
+
+/* Enlaces de la barra de navegación */
+.navbar-light .navbar-nav .nav-link {
+  color: var(--peru-text);
+  font-weight: 500;
+  padding: 0.45rem 0.85rem;
+  border-radius: 6px;
+  transition: all 0.2s ease-in-out;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+  color: var(--peru-red);
+  background-color: var(--peru-sand-soft);
+}
+
+/* Enlace activo */
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .show > .nav-link,
+.navbar-light .navbar-nav .active > .nav-link {
+  background-color: var(--peru-sand-soft);
+  color: var(--peru-red-dark) !important;
+  font-weight: 700;
+  border-bottom: 2px solid var(--peru-red);
+}
+
+/* Enlaces y Código -------------------------------------------------------- */
+
+a {
+  color: var(--peru-red);
+  text-decoration: none;
+  transition: color 0.15s ease-in-out;
+}
+
+a:hover {
+  color: var(--peru-red-dark);
+  text-decoration: underline;
+}
+
+code {
+  color: var(--peru-red-dark);
+  background-color: #F3EDE6;
+  padding: 0.18em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+code a {
+  color: var(--peru-red);
+  font-weight: 600;
+}
+
+code a:hover {
+  color: var(--peru-red-dark);
+}
+
+pre.sourceCode, pre {
+  background-color: #FAF6F0 !important;
+  border: 1px solid #EADBCE;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+/* Píldoras, Badges y Alertas ---------------------------------------------- */
+
+.badge.bg-primary {
+  background-color: var(--peru-red) !important;
+  color: #FFFFFF !important;
+}
+
+.badge.bg-secondary {
+  background-color: var(--peru-sand) !important;
+  color: var(--peru-red-dark) !important;
+}
+
+.badge.bg-info, .badge.bg-light {
+  background-color: var(--peru-sand-soft) !important;
+  color: var(--peru-red-dark) !important;
+  border: 1px solid var(--peru-sand);
+}
+
+/* Tablas ------------------------------------------------------------------ */
+
+.table {
+  border-color: #EDE4D8;
+}
+
+.table thead th {
+  background-color: #F7EFE6;
+  color: var(--peru-red-dark);
+  font-weight: 700;
+  border-bottom: 2px solid var(--peru-sand);
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(232, 216, 200, 0.15);
+}
+
+.table-hover tbody tr:hover {
+  background-color: rgba(232, 216, 200, 0.3);
+}
+
+/* Tarjetas y Bloques ------------------------------------------------------ */
+
+.card {
+  border: 1px solid #EADBCE;
+  border-radius: 8px;
+  background-color: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(107, 19, 23, 0.03);
+}
+
+.card-header {
+  background-color: var(--peru-sand-soft);
+  color: var(--peru-red-dark);
+  font-weight: 700;
+  border-bottom: 1px solid #EADBCE;
+}
+
+/* Botones de acción ------------------------------------------------------- */
+
+.btn-primary {
+  background-color: var(--peru-red);
+  border-color: var(--peru-red);
+  color: #FFFFFF;
+}
+
+.btn-primary:hover, .btn-primary:focus {
+  background-color: var(--peru-red-dark);
+  border-color: var(--peru-red-dark);
+}
+
+.btn-outline-primary {
+  color: var(--peru-red);
+  border-color: var(--peru-red);
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--peru-red);
+  border-color: var(--peru-red);
+  color: #FFFFFF;
+}
+
+/* Pie de Página (Footer) -------------------------------------------------- */
+
+footer {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  border-top: 1px solid var(--peru-sand);
+  color: #6C757D;
+  font-size: 0.9rem;
+}
+
+footer a {
+  color: var(--peru-red);
+  font-weight: 500;
+}
