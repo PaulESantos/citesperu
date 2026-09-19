@@ -15,9 +15,20 @@
   * Documentación del sistema de 24 acrónimos departamentales de Lamas & Encarnación (1976), el significado del símbolo `?` y las anotaciones de derivados (`#`).
   * Registro de herbarios físicos (USM, MOL) y virtuales (MO, US, NY, F).
 
-* **Documentación del paquete y manuales:**
-  * Actualización de `R/citesperu-package.R` y `R/data.R` con documentación roxygen2 para `cites_fauna_peru_2018`, `cites_flora_peru_2018` y `codigos_departamentos_pe`.
-  * Generación de archivos de ayuda `.Rd` en `man/`.
-  * Actualización de `README.Rmd` y renderizado con Quarto Pandoc a `README.md`.
-  * Registro de control de procedencia en `docs/FUENTES.md` y plan de desarrollo en `docs/PLAN.md`.
-  * Registro pormenorizado de cambios e implementaciones en `docs/IMPLEMENTACION_DOCUMENTACION.md`.
+* **Incorporación y exportación de datos (`data/`):**
+  * Se procesaron y exportaron mediante `usethis::use_data()` los cuatro listados oficiales CITES de Perú:
+    * `cites_fauna_peru_2018` (512 observaciones, 17 variables: 496 especies oficiales reguladas + 16 de Apéndice III).
+    * `cites_fauna_peru_2019` (523 observaciones, 17 variables: actualización oficial v.2019-01 con ámbito ecológico y género).
+    * `cites_fauna_peru_2023` (568 observaciones, 17 variables: resoluciones CoP19 Panamá 2022 vigentes en 2023, competencia sectorial SERFOR/PRODUCE y año de inclusión/enmienda).
+    * `cites_flora_peru_2018` (2506 observaciones, 10 variables: listado completo en 9 familias botánicas nativas).
+    * `codigos_departamentos_pe` (24 observaciones, 3 variables: acrónimos estándar de Lamas & Encarnación 1976 y códigos UBIGEO del INEI).
+  * Se creó el script reproducible de preparación en `data-raw/01_preparar_datos_cites.R`.
+  * Se documentaron exhaustivamente las variables, fuentes oficiales y ejemplos de uso en `R/data.R` y se compilaron los manuales correspondientes en `man/`.
+* **Sistema de consulta y concordancia taxonómica (matching):**
+  * Se implementó el motor de matching taxonómico inspirado en la arquitectura de `wcvpmatch`, optimizado en R puro:
+    * `cites_classify_names()` (y alias `classify_spnames()`): clasificador y normalizador de nombres binominales y trinominales, separando género, epíteto específico, rango infraespecífico, epíteto infraespecífico, autoría y banderas (`has_cf`, `has_aff`, `is_sp`, `is_spp`, `had_hybrid`).
+    * `cites_match()` (y alias `cites_matching()`, `match_cites_pe()`): tubería secuencial optimizada con direct match (coincidencia exacta), synonym match (resolución de sinónimos oficiales a taxón CITES aceptado y su Apéndice), suffix match (flexión de género en sufijos latinos), fuzzy match acotado al género por distancia de edición (`max_dist`), y genus match para taxones regulados a nivel genérico o con calificador `sp.`/`spp.`.
+    * `is_cites()` (y alias `is_cites_pe()`): evaluación booleana vectorizada ultrarrápida (`TRUE`/`FALSE`/`NA`).
+  * Se compiló el backbone interno pre-indexado en `R/sysdata.rda` integrando 5,816 registros taxonómicos (3,053 aceptados y 2,763 sinónimos oficiales) con acceso hash O(1).
+  * Se incorporaron pruebas unitarias completas en `tests/testthat/test-matching.R` alcanzando 72 pruebas exitosas en el paquete (`0 FAIL | 0 WARN | 72 PASS`).
+

@@ -56,14 +56,15 @@ MINAM](https://www.gob.pe/institucion/minam/colecciones/609-listados-de-especies
 Cada conjunto de datos conserva estrictamente su propia edición y
 alcance temporal:
 
-| Dataset en desarrollo | Edición / Título Oficial | Grupo | Cobertura Oficial | Formato de Origen |
+| Dataset | Edición / Título Oficial | Grupo | Cobertura Oficial | Formato de Origen |
 |----|----|:--:|----|:--:|
-| `cites_fauna_peru_2018` | [Listado Fauna CITES Perú - 2018](https://www.gob.pe/institucion/minam/informes-publicaciones/395692-listado-fauna-cites-peru-2018) | Fauna | **496 especies** (48 en Ap. I, 448 en Ap. II, 16 en Ap. III\*) | PDF oficial |
-| `cites_flora_peru_2018` | [Listado Flora CITES Perú - 2018](https://www.gob.pe/institucion/minam/informes-publicaciones/395685-listado-flora-cites-peru-2018) | Flora | **2506 taxa** en 9 familias botánicas (12 Ap. I, 2493 Ap. II, 1 Ap. III) | PDF oficial |
-| `cites_fauna_peru_2023` | [Listado de Fauna CITES Perú 2023](https://www.gob.pe/institucion/minam/informes-publicaciones/4042047-listado-de-fauna-cites-peru-2023) | Fauna | En proceso de importación y control de calidad | XLS oficial |
-| `codigos_departamentos_pe` | Acrónimos Biogeográficos de Lamas & Encarnación (1976) | Geografía | 24 acrónimos estándar departamentales | Referencia técnica |
+| `cites_fauna_peru_2018` | [Listado Fauna CITES Perú - 2018](https://www.gob.pe/institucion/minam/informes-publicaciones/395692-listado-fauna-cites-peru-2018) | Fauna | **496 especies** oficiales (48 Ap. I, 448 Ap. II, más 16 en Ap. III\*) | PDF / Excel oficial |
+| `cites_fauna_peru_2019` | [Listado de Fauna CITES Perú 2019](https://www.gob.pe/institucion/minam/informes-publicaciones/395694-listado-de-fauna-cites-peru-2019) | Fauna | **523 registros** (con ámbito ecológico y género) | Excel oficial |
+| `cites_fauna_peru_2023` | [Listado de Fauna CITES Perú 2023](https://www.gob.pe/institucion/minam/informes-publicaciones/4109405-listado-de-fauna-cites-peru-2023) | Fauna | **568 especies** (48 Ap. I, 503 Ap. II, 17 Ap. III; CoP19 Panamá) | Excel oficial |
+| `cites_flora_peru_2018` | [Listado Flora CITES Perú - 2018](https://www.gob.pe/institucion/minam/informes-publicaciones/395685-listado-flora-cites-peru-2018) | Flora | **2506 taxa** en 9 familias botánicas (12 Ap. I, 2493 Ap. II, 1 Ap. III) | PDF / Excel oficial |
+| `codigos_departamentos_pe` | Acrónimos Biogeográficos de Lamas & Encarnación (1976) | Geografía | 24 acrónimos estándar departamentales y códigos UBIGEO | Referencia técnica |
 
-*\* En fauna, las 16 especies registradas en el Apéndice III fueron
+*\* En fauna 2018, las 16 especies registradas en el Apéndice III fueron
 incluidas a propuesta de otros países Parte. Como el Perú no ha
 solicitado inclusiones en dicho apéndice, el MINAM no las suma al total
 nacional oficial.*
@@ -97,32 +98,45 @@ Consulta el historial de entregas y control de procedencia en
 
 ------------------------------------------------------------------------
 
-## Funcionalidad Planificada de la API
+## Funciones Principales de la API
 
 | Función | Propósito |
 |----|----|
-| `cites_pe_list()` | Consultar y filtrar el listado por reino (`fauna`/`flora`), apéndice (`I`, `II`, `III`), clase o familia. |
-| `is_cites_pe()` | Evaluación booleana exacta y normalizada (vector del mismo largo que la entrada). |
-| `match_cites_pe()` | Búsqueda y concordancia taxonómica: coincidencia exacta, resolución por sinónimos oficiales o candidatos aproximados (*fuzzy*). |
-| `summary.cites_pe()` | Método S3 para resumir registros y conteo de taxones por apéndice, familia, clase o departamento. |
+| `cites_match()` | Motor de concordancia taxonómica: coincidencia directa exacta, resolución por sinónimos oficiales, sufijo latino, aproximación (*fuzzy*) y nivel genérico. |
+| `is_cites()` | Evaluación booleana vectorizada rápida (`TRUE`/`FALSE`/`NA`). |
+| `cites_classify_names()` | Desglose y normalización de nombres científicos, rangos infraespecíficos, autores y banderas (`cf.`, `aff.`, `sp.`, etc.). |
 
-### Ejemplo de Uso Propuesto
+*Nota: Se mantienen los alias `cites_matching()`, `match_cites_pe()`,
+`is_cites_pe()` y `classify_spnames()` para máxima compatibilidad con el
+ecosistema de `wcvpmatch`.*
+
+### Ejemplos de Uso
 
 ``` r
 library(citesperu)
 
-# Consultar especies de fauna en Apéndice I
-fauna_ap1 <- cites_pe_list(taxon = "fauna", apendice = "I")
+# 1. Verificación booleana rápida
+especies <- c("Tremarctos ornatus", "Cedrela odorata", "Homo sapiens")
+is_cites(especies)
+#> [1]  TRUE  TRUE FALSE
 
-# Verificar si una lista de especies se encuentra incluida en CITES Perú
-especies <- c("Tremarctos ornatus", "Panthera onca", "Cedrela odorata", "Homo sapiens")
-is_cites_pe(especies)
+# 2. Matching completo con resolución de sinónimos y apéndices
+cites_match(c(
+  "Tremarctos ornatus",      # Coincidencia exacta (Fauna Ap. I)
+  "Epipedobates femoralis",  # Sinónimo resuelto a Allobates femoralis (Ap. II)
+  "Paphiopedilum besseae",   # Sinónimo resuelto a Phragmipedium besseae (Ap. I)
+  "Cedrela odoratus",        # Variación de sufijo latino (-us -> -a)
+  "Swietenia macrofila",     # Error tipográfico (fuzzy match, dist = 2)
+  "Touit sp.",               # Coincidencia a nivel de género
+  "Homo sapiens"             # No incluido en CITES
+), max_dist = 2)
 
-# Búsqueda aproximada o resolución de sinónimos
-match_cites_pe("Phragmipedium caudatum", method = "synonym")
-
-# Resumen taxonómico
-summary(cites_pe_list(taxon = "flora"), by = "familia")
+# 3. Parsing taxonómico y extracción de componentes
+cites_classify_names(c(
+  "Swietenia macrophylla King",
+  "Phragmipedium boissierianum var. czerwiakowianum",
+  "Cedrela cf. odorata"
+))
 ```
 
 ------------------------------------------------------------------------

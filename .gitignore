@@ -6,3 +6,4 @@
 .quarto
 *.tar.gz
 README.html
+data-raw
