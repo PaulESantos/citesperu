@@ -12,6 +12,7 @@ cites_match(
   edition = c("latest", "all", "2023", "2019", "2018"),
   max_dist = 1,
   allow_synonyms = TRUE,
+  genus_fallback = FALSE,
   output = c("standard", "full")
 )
 
@@ -21,6 +22,7 @@ cites_matching(
   edition = c("latest", "all", "2023", "2019", "2018"),
   max_dist = 1,
   allow_synonyms = TRUE,
+  genus_fallback = FALSE,
   output = c("standard", "full")
 )
 
@@ -30,6 +32,7 @@ match_cites_pe(
   edition = c("latest", "all", "2023", "2019", "2018"),
   max_dist = 1,
   allow_synonyms = TRUE,
+  genus_fallback = FALSE,
   output = c("standard", "full")
 )
 }
@@ -54,6 +57,10 @@ Por defecto es \code{1} (permite 1 inserción, sustitución o eliminación dentr
 
 \item{allow_synonyms}{Valor lógico. Si es \code{TRUE} (por defecto), resuelve coincidencias con
 sinónimos oficiales al taxón CITES aceptado. Si es \code{FALSE}, solo busca nombres aceptados.}
+
+\item{genus_fallback}{Valor lógico. Si es \code{FALSE} (por defecto), los nombres binominales que no
+coinciden a nivel de especie permanecen como no listados (\code{unmatched}). Si es \code{TRUE},
+se permite que binomios sin coincidencia específica hagan match con el género si este está regulado.}
 
 \item{output}{Formato de salida:
 \itemize{
@@ -93,7 +100,7 @@ cites_match(c(
 ))
 
 # Consulta con errores tipográficos (fuzzy match)
-cites_match(c("Tremarctos ornatu", "Swietenia macrofila"), max_dist = 1)
+cites_match(c("Tremarctos ornatu", "Swietenia macrofila"), max_dist = 2)
 
 # Consulta a nivel de género
 cites_match(c("Cedrela sp.", "Touit spp."))

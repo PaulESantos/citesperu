@@ -7,3 +7,5 @@
 *.tar.gz
 README.html
 data-raw
+docs
+Fauna_CITES_Peru_2018.rds
