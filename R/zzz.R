@@ -55,10 +55,9 @@ citesperu_attach_message <- function() {
   )
 
   items <- c(
-    "cites_fauna_peru_2018"    = "496 spp.",
     "cites_flora_peru_2018"    = "2506 taxa",
+    "cites_fauna_peru_2018"    = "496 spp.",
     "cites_fauna_peru_2019"    = "523 spp.",
-    "codigos_departamentos_pe" = "24 depts.",
     "cites_fauna_peru_2023"    = "568 spp.",
     "cites_match()"            = "matching engine"
   )
@@ -81,20 +80,21 @@ citesperu_attach_message <- function() {
 
   footer_auth <- paste0(
     cli::col_cyan(cli::symbol$info), " ",
-    cli::style_italic("Autoridad Cient\u00edfica: MINAM | Autoridades Administrativas: SERFOR / PRODUCE")
+    cli::style_italic("Listado de Especies de Flora y Fauna Silvestre CITES - Per\u00fa.\n",
+                      "Direcci\u00f3n General de Diversidad Biol\u00f3gica")
   )
 
-  footer_hint <- paste0(
-    cli::col_cyan(cli::symbol$info), " ",
-    "Usa ", cli::col_yellow("cites_match()"), " para concordancia o revisa la ",
-    cli::format_inline("{.href [documentaci\u00f3n](https://paulesantos.github.io/citesperu/)}")
-  )
+  #footer_hint <- paste0(
+  #  cli::col_cyan(cli::symbol$info), " ",
+  #  "Usa ", cli::col_yellow("cites_match()"), " para concordancia o revisa la ",
+  #  cli::format_inline("{.href [documentaci\u00f3n](https://paulesantos.github.io/citesperu/)}")
+  #)
 
   paste0(
     header, "\n",
     paste(grid, collapse = "\n"), "\n",
-    footer_auth, "\n",
-    footer_hint
+    footer_auth#, "\n",
+    #footer_hint
   )
 }
 
