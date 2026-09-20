@@ -1,40 +1,44 @@
----
-output: github_document
----
 
 <!-- README.md se genera desde README.Rmd. Por favor edita este archivo. -->
 
 # citesperu
 
 <!-- badges: start -->
-[![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-green.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
-[![CRAN status](https://www.r-pkg.org/badges/version/citesperu)](https://CRAN.R-project.org/package=citesperu)
+
+[![Lifecycle:
+stable](https://img.shields.io/badge/lifecycle-stable-green.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/citesperu)](https://CRAN.R-project.org/package=citesperu)
 [![R-CMD-check](https://github.com/PaulESantos/citesperu/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/PaulESantos/citesperu/actions/workflows/R-CMD-check.yaml)
-[![Codecov test coverage](https://codecov.io/gh/PaulESantos/citesperu/branch/main/graph/badge.svg)](https://app.codecov.io/gh/PaulESantos/citesperu)
-[![CRAN downloads](https://cranlogs.r-pkg.org/badges/grand-total/citesperu?color=green)](https://cran.r-project.org/package=citesperu)
-[![CRAN downloads last week](https://cranlogs.r-pkg.org/badges/last-week/citesperu?color=green)](https://cran.r-project.org/package=citesperu)
+[![Codecov test
+coverage](https://codecov.io/gh/PaulESantos/citesperu/branch/main/graph/badge.svg)](https://app.codecov.io/gh/PaulESantos/citesperu)
+[![CRAN
+downloads](https://cranlogs.r-pkg.org/badges/grand-total/citesperu?color=green)](https://cran.r-project.org/package=citesperu)
+[![CRAN downloads last
+week](https://cranlogs.r-pkg.org/badges/last-week/citesperu?color=green)](https://cran.r-project.org/package=citesperu)
 <!-- badges: end -->
 
-**citesperu** es un paquete de R para consultar, estructurar y contrastar de manera reproducible los listados oficiales de fauna y flora silvestres del Perú incluidas en los Apéndices de la **Convención sobre el Comercio Internacional de Especies Amenazadas de Fauna y Flora Silvestres (CITES)**, publicados por el **Ministerio del Ambiente (MINAM)** como Autoridad Científica CITES del país.
+**citesperu** es un paquete de R para consultar, estructurar y
+contrastar de manera reproducible los listados oficiales de fauna y
+flora silvestres del Perú incluidas en los Apéndices de la **Convención
+sobre el Comercio Internacional de Especies Amenazadas de Fauna y Flora
+Silvestres (CITES)**, publicados por el **Ministerio del Ambiente
+(MINAM)** como Autoridad Científica CITES del país.
 
-**Estado actual:** Versión `0.1.0`. Incorpora los 4 listados oficiales nacionales (Fauna 2018, 2019, 2023 y Flora 2018), un backbone histórico unificado de más de 8,500 registros con procedencia por fila, resolución de sinónimos y un motor de concordancia secuencial en 6 etapas (`cites_match()`).
+Incorpora los 4 listados oficiales nacionales (Fauna 2018, 2019, 2023 y
+Flora 2018), un backbone histórico unificado de más de 8,500 registros
+con procedencia por fila, resolución de sinónimos y un motor de
+concordancia secuencial en 6 etapas (`cites_match()`).
 
----
-
-## Autor
-
-**Paul E. Santos Andrade** — autor, mantenedor y titular de derechos del software.
-
-- Correo: <paulefrens@gmail.com>
-- ORCID: [0000-0002-6635-0375](https://orcid.org/0000-0002-6635-0375)
-
----
+------------------------------------------------------------------------
 
 ## Instalación
 
-Puedes instalar la versión de desarrollo de **citesperu** desde GitHub mediante [`pak`](https://pak.r-lib.org/) o [`remotes`](https://remotes.r-lib.org/):
+Puedes instalar la versión de desarrollo de **citesperu** desde GitHub
+mediante [`pak`](https://pak.r-lib.org/) o
+[`remotes`](https://remotes.r-lib.org/):
 
-```r
+``` r
 # Usando pak (recomendado)
 pak::pak("PaulESantos/citesperu")
 
@@ -42,9 +46,11 @@ pak::pak("PaulESantos/citesperu")
 # remotes::install_github("PaulESantos/citesperu")
 ```
 
-Al cargar la librería, `{citesperu}` despliega un banner informativo al estilo de `{tidyverse}` resumiendo las bases oficiales disponibles y herramientas activas:
+Al cargar la librería, `{citesperu}` despliega un banner informativo al
+estilo de `{tidyverse}` resumiendo las bases oficiales disponibles y
+herramientas activas:
 
-```r
+``` r
 library(citesperu)
 #> ── citesperu ───────────────────────────────────────────────────────── v0.1.0 ──
 #> ✔ cites_fauna_peru_2018    496 spp.            ✔ codigos_departamentos_pe 24 depts.      
@@ -54,59 +60,76 @@ library(citesperu)
 #> ℹ Usa cites_match() para concordancia o revisa la documentación (<https://paulesantos.github.io/citesperu/>)
 ```
 
-*(Si deseas silenciar el mensaje en entornos automatizados o scripts, usa `suppressPackageStartupMessages(library(citesperu))` o define `options(citesperu.quiet = TRUE)`).*
-
----
+------------------------------------------------------------------------
 
 ## Marco Institucional CITES en el Perú
 
-El Perú es Estado signatario de la Convención CITES desde 1975 (Decreto Ley N.° 21080). La gobernanza nacional se articula a través de tres niveles institucionales:
+El Perú es Estado signatario de la Convención CITES desde 1975 (Decreto
+Ley N.° 21080). La gobernanza nacional se articula a través de tres
+niveles institucionales:
 
-* **Autoridad Científica:** [Ministerio del Ambiente (MINAM)](https://www.gob.pe/minam), a través de la Dirección General de Diversidad Biológica (DGDB). Asesora científicamente, emite los Dictámenes de Extracción No Perjudicial (DENP) y elabora los listados oficiales nacionales.
-* **Autoridades Administrativas:** [SERFOR](https://www.gob.pe/serfor) (flora y fauna silvestre terrestre) y [PRODUCE / SANIPES](https://www.gob.pe/produce) (recursos hidrobiológicos marinos y continentales). Emiten los permisos y certificados de exportación, importación y reexportación CITES.
-* **Entidades de Observancia:** SUNAT (Aduanas), Policía Nacional del Perú (DIRMEAMB), DICAPI (Autoridad Marítima / Guardacostas) y FEMA (Fiscalías Especializadas en Materia Ambiental).
+- **Autoridad Científica:** [Ministerio del Ambiente
+  (MINAM)](https://www.gob.pe/minam), a través de la Dirección General
+  de Diversidad Biológica (DGDB). Asesora científicamente, emite los
+  Dictámenes de Extracción No Perjudicial (DENP) y elabora los listados
+  oficiales nacionales.
+- **Autoridades Administrativas:** [SERFOR](https://www.gob.pe/serfor)
+  (flora y fauna silvestre terrestre) y [PRODUCE /
+  SANIPES](https://www.gob.pe/produce) (recursos hidrobiológicos marinos
+  y continentales). Emiten los permisos y certificados de exportación,
+  importación y reexportación CITES.
+- **Entidades de Observancia:** SUNAT (Aduanas), Policía Nacional del
+  Perú (DIRMEAMB), DICAPI (Autoridad Marítima / Guardacostas) y FEMA
+  (Fiscalías Especializadas en Materia Ambiental).
 
-Para mayor detalle sobre el marco legal (D.S. 030-2005-AG, D.S. 004-2014-MINAGRI, D.S. 043-2006-AG), consulta la [Guía Técnica de Contexto CITES en el Perú](docs/CONTEXTO_CITES_PERU.md).
+Para mayor detalle sobre el marco legal (D.S. 030-2005-AG, D.S.
+004-2014-MINAGRI, D.S. 043-2006-AG), consulta la [Guía Técnica de
+Contexto CITES en el Perú](docs/CONTEXTO_CITES_PERU.md).
 
----
+------------------------------------------------------------------------
 
 ## Fuentes Oficiales y Cobertura (MINAM Colección 609)
 
-Los datos empaquetados proceden del [compendio oficial del MINAM](https://www.gob.pe/institucion/minam/colecciones/609-listados-de-especies-de-fauna-y-flora-cites-peru), conservando estrictamente su integridad documental y alcance temporal:
+Los datos empaquetados proceden del [compendio oficial del
+MINAM](https://www.gob.pe/institucion/minam/colecciones/609-listados-de-especies-de-fauna-y-flora-cites-peru),
+conservando estrictamente su integridad documental y alcance temporal:
 
 | Dataset | Edición / Título Oficial | Grupo | Cobertura Oficial | Registros | Formato de Origen |
-|---|---|:---:|---|:---:|:---:|
+|----|----|:--:|----|:--:|:--:|
 | `cites_fauna_peru_2018` | [Listado Fauna CITES Perú - 2018](https://www.gob.pe/institucion/minam/informes-publicaciones/395692-listado-fauna-cites-peru-2018) | Fauna | **496 especies** oficiales (48 Ap. I, 448 Ap. II, más 16 en Ap. III\*) | 512 | PDF / Excel oficial |
 | `cites_fauna_peru_2019` | [Listado de Fauna CITES Perú 2019](https://www.gob.pe/institucion/minam/informes-publicaciones/395694-listado-de-fauna-cites-peru-2019) | Fauna | **523 registros** (con ámbito ecológico y género) | 523 | Excel oficial |
 | `cites_fauna_peru_2023` | [Listado de Fauna CITES Perú 2023](https://www.gob.pe/institucion/minam/informes-publicaciones/4109405-listado-de-fauna-cites-peru-2023) | Fauna | **568 especies** (48 Ap. I, 503 Ap. II, 17 Ap. III; CoP19 Panamá) | 568 | Excel oficial |
 | `cites_flora_peru_2018` | [Listado Flora CITES Perú - 2018](https://www.gob.pe/institucion/minam/informes-publicaciones/395685-listado-flora-cites-peru-2018) | Flora | **2506 taxa** en 9 familias botánicas (12 Ap. I, 2493 Ap. II, 1 Ap. III) | 2506 | PDF / Excel oficial |
 | `codigos_departamentos_pe` | Acrónimos Biogeográficos de Lamas & Encarnación (1976) | Geografía | 24 acrónimos estándar departamentales y códigos UBIGEO del INEI | 24 | Referencia técnica |
 
-*\* En fauna 2018, las 16 especies registradas en el Apéndice III fueron incluidas a propuesta de otros países Parte. Como el Perú no ha solicitado inclusiones en dicho apéndice, el MINAM no las contabiliza en el balance oficial nacional.*
+*\* En fauna 2018, las 16 especies registradas en el Apéndice III fueron
+incluidas a propuesta de otros países Parte. Como el Perú no ha
+solicitado inclusiones en dicho apéndice, el MINAM no las contabiliza en
+el balance oficial nacional.*
 
----
+------------------------------------------------------------------------
 
 ## Backbone taxonómico y flujo de concordancia
 
-`cites_match()` no consulta los archivos fuente en cada llamada. Trabaja con
-un backbone interno preindexado (`cites_backbone`) construido a partir de la
-fauna 2023 y la flora 2018: la combinación que representa
-`edition = "latest"`. También conserva las ediciones de fauna 2018 y 2019.
-El índice reúne nombres aceptados y sinonimias registradas en las fuentes del
-MINAM; cada coincidencia conserva el Apéndice CITES, la edición efectiva y la
-referencia de origen (`source_dataset`, `source_row_id`, `source_title` y
-`source_url`).
+`cites_match()` no consulta los archivos fuente en cada llamada. Trabaja
+con un backbone interno preindexado (`cites_backbone`) construido a
+partir de la fauna 2023 y la flora 2018: la combinación que representa
+`edition = "latest"`. También conserva las ediciones de fauna 2018 y
+2019. El índice reúne nombres aceptados y sinonimias registradas en las
+fuentes del MINAM; cada coincidencia conserva el Apéndice CITES, la
+edición efectiva y la referencia de origen (`source_dataset`,
+`source_row_id`, `source_title` y `source_url`).
 
 El flujo es secuencial: una etapa solo recibe los nombres que no fueron
 resueltos por la anterior.
 
-```text
+``` text
 Entrada → clasificación del nombre
         → exact → synonym → suffix → fuzzy → genus → unmatched
 ```
 
 | Etapa | `match_type` | Qué resuelve |
-|---|---|---|
+|----|----|----|
 | Coincidencia exacta | `exact` | Un nombre aceptado del backbone. |
 | Sinonimia | `synonym` | Un sinónimo del backbone y su `accepted_name`. |
 | Sufijo latino | `suffix` | Variaciones permitidas de desinencia dentro del mismo género; requiere validación taxonómica. |
@@ -115,33 +138,36 @@ Entrada → clasificación del nombre
 | Sin resolución | `unmatched` | No hubo coincidencia en el alcance consultado. |
 | Ambigua | `ambiguous_match` | Hay más de un candidato con la misma regla o distancia; no se asigna Apéndice. |
 
-La clasificación inicial (`cites_classify_names()`) separa género, epíteto,
-rango infraespecífico, autoría y marcadores como `cf.`, `aff.`, `sp.` y
-`spp.`. La etapa `genus` usa un índice de géneros presentes en el backbone.
-Por ello, una coincidencia de género indica que hay registros CITES para ese
-género en el alcance elegido; no identifica una especie ni por sí sola prueba
-que toda especie del género esté incluida. El resultado conserva
-`is_cites = TRUE` para indicar la presencia del género en el listado y asigna
+La clasificación inicial (`cites_classify_names()`) separa género,
+epíteto, rango infraespecífico, autoría y marcadores como `cf.`, `aff.`,
+`sp.` y `spp.`. La etapa `genus` usa un índice de géneros presentes en
+el backbone. Por ello, una coincidencia de género indica que hay
+registros CITES para ese género en el alcance elegido; no identifica una
+especie ni por sí sola prueba que toda especie del género esté incluida.
+El resultado conserva `is_cites = TRUE` para indicar la presencia del
+género en el listado y asigna
 `match_assessment = "requires_species_validation"`. Para decisiones
 regulatorias, se debe confirmar el taxón determinado y la fuente oficial
 aplicable.
 
-`match_assessment` expresa la certeza operativa del resultado: `matched` para
-un nombre aceptado o sinónimo sin calificadores; `requires_taxonomic_validation`
-para `suffix`, `fuzzy`, `cf.`, `aff.`, híbridos o rangos infraespecíficos;
-`requires_species_validation` para género; `ambiguous_match` para empates y
-`not_listed` cuando no hubo coincidencia. Los resultados ambiguos no reciben
-Apéndice y exponen `candidate_names` y `candidate_count`.
+`match_assessment` expresa la certeza operativa del resultado: `matched`
+para un nombre aceptado o sinónimo sin calificadores;
+`requires_taxonomic_validation` para `suffix`, `fuzzy`, `cf.`, `aff.`,
+híbridos o rangos infraespecíficos; `requires_species_validation` para
+género; `ambiguous_match` para empates y `not_listed` cuando no hubo
+coincidencia. Los resultados ambiguos no reciben Apéndice y exponen
+`candidate_names` y `candidate_count`.
 
-La viñeta ["Flujo de Trabajo y Resolución Taxonómica"](vignettes/flujo-matching-cites.html)
-documenta el procedimiento, sus parámetros y ejemplos reproducibles.
+La viñeta [“Flujo de Trabajo y Resolución
+Taxonómica”](vignettes/flujo-matching-cites.html) documenta el
+procedimiento, sus parámetros y ejemplos reproducibles.
 
----
+------------------------------------------------------------------------
 
 ## Parámetros de Control en `cites_match()`
 
 | Parámetro | Valores | Descripción |
-|---|---|---|
+|----|----|----|
 | `splist` | `character` o `data.frame` | Vector de nombres científicos o data frame que contenga nombres. |
 | `taxon` | `"all"` (default), `"fauna"`, `"flora"` | Permite restringir la búsqueda a un reino específico (evita ambigüedades homónimas). |
 | `edition` | `"latest"` (default), `"all"`, `"2023"`, `"2019"`, `"2018"` | Edición oficial a consultar. Por defecto combina Fauna 2023 + Flora 2018. |
@@ -151,11 +177,12 @@ documenta el procedimiento, sus parámetros y ejemplos reproducibles.
 | `output` | `"standard"` (default) / `"full"` | `"standard"` devuelve las columnas esenciales, incluida `match_assessment`; `"full"` incluye además parsing y flags. |
 
 `is_cites()` es deliberadamente más estricto: solo devuelve `TRUE` para
-coincidencias exactas o sinónimos oficiales sin calificadores de incertidumbre.
-Para resultados `genus`, `suffix`, `fuzzy`, ambiguos o con `cf.`, `aff.` e
-híbridos, usa `cites_match()` y revisa `match_assessment`.
+coincidencias exactas o sinónimos oficiales sin calificadores de
+incertidumbre. Para resultados `genus`, `suffix`, `fuzzy`, ambiguos o
+con `cf.`, `aff.` e híbridos, usa `cites_match()` y revisa
+`match_assessment`.
 
----
+------------------------------------------------------------------------
 
 ## Ejemplos de Uso
 
@@ -163,22 +190,28 @@ híbridos, usa `cites_match()` y revisa `match_assessment`.
 
 Ideal para filtros lógicos inmediatos en pipelines de datos:
 
-
 ``` r
 library(citesperu)
+```
 
+    ## ── citesperu ───────────────────────────────────────────────────────── v0.1.0 ──
+    ## ✔ cites_flora_peru_2018 2506 taxa           ✔ cites_fauna_peru_2023 568 spp.       
+    ## ✔ cites_fauna_peru_2018 496 spp.            ✔ cites_match()         matching engine
+    ## ✔ cites_fauna_peru_2019 523 spp.            
+    ## ℹ Listado de Especies de Flora y Fauna Silvestre CITES - Perú.
+    ## Autoridad Científica: MINAM / Dirección General de Diversidad Biológica
+
+``` r
 especies <- c("Tremarctos ornatus", "Cedrela odorata", "Homo sapiens")
 is_cites(especies)
 ```
 
-```
-## [1]  TRUE  TRUE FALSE
-```
+    ## [1]  TRUE  TRUE FALSE
 
 ### 2. Motor de concordancia taxonómica (`cites_match()`)
 
-Demostración de los diferentes tipos de coincidencia en una sola consulta:
-
+Demostración de los diferentes tipos de coincidencia en una sola
+consulta:
 
 ``` r
 res <- cites_match(c(
@@ -197,25 +230,23 @@ res[, c("input_name", "accepted_name", "match_type", "match_assessment",
         "is_cites", "apendice", "edition_used", "source_dataset")]
 ```
 
-```
-## # A tibble: 8 x 8
-##   input_name         accepted_name match_type match_assessment is_cites apendice
-##   <chr>              <chr>         <chr>      <chr>            <lgl>    <chr>
-## 1 Tremarctos ornatus Tremarctos o~ exact      matched          TRUE     I
-## 2 Epipedobates femo~ Allobates fe~ synonym    matched          TRUE     II
-## 3 Paphiopedilum bes~ Phragmipediu~ synonym    matched          TRUE     I
-## 4 Cedrela odoratus   Cedrela odor~ suffix     requires_taxono~ TRUE     III
-## 5 Tremarctos ornatu  Tremarctos o~ fuzzy      requires_taxono~ TRUE     I
-## 6 Swietenia macroph~ Swietenia ma~ fuzzy      requires_taxono~ TRUE     II
-## 7 Touit sp.          Touit spp.    genus      requires_specie~ TRUE     II
-## 8 Homo sapiens       <NA>          unmatched  not_listed       FALSE    <NA>
-## # i 2 more variables: edition_used <chr>, source_dataset <chr>
-```
+    ## # A tibble: 8 × 8
+    ##   input_name         accepted_name match_type match_assessment is_cites apendice
+    ##   <chr>              <chr>         <chr>      <chr>            <lgl>    <chr>   
+    ## 1 Tremarctos ornatus Tremarctos o… exact      matched          TRUE     I       
+    ## 2 Epipedobates femo… Allobates fe… synonym    matched          TRUE     II      
+    ## 3 Paphiopedilum bes… Phragmipediu… synonym    matched          TRUE     I       
+    ## 4 Cedrela odoratus   Cedrela odor… suffix     requires_taxono… TRUE     III     
+    ## 5 Tremarctos ornatu  Tremarctos o… fuzzy      requires_taxono… TRUE     I       
+    ## 6 Swietenia macroph… Swietenia ma… fuzzy      requires_taxono… TRUE     II      
+    ## 7 Touit sp.          Touit spp.    genus      requires_specie… TRUE     II      
+    ## 8 Homo sapiens       <NA>          unmatched  not_listed       FALSE    <NA>    
+    ## # ℹ 2 more variables: edition_used <chr>, source_dataset <chr>
 
 ### 3. Clasificación taxonómica y extracción de componentes (`cites_classify_names()`)
 
-Descompone nombres científicos extrayendo rangos infraespecíficos, autores y marcadores de indeterminación:
-
+Descompone nombres científicos extrayendo rangos infraespecíficos,
+autores y marcadores de indeterminación:
 
 ``` r
 cites_classify_names(c(
@@ -226,22 +257,20 @@ cites_classify_names(c(
 ))
 ```
 
-```
-## # A tibble: 4 x 14
-##   input_index input_name       canonical_name orig_genus orig_species infra_rank
-##         <int> <chr>            <chr>          <chr>      <chr>        <chr>
-## 1           1 Swietenia macro~ Swietenia mac~ Swietenia  macrophylla  <NA>
-## 2           2 Phragmipedium b~ Phragmipedium~ Phragmipe~ boissierian~ var.
-## 3           3 Cedrela cf. odo~ Cedrela odora~ Cedrela    odorata      <NA>
-## 4           4 Touit sp.        Touit          Touit      <NA>         <NA>
-## # i 8 more variables: orig_infraspecies <chr>, author <chr>, rank <dbl>,
-## #   has_cf <lgl>, has_aff <lgl>, is_sp <lgl>, is_spp <lgl>, had_hybrid <lgl>
-```
+    ## # A tibble: 4 × 14
+    ##   input_index input_name       canonical_name orig_genus orig_species infra_rank
+    ##         <int> <chr>            <chr>          <chr>      <chr>        <chr>     
+    ## 1           1 Swietenia macro… Swietenia mac… Swietenia  macrophylla  <NA>      
+    ## 2           2 Phragmipedium b… Phragmipedium… Phragmipe… boissierian… var.      
+    ## 3           3 Cedrela cf. odo… Cedrela odora… Cedrela    odorata      <NA>      
+    ## 4           4 Touit sp.        Touit          Touit      <NA>         <NA>      
+    ## # ℹ 8 more variables: orig_infraspecies <chr>, author <chr>, rank <dbl>,
+    ## #   has_cf <lgl>, has_aff <lgl>, is_sp <lgl>, is_spp <lgl>, had_hybrid <lgl>
 
 ### 4. Integración en flujos tabulares con `{dplyr}`
 
-`cites_match()` acepta directamente `data.frame` o `tibble`, facilitando la limpieza de inventarios biológicos o registros aduaneros:
-
+`cites_match()` acepta directamente `data.frame` o `tibble`, facilitando
+la limpieza de inventarios biológicos o registros aduaneros:
 
 ``` r
 library(dplyr)
@@ -264,32 +293,35 @@ inventario_evaluado <- bind_cols(
 inventario_evaluado
 ```
 
-```
-## # A tibble: 4 x 11
-##      id nombre_campo       cantidad_individuos accepted_name apendice match_type
-##   <int> <chr>                            <dbl> <chr>         <chr>    <chr>
-## 1     1 Tremarctos ornatus                   2 Tremarctos o~ I        exact
-## 2     2 Epipedobates femo~                  15 Allobates fe~ II       synonym
-## 3     3 Cedrela odoratus                     1 Cedrela odor~ III      suffix
-## 4     4 Zea mays                           100 <NA>          <NA>     unmatched
-## # i 5 more variables: match_assessment <chr>, edition_used <chr>,
-## #   source_dataset <chr>, source_row_id <chr>, is_cites <lgl>
-```
+    ## # A tibble: 4 × 11
+    ##      id nombre_campo       cantidad_individuos accepted_name apendice match_type
+    ##   <int> <chr>                            <dbl> <chr>         <chr>    <chr>     
+    ## 1     1 Tremarctos ornatus                   2 Tremarctos o… I        exact     
+    ## 2     2 Epipedobates femo…                  15 Allobates fe… II       synonym   
+    ## 3     3 Cedrela odoratus                     1 Cedrela odor… III      suffix    
+    ## 4     4 Zea mays                           100 <NA>          <NA>     unmatched 
+    ## # ℹ 5 more variables: match_assessment <chr>, edition_used <chr>,
+    ## #   source_dataset <chr>, source_row_id <chr>, is_cites <lgl>
 
----
+------------------------------------------------------------------------
 
 ## Viñeta Técnica de Consulta
 
-Para un desglose metodológico exhaustivo, fundamentos biológicos y comparativas de rendimiento, consulta la viñeta incluida en el paquete:
+Para un desglose metodológico exhaustivo, fundamentos biológicos y
+comparativas de rendimiento, consulta la viñeta incluida en el paquete:
 
-```r
+``` r
 vignette("flujo-matching-cites", package = "citesperu")
 ```
 
----
+------------------------------------------------------------------------
 
 ## Licencia y Atribución
 
-El software y código fuente de **citesperu** se distribuyen bajo la licencia de código abierto [MIT](LICENSE.md).
+El software y código fuente de **citesperu** se distribuyen bajo la
+licencia de código abierto [MIT](LICENSE.md).
 
-La información original de los listados pertenece al **Ministerio del Ambiente del Perú (MINAM)**. Los datasets empaquetados preservan íntegramente la cita a las publicaciones oficiales de origen y a sus respectivos autores técnicos.
+La información original de los listados pertenece al **Ministerio del
+Ambiente del Perú (MINAM)**. Los datasets empaquetados preservan
+íntegramente la cita a las publicaciones oficiales de origen y a sus
+respectivos autores técnicos.

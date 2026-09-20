@@ -17,16 +17,8 @@ output: github_document
 
 **citesperu** es un paquete de R para consultar, estructurar y contrastar de manera reproducible los listados oficiales de fauna y flora silvestres del Perú incluidas en los Apéndices de la **Convención sobre el Comercio Internacional de Especies Amenazadas de Fauna y Flora Silvestres (CITES)**, publicados por el **Ministerio del Ambiente (MINAM)** como Autoridad Científica CITES del país.
 
-**Estado actual:** Versión `0.1.0`. Incorpora los 4 listados oficiales nacionales (Fauna 2018, 2019, 2023 y Flora 2018), un backbone histórico unificado de más de 8,500 registros con procedencia por fila, resolución de sinónimos y un motor de concordancia secuencial en 6 etapas (`cites_match()`).
+Incorpora los 4 listados oficiales nacionales (Fauna 2018, 2019, 2023 y Flora 2018), un backbone histórico unificado de más de 8,500 registros con procedencia por fila, resolución de sinónimos y un motor de concordancia secuencial en 6 etapas (`cites_match()`).
 
----
-
-## Autor
-
-**Paul E. Santos Andrade** — autor, mantenedor y titular de derechos del software.
-
-- Correo: <paulefrens@gmail.com>
-- ORCID: [0000-0002-6635-0375](https://orcid.org/0000-0002-6635-0375)
 
 ---
 
