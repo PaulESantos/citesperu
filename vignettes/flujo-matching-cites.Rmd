@@ -19,9 +19,13 @@ knitr::opts_chunk$set(
 El comercio internacional de especies silvestres amparadas por la **Convención sobre el Comercio Internacional de Especies Amenazadas de Fauna y Flora Silvestres (CITES)** requiere una verificación rigurosa del estatus legal de los taxones. En el Perú, el **Ministerio del Ambiente (MINAM)**, en su condición de Autoridad Científica CITES, compila y publica periódicamente los listados oficiales de especies de fauna y flora silvestres reguladas.
 
 Sin embargo, los datos reales procedentes de inventarios biológicos, guías de transporte forestal, manifiestos de aduana o incautaciones suelen presentar:
+
 1. **Sinónimos históricos:** Especies reclasificadas en nuevos géneros o familias tras revisiones filogenéticas recientes.
+
 2. **Discrepancias en sufijos latinos:** Discordancias comunes de género gramatical en latín entre el sustantivo genérico y el adjetivo específico (`-us`, `-a`, `-um`, `-is`, `-e`).
+
 3. **Errores tipográficos:** Erratas de digitación u omisiones de caracteres en nombres biológicos complejos.
+
 4. **Determinaciones genéricas incompletas:** Muestras rotuladas como morfoespecies (`sp.`, `spp.`, `indet.`) que pertenecen a géneros o familias cuya regulación es integral (como *Cedrela*, *Swietenia*, *Podocnemis* o las familias Orchidaceae y Cactaceae).
 
 El paquete **`citesperu`** provee un motor de concordancia taxonómica (`cites_match()`) y una función booleana de alta velocidad (`is_cites()`) diseñados específicamente para resolver estas problemáticas con rigor científico y trazabilidad documental.
@@ -35,13 +39,13 @@ En lugar de consultar archivos tabulares dispersos en tiempo de ejecución, `cit
 * **Volumen:** Más de 5,800 registros taxonómicos (3,053 nombres válidos/aceptados y 2,763 sinónimos oficiales).
 * **Fauna:** Articula las ediciones de 2018 (496 spp. oficiales), 2019 (523 registros con ámbito ecológico) y 2023 (568 especies con las enmiendas CoP19 Panamá).
 * **Flora:** Articula el catálogo botánico oficial 2018 (2,506 taxa en 9 familias, incluyendo Orchidaceae con 2,215 taxa y Cactaceae con 186 taxa tratadas según el estándar de Hunt 2016).
-* **Gobernanza asociada:** Cada registro enlaza el Apéndice CITES (I, II o III), la categoría nacional de amenaza (D.S. n.° 004-2014-MINAGRI para fauna o D.S. n.° 043-2006-AG para flora), la categoría global de la UICN y la autoridad sectorial competente (SERFOR o PRODUCE/SANIPES).
+* **Gobernanza asociada:** Cada registro enlaza el Apéndice CITES (I, II o III), la categoría nacional de amenaza (D.S. N.° 004-2014-MINAGRI para fauna o D.S. N.° 043-2006-AG para flora), la categoría global de la UICN y la autoridad sectorial competente.
 
 ---
 
-## 3. Pipeline Secuencial de Concordancia (`cites_match`)
+## 3. Pipeline
 
-El motor de `cites_match()` procesa los nombres de entrada a través de una tubería secuencial en 6 etapas:
+El motor de `cites_match()` procesa los nombres de entrada a través de un flujo secuencial en 6 etapas:
 
 ```text
 [ Entrada del Usuario ]
@@ -97,8 +101,7 @@ nombres <- c(
   "Cedrela odoratus",        # 4. Variación de sufijo (-us por -a en Cedrela odorata)
   "Tremarctos ornatu",       # 5. Fuzzy match en epíteto (falta 's', dist = 1)
   "Swietenia macrophyla",    # 6. Fuzzy match en epíteto (falta 'l', dist = 1)
-  "Touit sp.",               # 7. Coincidencia a nivel de género (Ap. II)
-  "Canis familiaris"         # 8. No CITES (unmatched)
+  "Canis familiaris"         # 7. No CITES (unmatched)
 )
 
 resultado <- cites_match(nombres, max_dist = 1)
@@ -110,7 +113,6 @@ resultado[, c("input_name", "matched_name", "accepted_name", "match_type", "is_c
 * En el caso de **`Epipedobates femoralis`**, el usuario ingresó un sinónimo histórico de anfibio; el motor reconoció el sinónimo y devolvió como nombre aceptado **`Allobates femoralis`**, asignándole correctamente el **Apéndice II**.
 * En el caso de **`Paphiopedilum besseae`**, un sinónimo comercial botánico muy extendido en el mercado de orquídeas, el motor lo remonta a **`Phragmipedium besseae`**, asignándole el estatus de **Apéndice I**.
 * En **`Cedrela odoratus`**, la desinencia `-us` se normalizó automáticamente a **`Cedrela odorata`** (`match_type: suffix`) sin requerir penalización por distancia de edición.
-* En **`Touit sp.`**, al tratarse de un psitácido determinado solo a género, el motor reconoció que el género *Touit* se encuentra enteramente listado en el **Apéndice II**.
 
 ---
 
@@ -140,7 +142,7 @@ cites_match("Tremarctos ornatus", edition = "2018")[, c("input_name", "apendice"
 
 ## 6. Integración en Flujos de Limpieza de Datos con `dplyr`
 
-En proyectos reales de conservación o auditorías aduaneras, los datos suelen presentarse en tablas de inventario:
+En proyectos reales los datos suelen presentarse en tablas:
 
 ```{r, message=FALSE}
 library(dplyr)
