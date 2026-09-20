@@ -8,12 +8,11 @@
 #'   \item \strong{Direct match}: Coincidencia exacta con un taxón CITES aceptado.
 #'   \item \strong{Synonym match}: Coincidencia con un sinónimo oficial registrado en las publicaciones
 #'         del MINAM, resolviendo el registro al taxón aceptado y su respectivo Apéndice.
-#'   \item \strong{Suffix match}: Detección de variaciones ortográficas de género en sufijos latinos
-#'         (\code{-us}, \code{-a}, \code{-um}, \code{-is}, \code{-e}) dentro del mismo género.
-#'   \item \strong{Fuzzy match}: Coincidencia aproximada por distancia de edición (\emph{Levenshtein/OSA})
-#'         acotada al mismo género según el umbral \code{max_dist}.
-#'   \item \strong{Genus match}: Detección si un género ingresado (o con calificador \code{sp.}/\code{spp.})
-#'         cuenta con regulación CITES a nivel genérico o de familia superior.
+#'   \item \strong{Suffix match}: Variación de un par de sufijos latinos permitido dentro del mismo género.
+#'   \item \strong{Fuzzy match}: Coincidencia aproximada por distancia de edición de Levenshtein,
+#'         acotada por \code{max_dist}; los empates se reportan como ambiguos.
+#'   \item \strong{Genus match}: Detección de registros CITES para un género ingresado (o con
+#'         calificador \code{sp.}/\code{spp.}), que requiere validación a nivel de especie.
 #'   \item \strong{Unmatched}: Nombres sin coincidencia en los listados oficiales nacionales (\code{is_cites = FALSE}).
 #' }
 #'
@@ -44,6 +43,10 @@
 #'   }
 #'
 #' @return Un \code{tibble} con los resultados de la concordancia preservando el orden original de entrada.
+#' Incluye \code{match_assessment}, procedencia de la fuente y la edición efectiva.
+#' Sus valores son \code{"matched"}, \code{"not_listed"},
+#' \code{"requires_species_validation"}, \code{"requires_taxonomic_validation"}
+#' y \code{"ambiguous_match"}.
 #'
 #' @examples
 #' # Consulta exacta y sinónimos
@@ -136,6 +139,7 @@ cites_match <- function(splist,
     unresolved$matched_name       <- NA_character_
     unresolved$accepted_name      <- NA_character_
     unresolved$match_type         <- "unmatched"
+    unresolved$match_assessment   <- "not_listed"
     unresolved$is_cites           <- FALSE
     unresolved$apendice           <- NA_character_
     unresolved$taxon              <- NA_character_
@@ -145,6 +149,13 @@ cites_match <- function(splist,
     unresolved$categoria_nacional <- NA_character_
     unresolved$uicn               <- NA_character_
     unresolved$autor_cites        <- NA_character_
+    unresolved$edition_used       <- NA_character_
+    unresolved$source_dataset     <- NA_character_
+    unresolved$source_row_id      <- NA_character_
+    unresolved$source_title       <- NA_character_
+    unresolved$source_url         <- NA_character_
+    unresolved$candidate_names    <- NA_character_
+    unresolved$candidate_count    <- NA_integer_
     unresolved$matched_dist       <- NA_integer_
     matched_blocks[[length(matched_blocks) + 1L]] <- unresolved
   }
@@ -153,12 +164,35 @@ cites_match <- function(splist,
   out_all <- dplyr::bind_rows(matched_blocks)
   out_all <- out_all[order(out_all$input_index), , drop = FALSE]
 
+  # El estado comunica la certeza del nombre, no solo la presencia en el índice.
+  out_all$match_assessment <- ifelse(
+    out_all$match_type == "genus",
+    "requires_species_validation",
+    ifelse(
+      out_all$match_type == "ambiguous_match",
+      "ambiguous_match",
+      ifelse(
+        out_all$match_type == "unmatched",
+        "not_listed",
+        ifelse(
+          out_all$has_cf %in% TRUE | out_all$has_aff %in% TRUE |
+            out_all$had_hybrid %in% TRUE | (!is.na(out_all$rank) & out_all$rank == 3) |
+            out_all$match_type %in% c("suffix", "fuzzy"),
+          "requires_taxonomic_validation",
+          "matched"
+        )
+      )
+    )
+  )
+
   # 10. Formato de salida
   if (output == "standard") {
     cols_std <- c(
       "input_index", "input_name", "matched_name", "accepted_name",
-      "match_type", "is_cites", "apendice", "taxon", "clase",
-      "familia", "categoria_nacional", "uicn", "matched_dist"
+      "match_type", "match_assessment", "is_cites", "apendice", "taxon", "clase",
+      "familia", "categoria_nacional", "uicn", "matched_dist", "edition_used",
+      "source_dataset", "source_row_id", "source_title", "source_url",
+      "candidate_names", "candidate_count"
     )
     cols_std <- cols_std[cols_std %in% names(out_all)]
     out_all <- out_all[, cols_std, drop = FALSE]

@@ -71,6 +71,10 @@ y metadatos de autoría.
 }
 \value{
 Un \code{tibble} con los resultados de la concordancia preservando el orden original de entrada.
+Incluye \code{match_assessment}, procedencia de la fuente y la edición efectiva.
+Sus valores son \code{"matched"}, \code{"not_listed"},
+\code{"requires_species_validation"}, \code{"requires_taxonomic_validation"}
+y \code{"ambiguous_match"}.
 }
 \description{
 Compara una lista de nombres científicos de plantas o animales contra las bases de datos
@@ -80,12 +84,11 @@ optimizado:
 \item \strong{Direct match}: Coincidencia exacta con un taxón CITES aceptado.
 \item \strong{Synonym match}: Coincidencia con un sinónimo oficial registrado en las publicaciones
 del MINAM, resolviendo el registro al taxón aceptado y su respectivo Apéndice.
-\item \strong{Suffix match}: Detección de variaciones ortográficas de género en sufijos latinos
-(\code{-us}, \code{-a}, \code{-um}, \code{-is}, \code{-e}) dentro del mismo género.
-\item \strong{Fuzzy match}: Coincidencia aproximada por distancia de edición (\emph{Levenshtein/OSA})
-acotada al mismo género según el umbral \code{max_dist}.
-\item \strong{Genus match}: Detección si un género ingresado (o con calificador \code{sp.}/\code{spp.})
-cuenta con regulación CITES a nivel genérico o de familia superior.
+\item \strong{Suffix match}: Variación de un par de sufijos latinos permitido dentro del mismo género.
+\item \strong{Fuzzy match}: Coincidencia aproximada por distancia de edición de Levenshtein,
+acotada por \code{max_dist}; los empates se reportan como ambiguos.
+\item \strong{Genus match}: Detección de registros CITES para un género ingresado (o con
+calificador \code{sp.}/\code{spp.}), que requiere validación a nivel de especie.
 \item \strong{Unmatched}: Nombres sin coincidencia en los listados oficiales nacionales (\code{is_cites = FALSE}).
 }
 }

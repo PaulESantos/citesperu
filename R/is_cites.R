@@ -2,8 +2,9 @@
 #'
 #' @description
 #' Comprueba de forma vectorizada si cada uno de los nombres científicos consultados se
-#' encuentra incluido en los Apéndices CITES del Perú (como taxón aceptado o sinónimo oficial).
-#' Devuelve un vector lógico del mismo largo y orden que el vector de entrada.
+#' encuentra incluido en los Apéndices CITES del Perú como taxón aceptado o sinónimo oficial
+#' sin calificadores de incertidumbre. Las coincidencias por género, sufijo o aproximación
+#' deben revisarse con \code{cites_match()} y no devuelven \code{TRUE} en esta función.
 #'
 #' @param splist Vector de caracteres con nombres científicos, o un \code{data.frame} con
 #'   una columna de nombres taxonómicos.
@@ -40,7 +41,7 @@ is_cites <- function(splist,
   # Si la entrada es nula o vacía
   if (length(splist) == 0L) return(logical())
 
-  # Ejecutar matching estándar con max_dist = 0 para evaluación booleana exacta
+  # Ejecutar el motor sin búsqueda difusa; después aceptar solo coincidencias confirmadas.
   res <- cites_match(
     splist,
     taxon = taxon,
@@ -50,13 +51,11 @@ is_cites <- function(splist,
     output = "standard"
   )
 
-  # Manejo de NAs de entrada
-  if (is.character(splist)) {
-    is_na_in <- is.na(splist) | !nzchar(trimws(splist))
-    res$is_cites[is_na_in] <- NA
-  }
-
-  res$is_cites
+  out <- res$match_type %in% c("exact", "synonym") &
+    res$match_assessment == "matched"
+  invalid_input <- is.na(res$input_name) | !nzchar(trimws(res$input_name))
+  out[invalid_input] <- NA
+  out
 }
 
 #' @rdname is_cites

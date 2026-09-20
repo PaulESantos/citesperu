@@ -37,8 +37,9 @@ que \code{splist}.
 }
 \description{
 Comprueba de forma vectorizada si cada uno de los nombres científicos consultados se
-encuentra incluido en los Apéndices CITES del Perú (como taxón aceptado o sinónimo oficial).
-Devuelve un vector lógico del mismo largo y orden que el vector de entrada.
+encuentra incluido en los Apéndices CITES del Perú como taxón aceptado o sinónimo oficial
+sin calificadores de incertidumbre. Las coincidencias por género, sufijo o aproximación
+deben revisarse con \code{cites_match()} y no devuelven \code{TRUE} en esta función.
 }
 \examples{
 # Consulta vectorizada simple

@@ -87,6 +87,7 @@ test_that("cites_match genus matching works for sp. and spp.", {
   res <- cites_match(c("Cedrela sp.", "Touit spp."))
   expect_equal(nrow(res), 2)
   expect_equal(res$match_type, c("genus", "genus"))
+  expect_equal(res$match_assessment, c("requires_species_validation", "requires_species_validation"))
   expect_true(all(res$is_cites))
   expect_equal(res$matched_name, c("Cedrela", "Touit"))
 })
@@ -96,8 +97,10 @@ test_that("cites_match unmatched species stay unmatched unless genus_fallback", 
   expect_equal(res_no_fallback$match_type, "unmatched")
   expect_false(res_no_fallback$is_cites)
 
-  res_with_fallback <- cites_match("Canis familiaris", genus_fallback = TRUE)
+  # El fallback aplica a un género con registros aceptados en el alcance.
+  res_with_fallback <- cites_match("Touit desconocida", genus_fallback = TRUE)
   expect_equal(res_with_fallback$match_type, "genus")
+  expect_equal(res_with_fallback$match_assessment, "requires_species_validation")
   expect_true(res_with_fallback$is_cites)
 
   res_unrelated <- cites_match("Homo sapiens")
@@ -114,6 +117,61 @@ test_that("cites_match taxon filtering restricts search domain", {
   res_flora <- cites_match("Swietenia macrophylla", taxon = "flora")
   expect_equal(res_flora$match_type, "exact")
   expect_true(res_flora$is_cites)
+})
+
+test_that("historical fauna editions resolve records and retain provenance", {
+  res_2018 <- cites_match("Tremarctos ornatus", edition = "2018")
+  res_2019 <- cites_match("Tremarctos ornatus", edition = "2019")
+
+  expect_equal(res_2018$match_type, "exact")
+  expect_equal(res_2018$edition_used, "2018")
+  expect_equal(res_2018$source_dataset, "cites_fauna_peru_2018")
+  expect_false(is.na(res_2018$source_row_id))
+  expect_false(is.na(res_2018$source_url))
+
+  expect_equal(res_2019$match_type, "exact")
+  expect_equal(res_2019$edition_used, "2019")
+  expect_equal(res_2019$source_dataset, "cites_fauna_peru_2019")
+})
+
+test_that("uncertain, infraespecific and generic matches require validation", {
+  res <- cites_match(c(
+    "Cedrela cf. odorata",
+    "Cedrela aff. odorata",
+    "X Cedrela odorata",
+    "Cedrela odorata var. glabra",
+    "Touit sp."
+  ), output = "full")
+
+  expect_true(all(res$match_assessment %in% c(
+    "requires_taxonomic_validation", "requires_species_validation"
+  )))
+  expect_false(is_cites("Cedrela cf. odorata"))
+  expect_false(is_cites("Cedrela aff. odorata"))
+  expect_false(is_cites("Touit sp."))
+})
+
+test_that("fuzzy matching handles an empty filtered backbone without warnings", {
+  expect_no_warning(cites_match("Touit sp.", taxon = "flora"))
+})
+
+test_that("suffix and fuzzy ties return ambiguous matches", {
+  bb <- citesperu:::cites_backbone[1:2, , drop = FALSE]
+  bb$canonical_name <- c("Testus albus", "Testus alba")
+  bb$accepted_name <- bb$canonical_name
+  bb$genus <- "Testus"
+  bb$species <- c("albus", "alba")
+  bb$taxon_status <- "accepted"
+
+  suffix_input <- cites_classify_names("Testus album")
+  suffix_res <- citesperu:::.suffix_match(suffix_input, bb)$matched
+  expect_equal(suffix_res$match_type, "ambiguous_match")
+  expect_equal(suffix_res$candidate_count, 2L)
+
+  fuzzy_input <- cites_classify_names("Testus albs")
+  fuzzy_res <- citesperu:::.fuzzy_match_within_genus(fuzzy_input, bb, max_dist = 1)$matched
+  expect_equal(fuzzy_res$match_type, "ambiguous_match")
+  expect_equal(fuzzy_res$candidate_count, 2L)
 })
 
 test_that("is_cites returns exact vectorized boolean vector", {

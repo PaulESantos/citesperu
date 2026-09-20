@@ -21,6 +21,9 @@
              (bb$taxon == "flora" & bb$edition == "2018"), , drop = FALSE]
   } else if (edition != "all") {
     bb <- bb[bb$edition == edition, , drop = FALSE]
+  } else {
+    # En consultas históricas combinadas se prioriza la edición más reciente.
+    bb <- bb[order(bb$taxon, bb$canonical_name, -as.integer(bb$edition)), , drop = FALSE]
   }
 
   bb
@@ -28,12 +31,73 @@
 
 #' Normalizar sufijos latinos de concordancia gramatical en epítetos
 #' @noRd
+.latin_suffix <- function(ep) {
+  suffixes <- c("us", "um", "is", "os", "on", "ae", "a", "e")
+  vapply(ep, function(x) {
+    if (is.na(x)) return(NA_character_)
+    hit <- suffixes[endsWith(x, suffixes)]
+    if (length(hit) == 0L) NA_character_ else hit[which.max(nchar(hit))]
+  }, character(1))
+}
+
+.is_allowed_latin_variation <- function(input_epithet, candidate_epithet) {
+  input_suffix <- .latin_suffix(input_epithet)
+  candidate_suffix <- .latin_suffix(candidate_epithet)
+  allowed_pairs <- c("a:us", "a:um", "um:us", "e:is", "on:os")
+  pair <- paste(sort(c(input_suffix, candidate_suffix)), collapse = ":")
+  !is.na(input_suffix) && !is.na(candidate_suffix) &&
+    input_suffix != candidate_suffix && pair %in% allowed_pairs
+}
+
 .stem_latin_epithet <- function(ep) {
-  ifelse(
-    is.na(ep) | nchar(ep) < 3,
-    ep,
-    sub("(us|um|is|os|on|ae|a|e)$", "", ep)
-  )
+  suffix <- .latin_suffix(ep)
+  ifelse(is.na(suffix), ep, substr(ep, 1L, nchar(ep) - nchar(suffix)))
+}
+
+.set_match_from_hit <- function(row, hit, match_type, matched_dist) {
+  row$matched_name <- hit$canonical_name
+  row$accepted_name <- hit$accepted_name
+  row$match_type <- match_type
+  row$is_cites <- TRUE
+  row$apendice <- hit$apendice
+  row$taxon <- hit$taxon
+  row$familia <- hit$familia
+  row$clase <- hit$clase
+  row$orden <- hit$orden
+  row$categoria_nacional <- hit$categoria_nacional
+  row$uicn <- hit$uicn
+  row$autor_cites <- hit$autor
+  row$edition_used <- hit$edition
+  row$source_dataset <- hit$source_dataset
+  row$source_row_id <- hit$source_row_id
+  row$source_title <- hit$source_title
+  row$source_url <- hit$source_url
+  row$matched_dist <- as.integer(matched_dist)
+  row
+}
+
+.set_ambiguous_match <- function(row, candidates, matched_dist) {
+  row$matched_name <- NA_character_
+  row$accepted_name <- NA_character_
+  row$match_type <- "ambiguous_match"
+  row$is_cites <- FALSE
+  row$apendice <- NA_character_
+  row$taxon <- NA_character_
+  row$familia <- NA_character_
+  row$clase <- NA_character_
+  row$orden <- NA_character_
+  row$categoria_nacional <- NA_character_
+  row$uicn <- NA_character_
+  row$autor_cites <- NA_character_
+  row$edition_used <- NA_character_
+  row$source_dataset <- NA_character_
+  row$source_row_id <- NA_character_
+  row$source_title <- NA_character_
+  row$source_url <- NA_character_
+  row$candidate_names <- paste(unique(candidates$accepted_name), collapse = " | ")
+  row$candidate_count <- nrow(candidates)
+  row$matched_dist <- as.integer(matched_dist)
+  row
 }
 
 #' Coincidencia directa exacta sobre nombres aceptados
@@ -45,22 +109,11 @@
   matched_mask <- !is.na(idx)
   if (!any(matched_mask)) return(list(matched = NULL, remaining = df_unresolved))
 
-  matched_df <- df_unresolved[matched_mask, , drop = FALSE]
-  bb_hits    <- bb_acc[idx[matched_mask], , drop = FALSE]
-
-  matched_df$matched_name       <- bb_hits$canonical_name
-  matched_df$accepted_name      <- bb_hits$accepted_name
-  matched_df$match_type         <- "exact"
-  matched_df$is_cites           <- TRUE
-  matched_df$apendice           <- bb_hits$apendice
-  matched_df$taxon              <- bb_hits$taxon
-  matched_df$familia            <- bb_hits$familia
-  matched_df$clase              <- bb_hits$clase
-  matched_df$orden              <- bb_hits$orden
-  matched_df$categoria_nacional <- bb_hits$categoria_nacional
-  matched_df$uicn               <- bb_hits$uicn
-  matched_df$autor_cites        <- bb_hits$autor
-  matched_df$matched_dist       <- 0L
+  matched_input <- df_unresolved[matched_mask, , drop = FALSE]
+  bb_hits <- bb_acc[idx[matched_mask], , drop = FALSE]
+  matched_df <- dplyr::bind_rows(lapply(seq_len(nrow(matched_input)), function(i) {
+    .set_match_from_hit(matched_input[i, , drop = FALSE], bb_hits[i, , drop = FALSE], "exact", 0L)
+  }))
 
   remaining_df <- df_unresolved[!matched_mask, , drop = FALSE]
   list(matched = matched_df, remaining = remaining_df)
@@ -75,22 +128,11 @@
   matched_mask <- !is.na(idx)
   if (!any(matched_mask)) return(list(matched = NULL, remaining = df_unresolved))
 
-  matched_df <- df_unresolved[matched_mask, , drop = FALSE]
-  bb_hits    <- bb_syn[idx[matched_mask], , drop = FALSE]
-
-  matched_df$matched_name       <- bb_hits$canonical_name
-  matched_df$accepted_name      <- bb_hits$accepted_name
-  matched_df$match_type         <- "synonym"
-  matched_df$is_cites           <- TRUE
-  matched_df$apendice           <- bb_hits$apendice
-  matched_df$taxon              <- bb_hits$taxon
-  matched_df$familia            <- bb_hits$familia
-  matched_df$clase              <- bb_hits$clase
-  matched_df$orden              <- bb_hits$orden
-  matched_df$categoria_nacional <- bb_hits$categoria_nacional
-  matched_df$uicn               <- bb_hits$uicn
-  matched_df$autor_cites        <- bb_hits$autor
-  matched_df$matched_dist       <- 0L
+  matched_input <- df_unresolved[matched_mask, , drop = FALSE]
+  bb_hits <- bb_syn[idx[matched_mask], , drop = FALSE]
+  matched_df <- dplyr::bind_rows(lapply(seq_len(nrow(matched_input)), function(i) {
+    .set_match_from_hit(matched_input[i, , drop = FALSE], bb_hits[i, , drop = FALSE], "synonym", 0L)
+  }))
 
   remaining_df <- df_unresolved[!matched_mask, , drop = FALSE]
   list(matched = matched_df, remaining = remaining_df)
@@ -118,23 +160,18 @@
 
     # Buscar en mismo género
     cand_idx <- which(bb_genus == g_in & bb_stems == sp_stem)
+    cand_idx <- cand_idx[vapply(cand_idx, function(j) {
+      .is_allowed_latin_variation(row$orig_species, bb_acc$species[j])
+    }, logical(1))]
 
-    if (length(cand_idx) > 0) {
-      hit <- bb_acc[cand_idx[1], , drop = FALSE]
-      row$matched_name       <- hit$canonical_name
-      row$accepted_name      <- hit$accepted_name
-      row$match_type         <- "suffix"
-      row$is_cites           <- TRUE
-      row$apendice           <- hit$apendice
-      row$taxon              <- hit$taxon
-      row$familia            <- hit$familia
-      row$clase              <- hit$clase
-      row$orden              <- hit$orden
-      row$categoria_nacional <- hit$categoria_nacional
-      row$uicn               <- hit$uicn
-      row$autor_cites        <- hit$autor
-      row$matched_dist       <- 0L
-      matched_rows[[length(matched_rows) + 1L]] <- row
+    if (length(cand_idx) == 1L) {
+      matched_rows[[length(matched_rows) + 1L]] <- .set_match_from_hit(
+        row, bb_acc[cand_idx, , drop = FALSE], "suffix", 0L
+      )
+    } else if (length(cand_idx) > 1L) {
+      matched_rows[[length(matched_rows) + 1L]] <- .set_ambiguous_match(
+        row, bb_acc[cand_idx, , drop = FALSE], 0L
+      )
     } else {
       remaining_idx <- c(remaining_idx, i)
     }
@@ -152,8 +189,9 @@
   if (max_dist < 1) return(list(matched = NULL, remaining = df_unresolved))
 
   bb_acc <- bb[bb$taxon_status == "accepted", , drop = FALSE]
+  if (nrow(bb_acc) == 0L) return(list(matched = NULL, remaining = df_unresolved))
   bb_genus <- tolower(bb_acc$genus)
-  unique_bb_genus <- unique(bb_genus)
+  unique_bb_genus <- unique(stats::na.omit(bb_genus))
 
   matched_rows <- list()
   remaining_idx <- integer()
@@ -167,55 +205,35 @@
 
     g_in <- tolower(row$orig_genus)
     cand_idx <- which(bb_genus == g_in)
-    dist_total <- NA_integer_
-    hit_idx <- NA_integer_
-
-    if (length(cand_idx) > 0) {
-      # Caso 1: Género coincide exactamente, fuzzy en epíteto específico
-      cand_species <- bb_acc$species[cand_idx]
-      dists_sp <- as.numeric(utils::adist(row$orig_species, cand_species))
-      min_d_sp <- min(dists_sp)
-
-      if (min_d_sp <= max_dist) {
-        hit_idx <- cand_idx[which.min(dists_sp)]
-        dist_total <- as.integer(min_d_sp)
-      }
+    if (length(cand_idx) > 0L) {
+      distances <- as.integer(utils::adist(row$orig_species, bb_acc$species[cand_idx]))
     } else {
-      # Caso 2: Error tipográfico en el género
-      d_gen <- as.numeric(utils::adist(g_in, unique_bb_genus))
-      min_d_gen <- min(d_gen)
-
-      if (min_d_gen <= max_dist) {
-        cand_g_name <- unique_bb_genus[which.min(d_gen)]
-        cand_idx_g  <- which(bb_genus == cand_g_name)
-        cand_species <- bb_acc$species[cand_idx_g]
-        dists_sp <- as.numeric(utils::adist(row$orig_species, cand_species))
-        min_d_sp <- min(dists_sp)
-
-        # Si la especie coincide exacta o con distancia complementaria
-        if (min_d_gen + min_d_sp <= max_dist) {
-          hit_idx <- cand_idx_g[which.min(dists_sp)]
-          dist_total <- as.integer(min_d_gen + min_d_sp)
-        }
+      if (length(unique_bb_genus) == 0L) {
+        remaining_idx <- c(remaining_idx, i)
+        next
       }
+      genus_distances <- as.integer(utils::adist(g_in, unique_bb_genus))
+      eligible_genera <- unique_bb_genus[genus_distances <= max_dist]
+      cand_idx <- which(bb_genus %in% eligible_genera)
+      if (length(cand_idx) == 0L) {
+        remaining_idx <- c(remaining_idx, i)
+        next
+      }
+      genus_distance_by_candidate <- genus_distances[match(bb_genus[cand_idx], unique_bb_genus)]
+      distances <- genus_distance_by_candidate +
+        as.integer(utils::adist(row$orig_species, bb_acc$species[cand_idx]))
     }
 
-    if (!is.na(hit_idx)) {
-      hit <- bb_acc[hit_idx, , drop = FALSE]
-      row$matched_name       <- hit$canonical_name
-      row$accepted_name      <- hit$accepted_name
-      row$match_type         <- "fuzzy"
-      row$is_cites           <- TRUE
-      row$apendice           <- hit$apendice
-      row$taxon              <- hit$taxon
-      row$familia            <- hit$familia
-      row$clase              <- hit$clase
-      row$orden              <- hit$orden
-      row$categoria_nacional <- hit$categoria_nacional
-      row$uicn               <- hit$uicn
-      row$autor_cites        <- hit$autor
-      row$matched_dist       <- dist_total
-      matched_rows[[length(matched_rows) + 1L]] <- row
+    min_distance <- min(distances, na.rm = TRUE)
+    best_idx <- cand_idx[distances == min_distance]
+    if (is.finite(min_distance) && min_distance <= max_dist && length(best_idx) == 1L) {
+      matched_rows[[length(matched_rows) + 1L]] <- .set_match_from_hit(
+        row, bb_acc[best_idx, , drop = FALSE], "fuzzy", min_distance
+      )
+    } else if (is.finite(min_distance) && min_distance <= max_dist && length(best_idx) > 1L) {
+      matched_rows[[length(matched_rows) + 1L]] <- .set_ambiguous_match(
+        row, bb_acc[best_idx, , drop = FALSE], min_distance
+      )
     } else {
       remaining_idx <- c(remaining_idx, i)
     }
@@ -230,7 +248,9 @@
 #' Coincidencia a nivel de género (para sp., spp. o taxón regulado a nivel de género)
 #' @noRd
 .genus_match <- function(df_unresolved, bb, genus_fallback = FALSE) {
-  gen_table <- cites_genera
+  # El índice se deriva del backbone ya filtrado para respetar taxon y edition.
+  gen_table <- bb |>
+    dplyr::filter(.data$taxon_status == "accepted")
   matched_rows <- list()
   remaining_idx <- integer()
 
@@ -250,22 +270,33 @@
     }
 
     g_in <- tolower(row$orig_genus)
-    idx <- match(g_in, tolower(gen_table$genus))
+    candidates <- gen_table[tolower(gen_table$genus) == g_in, , drop = FALSE]
 
-    if (!is.na(idx)) {
-      hit <- gen_table[idx, , drop = FALSE]
-      row$matched_name       <- hit$genus
-      row$accepted_name      <- paste0(hit$genus, " spp.")
+    if (nrow(candidates) > 0L) {
+      if (dplyr::n_distinct(candidates$taxon) > 1L) {
+        matched_rows[[length(matched_rows) + 1L]] <- .set_ambiguous_match(row, candidates, 0L)
+        next
+      }
+      unique_appendices <- unique(stats::na.omit(candidates$apendice))
+      row$matched_name       <- candidates$genus[1]
+      row$accepted_name      <- paste0(candidates$genus[1], " spp.")
       row$match_type         <- "genus"
       row$is_cites           <- TRUE
-      row$apendice           <- hit$apendice
-      row$taxon              <- hit$taxon
-      row$familia            <- hit$familia
+      row$apendice           <- if (length(unique_appendices) == 1L) unique_appendices else NA_character_
+      row$taxon              <- candidates$taxon[1]
+      row$familia            <- if (dplyr::n_distinct(candidates$familia) == 1L) candidates$familia[1] else NA_character_
       row$clase              <- NA_character_
       row$orden              <- NA_character_
       row$categoria_nacional <- NA_character_
       row$uicn               <- NA_character_
       row$autor_cites        <- NA_character_
+      row$edition_used       <- paste(unique(candidates$edition), collapse = " | ")
+      row$source_dataset     <- paste(unique(candidates$source_dataset), collapse = " | ")
+      row$source_row_id      <- paste(unique(candidates$source_row_id), collapse = " | ")
+      row$source_title       <- paste(unique(candidates$source_title), collapse = " | ")
+      row$source_url         <- paste(unique(candidates$source_url), collapse = " | ")
+      row$candidate_names    <- paste(unique(candidates$accepted_name), collapse = " | ")
+      row$candidate_count    <- nrow(candidates)
       row$matched_dist       <- 0L
       matched_rows[[length(matched_rows) + 1L]] <- row
     } else {

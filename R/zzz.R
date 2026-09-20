@@ -81,7 +81,7 @@ citesperu_attach_message <- function() {
   footer_auth <- paste0(
     cli::col_cyan(cli::symbol$info), " ",
     cli::style_italic("Listado de Especies de Flora y Fauna Silvestre CITES - Per\u00fa.\n",
-                      "Direcci\u00f3n General de Diversidad Biol\u00f3gica")
+                      "Autoridad Cient\u00edfica: MINAM / Direcci\u00f3n General de Diversidad Biol\u00f3gica")
   )
 
   #footer_hint <- paste0(
