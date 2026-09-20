@@ -5,12 +5,11 @@ optimizado:
 Direct match: Coincidencia exacta con un taxón CITES aceptado.
 Synonym match: Coincidencia con un sinónimo oficial registrado en las publicaciones
 del MINAM, resolviendo el registro al taxón aceptado y su respectivo Apéndice.
-Suffix match: Detección de variaciones ortográficas de género en sufijos latinos
-(-us, -a, -um, -is, -e) dentro del mismo género.
-Fuzzy match: Coincidencia aproximada por distancia de edición (Levenshtein/OSA)
-acotada al mismo género según el umbral max_dist.
-Genus match: Detección si un género ingresado (o con calificador sp./spp.)
-cuenta con regulación CITES a nivel genérico o de familia superior.
+Suffix match: Variación de un par de sufijos latinos permitido dentro del mismo género.
+Fuzzy match: Coincidencia aproximada por distancia de edición de Levenshtein,
+acotada por max_dist; los empates se reportan como ambiguos.
+Genus match: Detección de registros CITES para un género ingresado (o con
+calificador sp./spp.), que requiere validación a nivel de especie.
 Unmatched: Nombres sin coincidencia en los listados oficiales nacionales (is_cites = FALSE).
 
 "><meta property="og:description" content="Compara una lista de nombres científicos de plantas o animales contra las bases de datos
@@ -19,12 +18,11 @@ optimizado:
 Direct match: Coincidencia exacta con un taxón CITES aceptado.
 Synonym match: Coincidencia con un sinónimo oficial registrado en las publicaciones
 del MINAM, resolviendo el registro al taxón aceptado y su respectivo Apéndice.
-Suffix match: Detección de variaciones ortográficas de género en sufijos latinos
-(-us, -a, -um, -is, -e) dentro del mismo género.
-Fuzzy match: Coincidencia aproximada por distancia de edición (Levenshtein/OSA)
-acotada al mismo género según el umbral max_dist.
-Genus match: Detección si un género ingresado (o con calificador sp./spp.)
-cuenta con regulación CITES a nivel genérico o de familia superior.
+Suffix match: Variación de un par de sufijos latinos permitido dentro del mismo género.
+Fuzzy match: Coincidencia aproximada por distancia de edición de Levenshtein,
+acotada por max_dist; los empates se reportan como ambiguos.
+Genus match: Detección de registros CITES para un género ingresado (o con
+calificador sp./spp.), que requiere validación a nivel de especie.
 Unmatched: Nombres sin coincidencia en los listados oficiales nacionales (is_cites = FALSE).
 
 "></head><body>
@@ -73,12 +71,11 @@ oficiales de CITES Perú (Fauna y Flora), ejecutando un pipeline de concordancia
 optimizado:</p><ol><li><p><strong>Direct match</strong>: Coincidencia exacta con un taxón CITES aceptado.</p></li>
 <li><p><strong>Synonym match</strong>: Coincidencia con un sinónimo oficial registrado en las publicaciones
 del MINAM, resolviendo el registro al taxón aceptado y su respectivo Apéndice.</p></li>
-<li><p><strong>Suffix match</strong>: Detección de variaciones ortográficas de género en sufijos latinos
-(<code>-us</code>, <code>-a</code>, <code>-um</code>, <code>-is</code>, <code>-e</code>) dentro del mismo género.</p></li>
-<li><p><strong>Fuzzy match</strong>: Coincidencia aproximada por distancia de edición (<em>Levenshtein/OSA</em>)
-acotada al mismo género según el umbral <code>max_dist</code>.</p></li>
-<li><p><strong>Genus match</strong>: Detección si un género ingresado (o con calificador <code>sp.</code>/<code>spp.</code>)
-cuenta con regulación CITES a nivel genérico o de familia superior.</p></li>
+<li><p><strong>Suffix match</strong>: Variación de un par de sufijos latinos permitido dentro del mismo género.</p></li>
+<li><p><strong>Fuzzy match</strong>: Coincidencia aproximada por distancia de edición de Levenshtein,
+acotada por <code>max_dist</code>; los empates se reportan como ambiguos.</p></li>
+<li><p><strong>Genus match</strong>: Detección de registros CITES para un género ingresado (o con
+calificador <code>sp.</code>/<code>spp.</code>), que requiere validación a nivel de especie.</p></li>
 <li><p><strong>Unmatched</strong>: Nombres sin coincidencia en los listados oficiales nacionales (<code>is_cites = FALSE</code>).</p></li>
 </ol></div>
 
@@ -163,7 +160,11 @@ y metadatos de autoría.</p></li>
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>Un <code>tibble</code> con los resultados de la concordancia preservando el orden original de entrada.</p>
+    <p>Un <code>tibble</code> con los resultados de la concordancia preservando el orden original de entrada.
+Incluye <code>match_assessment</code>, procedencia de la fuente y la edición efectiva.
+Sus valores son <code>"matched"</code>, <code>"not_listed"</code>,
+<code>"requires_species_validation"</code>, <code>"requires_taxonomic_validation"</code>
+y <code>"ambiguous_match"</code>.</p>
     </div>
 
     <div class="section level2">
@@ -176,36 +177,45 @@ y metadatos de autoría.</p></li>
 <span class="r-in"><span>  <span class="st">"Paphiopedilum besseae"</span>,</span></span>
 <span class="r-in"><span>  <span class="st">"Homo sapiens"</span></span></span>
 <span class="r-in"><span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 5 × 13</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   input_index input_name matched_name accepted_name match_type is_cites apendice</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>           1 Tremarcto… Tremarctos … Tremarctos o… exact      TRUE     I       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>           2 Epipedoba… Epipedobate… Allobates fe… synonym    TRUE     II      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span>           3 Swietenia… Swietenia m… Swietenia ma… exact      TRUE     II      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span>           4 Paphioped… Paphiopedil… Phragmipediu… synonym    TRUE     I       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span>           5 Homo sapi… <span style="color: #BB0000;">NA</span>           <span style="color: #BB0000;">NA</span>            unmatched  FALSE    <span style="color: #BB0000;">NA</span>      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 6 more variables: taxon &lt;chr&gt;, clase &lt;chr&gt;, familia &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   categoria_nacional &lt;chr&gt;, uicn &lt;chr&gt;, matched_dist &lt;int&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 5 × 21</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   input_index input_name  matched_name accepted_name match_type match_assessment</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>           1 Tremarctos… Tremarctos … Tremarctos o… exact      matched         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>           2 Epipedobat… Epipedobate… Allobates fe… synonym    matched         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span>           3 Swietenia … Swietenia m… Swietenia ma… exact      matched         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span>           4 Paphiopedi… Paphiopedil… Phragmipediu… synonym    matched         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span>           5 Homo sapie… <span style="color: #BB0000;">NA</span>           <span style="color: #BB0000;">NA</span>            unmatched  not_listed      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 15 more variables: is_cites &lt;lgl&gt;, apendice &lt;chr&gt;, taxon &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   clase &lt;chr&gt;, familia &lt;chr&gt;, categoria_nacional &lt;chr&gt;, uicn &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   matched_dist &lt;int&gt;, edition_used &lt;chr&gt;, source_dataset &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   source_row_id &lt;chr&gt;, source_title &lt;chr&gt;, source_url &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   candidate_names &lt;chr&gt;, candidate_count &lt;int&gt;</span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Consulta con errores tipográficos (fuzzy match)</span></span></span>
 <span class="r-in"><span><span class="fu">cites_match</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Tremarctos ornatu"</span>, <span class="st">"Swietenia macrofila"</span><span class="op">)</span>, max_dist <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 2 × 13</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   input_index input_name matched_name accepted_name match_type is_cites apendice</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>           1 Tremarcto… Tremarctos … Tremarctos o… fuzzy      TRUE     I       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>           2 Swietenia… <span style="color: #BB0000;">NA</span>           <span style="color: #BB0000;">NA</span>            unmatched  FALSE    <span style="color: #BB0000;">NA</span>      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 6 more variables: taxon &lt;chr&gt;, clase &lt;chr&gt;, familia &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   categoria_nacional &lt;chr&gt;, uicn &lt;chr&gt;, matched_dist &lt;int&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 2 × 21</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   input_index input_name  matched_name accepted_name match_type match_assessment</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>           1 Tremarctos… Tremarctos … Tremarctos o… fuzzy      requires_taxono…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>           2 Swietenia … <span style="color: #BB0000;">NA</span>           <span style="color: #BB0000;">NA</span>            unmatched  not_listed      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 15 more variables: is_cites &lt;lgl&gt;, apendice &lt;chr&gt;, taxon &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   clase &lt;chr&gt;, familia &lt;chr&gt;, categoria_nacional &lt;chr&gt;, uicn &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   matched_dist &lt;int&gt;, edition_used &lt;chr&gt;, source_dataset &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   source_row_id &lt;chr&gt;, source_title &lt;chr&gt;, source_url &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   candidate_names &lt;chr&gt;, candidate_count &lt;int&gt;</span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Consulta a nivel de género</span></span></span>
 <span class="r-in"><span><span class="fu">cites_match</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Cedrela sp."</span>, <span class="st">"Touit spp."</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 2 × 13</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   input_index input_name matched_name accepted_name match_type is_cites apendice</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>           1 Cedrela s… Cedrela      Cedrela spp.  genus      TRUE     III     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>           2 Touit spp. Touit        Touit spp.    genus      TRUE     II      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 6 more variables: taxon &lt;chr&gt;, clase &lt;chr&gt;, familia &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   categoria_nacional &lt;chr&gt;, uicn &lt;chr&gt;, matched_dist &lt;int&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 2 × 21</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   input_index input_name  matched_name accepted_name match_type match_assessment</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>           1 Cedrela sp. Cedrela      Cedrela spp.  genus      requires_specie…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>           2 Touit spp.  Touit        Touit spp.    genus      requires_specie…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 15 more variables: is_cites &lt;lgl&gt;, apendice &lt;chr&gt;, taxon &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   clase &lt;chr&gt;, familia &lt;chr&gt;, categoria_nacional &lt;chr&gt;, uicn &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   matched_dist &lt;int&gt;, edition_used &lt;chr&gt;, source_dataset &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   source_row_id &lt;chr&gt;, source_title &lt;chr&gt;, source_url &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   candidate_names &lt;chr&gt;, candidate_count &lt;int&gt;</span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

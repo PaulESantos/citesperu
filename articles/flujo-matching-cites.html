@@ -94,15 +94,17 @@ adjetivo específico (<code>-us</code>, <code>-a</code>,
 omisiones de caracteres en nombres biológicos complejos.</p></li>
 <li><p><strong>Determinaciones genéricas incompletas:</strong> Muestras
 rotuladas como morfoespecies (<code>sp.</code>, <code>spp.</code>,
-<code>indet.</code>) que pertenecen a géneros o familias cuya regulación
-es integral (como <em>Cedrela</em>, <em>Swietenia</em>,
-<em>Podocnemis</em> o las familias Orchidaceae y Cactaceae).</p></li>
+<code>indet.</code>), para las que es útil identificar si el género
+tiene registros CITES y luego confirmar la especie y la fuente
+aplicable.</p></li>
 </ol>
 <p>El paquete <strong><code>citesperu</code></strong> provee un motor de
 concordancia taxonómica (<code><a href="../reference/cites_match.html">cites_match()</a></code>) y una función
 booleana de alta velocidad (<code><a href="../reference/is_cites.html">is_cites()</a></code>) diseñados
-específicamente para resolver estas problemáticas con rigor científico y
-trazabilidad documental.</p>
+específicamente para resolver estas problemáticas con trazabilidad
+documental. La concordancia automatizada es una ayuda para revisar
+inventarios: la determinación taxonómica y la verificación regulatoria
+final deben contrastarse con la fuente oficial vigente.</p>
 <hr>
 </div>
 <div class="section level2">
@@ -111,11 +113,14 @@ trazabilidad documental.</p>
 <p>En lugar de consultar archivos tabulares dispersos en tiempo de
 ejecución, <code>citesperu</code> cuenta con un <strong>backbone
 taxonómico interno pre-indexado</strong> (<code>cites_backbone</code>)
-integrado en el paquete:</p>
+integrado en el paquete. Para <code>edition = "latest"</code>, el motor
+consulta la combinación de fauna 2023 y flora 2018; las demás ediciones
+cambian el subconjunto de referencia, no el orden del pipeline.</p>
 <ul>
 <li>
-<strong>Volumen:</strong> Más de 5,800 registros taxonómicos (3,053
-nombres válidos/aceptados y 2,763 sinónimos oficiales).</li>
+<strong>Volumen y versiones:</strong> Más de 8,500 registros
+taxonómicos que preservan fauna 2018, 2019 y 2023, además de flora 2018;
+cada coincidencia devuelve edición y referencia de origen.</li>
 <li>
 <strong>Fauna:</strong> Articula las ediciones de 2018 (496 spp.
 oficiales), 2019 (523 registros con ámbito ecológico) y 2023 (568
@@ -125,11 +130,23 @@ especies con las enmiendas CoP19 Panamá).</li>
 (2,506 taxa en 9 familias, incluyendo Orchidaceae con 2,215 taxa y
 Cactaceae con 186 taxa tratadas según el estándar de Hunt 2016).</li>
 <li>
-<strong>Gobernanza asociada:</strong> Cada registro enlaza el
-Apéndice CITES (I, II o III), la categoría nacional de amenaza (D.S. N.°
-004-2014-MINAGRI para fauna o D.S. N.° 043-2006-AG para flora), la
-categoría global de la UICN y la autoridad sectorial competente.</li>
+<strong>Metadatos asociados:</strong> Cada coincidencia recupera el
+Apéndice CITES y los metadatos taxonómicos y de conservación disponibles
+en el registro de origen.</li>
 </ul>
+<p>Los nombres aceptados y las sinonimias se conservan como registros
+separados, vinculados mediante <code>accepted_name</code>. Para atender
+consultas como <code>Touit sp.</code>, el motor construye un índice de
+géneros a partir del backbone ya filtrado por <code>taxon</code> y
+<code>edition</code>. Una coincidencia <code>genus</code> significa que
+el género tiene registros CITES en el alcance seleccionado; no asigna
+una especie concreta ni debe interpretarse, por sí sola, como cobertura
+automática de todas las especies del género. Por ello conserva
+<code>is_cites = TRUE</code>, pero recibe
+<code>match_assessment = "requires_species_validation"</code>. La salida
+también conserva <code>edition_used</code>, <code>source_dataset</code>,
+<code>source_row_id</code>, <code>source_title</code> y
+<code>source_url</code> para auditoría.</p>
 <hr>
 </div>
 <div class="section level2">
@@ -149,12 +166,12 @@ a través de un flujo secuencial en 6 etapas:</p>
          │       └─ SÍ -&gt; match_type: "synonym" (dist = 0)
          │
          ├───&gt; 3. Suffix match (Normalización de sufijo latino)
-         │       └─ SÍ -&gt; match_type: "suffix" (dist = 0)
+         │       └─ SÍ -&gt; match_type: "suffix" (dist = 0; empate -&gt; ambiguous_match)
          │
-         ├───&gt; 4. Fuzzy match (Distancia Levenshtein/OSA acotada)
-         │       └─ SÍ -&gt; match_type: "fuzzy" (dist = 1..max_dist)
+         ├───&gt; 4. Fuzzy match (Distancia Levenshtein acotada)
+         │       └─ SÍ -&gt; match_type: "fuzzy" (dist = 1..max_dist; empate -&gt; ambiguous_match)
          │
-         ├───&gt; 5. Genus match (Regulación a nivel genérico / sp.)
+         ├───&gt; 5. Genus match (Consulta a nivel genérico / sp.)
          │       └─ SÍ -&gt; match_type: "genus" (dist = 0)
          │
          └───&gt; 6. Unmatched (Especie no incluida en CITES Perú)
@@ -174,29 +191,77 @@ oficiales del MINAM. Al encontrar coincidencia, se identifica el
 <code>accepted_name</code> oficial y se le asigna el Apéndice del taxón
 aceptado.</li>
 <li>
-<strong>Suffix Match (<code>suffix</code>):</strong> Cuando la única
-diferencia respecto a un taxón válido dentro del mismo género es la
-desinencia gramatical latina (<code>-us</code>, <code>-a</code>,
-<code>-um</code>, <code>-is</code>, <code>-e</code>), se normaliza y se
-vincula al taxón oficial.</li>
+<strong>Suffix Match (<code>suffix</code>):</strong> Cuando existe
+una variación de sufijo permitida dentro del mismo género, se vincula al
+candidato oficial. El resultado queda marcado como
+<code>requires_taxonomic_validation</code>.</li>
 <li>
 <strong>Fuzzy Match (<code>fuzzy</code>):</strong> Busca
-coincidencias aproximadas calculando la distancia de edición
-(Levenshtein / Optimal String Alignment) dentro del mismo género según
-el umbral <code>max_dist</code> (por defecto <code>1</code>). Si el
-género no se encuentra, evalúa géneros CITES cercanos.</li>
+coincidencias aproximadas con distancia de edición dentro del mismo
+género según el umbral <code>max_dist</code> (por defecto
+<code>1</code>). Si el género no se encuentra, evalúa géneros candidatos
+dentro del mismo presupuesto total. Si hay empate, devuelve
+<code>ambiguous_match</code> sin asignar Apéndice.</li>
 <li>
 <strong>Genus Match (<code>genus</code>):</strong> Se activa cuando
 el nombre ingresado representa un género (ej. <code>Cedrela sp.</code>,
 <code>Touit spp.</code>, o género puro) o cuando se configura
-<code>genus_fallback = TRUE</code> para nombres binominales sin
-coincidencia de especie pero pertenecientes a un género sujeto a control
-integral.</li>
+<code>genus_fallback = TRUE</code> para binomios sin coincidencia de
+especie. El resultado informa presencia en el índice del género, no
+sustituye una identificación a nivel de especie y recibe la categoría
+<code>match_assessment = "requires_species_validation"</code>.</li>
 <li>
 <strong>Unmatched:</strong> Si el nombre no supera ninguna de las
 fases previas, se marca con <code>is_cites = FALSE</code> y
 <code>match_type = "unmatched"</code>.</li>
 </ol>
+<p>Los empates en las fases <code>suffix</code> o <code>fuzzy</code> son
+un resultado transversal: se reportan como
+<strong><code>ambiguous_match</code></strong>, sin Apéndice y con
+<code>candidate_names</code> y <code>candidate_count</code>; no se
+resuelven eligiendo el primer registro disponible.</p>
+</div>
+<div class="section level3">
+<h3 id="lectura-de-match_assessment">Lectura de <code>match_assessment</code><a class="anchor" aria-label="anchor" href="#lectura-de-match_assessment"></a>
+</h3>
+<table class="table">
+<colgroup>
+<col width="50%">
+<col width="50%">
+</colgroup>
+<thead><tr class="header">
+<th>Valor</th>
+<th>Interpretación operativa</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td><code>matched</code></td>
+<td>Nombre aceptado o sinónimo oficial sin marcador de
+incertidumbre.</td>
+</tr>
+<tr class="even">
+<td><code>requires_taxonomic_validation</code></td>
+<td>Match por sufijo o fuzzy, o entrada con <code>cf.</code>,
+<code>aff.</code>, híbrido o rango infraespecífico.</td>
+</tr>
+<tr class="odd">
+<td><code>requires_species_validation</code></td>
+<td>Coincidencia a nivel de género; debe determinarse la especie.</td>
+</tr>
+<tr class="even">
+<td><code>ambiguous_match</code></td>
+<td>Empate entre candidatos; no se asigna Apéndice.</td>
+</tr>
+<tr class="odd">
+<td><code>not_listed</code></td>
+<td>No hubo coincidencia en el alcance elegido.</td>
+</tr>
+</tbody>
+</table>
+<p><code><a href="../reference/is_cites.html">is_cites()</a></code> es una función booleana conservadora:
+devuelve <code>TRUE</code> solo para <code>exact</code> y
+<code>synonym</code> con <code>match_assessment = "matched"</code>. Para
+cualquier otro caso se debe usar <code><a href="../reference/cites_match.html">cites_match()</a></code>.</p>
 <hr>
 </div>
 </div>
@@ -211,7 +276,7 @@ fases previas, se marca con <code>is_cites = FALSE</code> y
 <span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">cites_fauna_peru_2018</span> <span style="color: #555555;">496 spp.       </span>     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">cites_match()        </span> <span style="color: #555555;">matching engine</span></span></span>
 <span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">cites_fauna_peru_2019</span> <span style="color: #555555;">523 spp.       </span>     </span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> <span style="font-style: italic;">Listado de Especies de Flora y Fauna Silvestre CITES - Perú.</span></span></span>
-<span><span class="co"><span style="font-style: italic;">#&gt; Dirección General de Diversidad Biológica</span></span></span></code></pre></div>
+<span><span class="co"><span style="font-style: italic;">#&gt; Autoridad Científica: MINAM / Dirección General de Diversidad Biológica</span></span></span></code></pre></div>
 <div class="section level3">
 <h3 id="consulta-integral-de-casos-taxonómicos">Consulta integral de casos taxonómicos<a class="anchor" aria-label="anchor" href="#consulta-integral-de-casos-taxon%C3%B3micos"></a>
 </h3>
@@ -227,17 +292,19 @@ fases previas, se marca con <code>is_cites = FALSE</code> y
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">resultado</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/cites_match.html">cites_match</a></span><span class="op">(</span><span class="va">nombres</span>, max_dist <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
-<span><span class="va">resultado</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"input_name"</span>, <span class="st">"matched_name"</span>, <span class="st">"accepted_name"</span>, <span class="st">"match_type"</span>, <span class="st">"is_cites"</span>, <span class="st">"apendice"</span>, <span class="st">"taxon"</span><span class="op">)</span><span class="op">]</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 7 × 7</span></span></span>
-<span><span class="co">#&gt;   input_name       matched_name accepted_name match_type is_cites apendice taxon</span></span>
-<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> Tremarctos orna… Tremarctos … Tremarctos o… exact      TRUE     I        fauna</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> Epipedobates fe… Epipedobate… Allobates fe… synonym    TRUE     II       fauna</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> Paphiopedilum b… Paphiopedil… Phragmipediu… synonym    TRUE     I        flora</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> Cedrela odoratus Cedrela odo… Cedrela odor… suffix     TRUE     III      flora</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> Tremarctos orna… Tremarctos … Tremarctos o… fuzzy      TRUE     I        fauna</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span> Swietenia macro… Swietenia m… Swietenia ma… fuzzy      TRUE     II       flora</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">7</span> Canis familiaris <span style="color: #BB0000;">NA</span>           <span style="color: #BB0000;">NA</span>            unmatched  FALSE    <span style="color: #BB0000;">NA</span>       <span style="color: #BB0000;">NA</span></span></span></code></pre></div>
+<span><span class="va">resultado</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"input_name"</span>, <span class="st">"matched_name"</span>, <span class="st">"accepted_name"</span>, <span class="st">"match_type"</span>, <span class="st">"match_assessment"</span>, <span class="st">"is_cites"</span>, <span class="st">"apendice"</span>, <span class="st">"taxon"</span>, <span class="st">"edition_used"</span>, <span class="st">"source_dataset"</span>, <span class="st">"source_row_id"</span><span class="op">)</span><span class="op">]</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 7 × 11</span></span></span>
+<span><span class="co">#&gt;   input_name     matched_name accepted_name match_type match_assessment is_cites</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> Tremarctos or… Tremarctos … Tremarctos o… exact      matched          TRUE    </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> Epipedobates … Epipedobate… Allobates fe… synonym    matched          TRUE    </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> Paphiopedilum… Paphiopedil… Phragmipediu… synonym    matched          TRUE    </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> Cedrela odora… Cedrela odo… Cedrela odor… suffix     requires_taxono… TRUE    </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> Tremarctos or… Tremarctos … Tremarctos o… fuzzy      requires_taxono… TRUE    </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span> Swietenia mac… Swietenia m… Swietenia ma… fuzzy      requires_taxono… TRUE    </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">7</span> Canis familia… <span style="color: #BB0000;">NA</span>           <span style="color: #BB0000;">NA</span>            unmatched  not_listed       FALSE   </span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 5 more variables: apendice &lt;chr&gt;, taxon &lt;chr&gt;, edition_used &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   source_dataset &lt;chr&gt;, source_row_id &lt;chr&gt;</span></span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="observaciones-clave-del-resultado">Observaciones clave del resultado:<a class="anchor" aria-label="anchor" href="#observaciones-clave-del-resultado"></a>
@@ -254,10 +321,15 @@ el motor lo remonta a
 <strong><code>Phragmipedium besseae</code></strong>, asignándole el
 estatus de <strong>Apéndice I</strong>.</li>
 <li>En <strong><code>Cedrela odoratus</code></strong>, la desinencia
-<code>-us</code> se normalizó automáticamente a
+<code>-us</code> se vincula a
 <strong><code>Cedrela odorata</code></strong>
-(<code>match_type: suffix</code>) sin requerir penalización por
-distancia de edición.</li>
+(<code>match_type: suffix</code>), pero queda marcada para validación
+taxonómica.</li>
+<li>Cuando una entrada se resuelve como
+<strong><code>genus</code></strong>, <code>match_assessment</code> toma
+el valor <strong><code>"requires_species_validation"</code></strong>.
+Ese resultado señala que el género aparece en el índice consultado, pero
+exige confirmar la especie antes de una decisión regulatoria.</li>
 </ul>
 <hr>
 </div>
@@ -296,7 +368,16 @@ específicos:</p>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 2</span></span></span>
 <span><span class="co">#&gt;   input_name         apendice</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> Tremarctos ornatus <span style="color: #BB0000;">NA</span></span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> Tremarctos ornatus I</span></span>
+<span></span>
+<span><span class="co"># La edición 2019 también conserva su procedencia</span></span>
+<span><span class="fu"><a href="../reference/cites_match.html">cites_match</a></span><span class="op">(</span><span class="st">"Tremarctos ornatus"</span>, edition <span class="op">=</span> <span class="st">"2019"</span><span class="op">)</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
+<span>  <span class="st">"input_name"</span>, <span class="st">"apendice"</span>, <span class="st">"edition_used"</span>, <span class="st">"source_dataset"</span>, <span class="st">"source_row_id"</span></span>
+<span><span class="op">)</span><span class="op">]</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 5</span></span></span>
+<span><span class="co">#&gt;   input_name         apendice edition_used source_dataset        source_row_id</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> Tremarctos ornatus I        2019         cites_fauna_peru_2019 374</span></span></code></pre></div>
 <hr>
 </div>
 </div>
@@ -341,9 +422,14 @@ específicos:</p>
 <h2 id="conclusión">7. Conclusión<a class="anchor" aria-label="anchor" href="#conclusi%C3%B3n"></a>
 </h2>
 <p>El motor taxonómico de <strong><code>citesperu</code></strong>
-estandariza la verificación de listados CITES en el Perú, proporcionando
-una base rigurosa, auditable y de alto rendimiento para investigadores,
-autoridades ambientales y entidades de control.</p>
+estandariza la revisión inicial de listados CITES en el Perú,
+proporcionando una base auditable y reproducible para investigadores,
+autoridades ambientales y entidades de control. Los resultados
+<code>suffix</code>, <code>fuzzy</code>, <code>genus</code>, ambiguos o
+con calificadores taxonómicos requieren revisión según
+<code>match_assessment</code>; <code><a href="../reference/is_cites.html">is_cites()</a></code> reserva
+<code>TRUE</code> para nombres exactos o sinónimos oficiales sin
+incertidumbre.</p>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>

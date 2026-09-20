@@ -25,16 +25,18 @@ suelen presentar:
     caracteres en nombres biológicos complejos.
 
 4.  **Determinaciones genéricas incompletas:** Muestras rotuladas como
-    morfoespecies (`sp.`, `spp.`, `indet.`) que pertenecen a géneros o
-    familias cuya regulación es integral (como *Cedrela*, *Swietenia*,
-    *Podocnemis* o las familias Orchidaceae y Cactaceae).
+    morfoespecies (`sp.`, `spp.`, `indet.`), para las que es útil
+    identificar si el género tiene registros CITES y luego confirmar la
+    especie y la fuente aplicable.
 
 El paquete **`citesperu`** provee un motor de concordancia taxonómica
 ([`cites_match()`](https://paulesantos.github.io/citesperu/reference/cites_match.md))
 y una función booleana de alta velocidad
 ([`is_cites()`](https://paulesantos.github.io/citesperu/reference/is_cites.md))
-diseñados específicamente para resolver estas problemáticas con rigor
-científico y trazabilidad documental.
+diseñados específicamente para resolver estas problemáticas con
+trazabilidad documental. La concordancia automatizada es una ayuda para
+revisar inventarios: la determinación taxonómica y la verificación
+regulatoria final deben contrastarse con la fuente oficial vigente.
 
 ------------------------------------------------------------------------
 
@@ -42,20 +44,35 @@ científico y trazabilidad documental.
 
 En lugar de consultar archivos tabulares dispersos en tiempo de
 ejecución, `citesperu` cuenta con un **backbone taxonómico interno
-pre-indexado** (`cites_backbone`) integrado en el paquete:
+pre-indexado** (`cites_backbone`) integrado en el paquete. Para
+`edition = "latest"`, el motor consulta la combinación de fauna 2023 y
+flora 2018; las demás ediciones cambian el subconjunto de referencia, no
+el orden del pipeline.
 
-- **Volumen:** Más de 5,800 registros taxonómicos (3,053 nombres
-  válidos/aceptados y 2,763 sinónimos oficiales).
+- **Volumen y versiones:** Más de 8,500 registros taxonómicos que
+  preservan fauna 2018, 2019 y 2023, además de flora 2018; cada
+  coincidencia devuelve edición y referencia de origen.
 - **Fauna:** Articula las ediciones de 2018 (496 spp. oficiales), 2019
   (523 registros con ámbito ecológico) y 2023 (568 especies con las
   enmiendas CoP19 Panamá).
 - **Flora:** Articula el catálogo botánico oficial 2018 (2,506 taxa en 9
   familias, incluyendo Orchidaceae con 2,215 taxa y Cactaceae con 186
   taxa tratadas según el estándar de Hunt 2016).
-- **Gobernanza asociada:** Cada registro enlaza el Apéndice CITES (I, II
-  o III), la categoría nacional de amenaza (D.S. N.° 004-2014-MINAGRI
-  para fauna o D.S. N.° 043-2006-AG para flora), la categoría global de
-  la UICN y la autoridad sectorial competente.
+- **Metadatos asociados:** Cada coincidencia recupera el Apéndice CITES
+  y los metadatos taxonómicos y de conservación disponibles en el
+  registro de origen.
+
+Los nombres aceptados y las sinonimias se conservan como registros
+separados, vinculados mediante `accepted_name`. Para atender consultas
+como `Touit sp.`, el motor construye un índice de géneros a partir del
+backbone ya filtrado por `taxon` y `edition`. Una coincidencia `genus`
+significa que el género tiene registros CITES en el alcance
+seleccionado; no asigna una especie concreta ni debe interpretarse, por
+sí sola, como cobertura automática de todas las especies del género. Por
+ello conserva `is_cites = TRUE`, pero recibe
+`match_assessment = "requires_species_validation"`. La salida también
+conserva `edition_used`, `source_dataset`, `source_row_id`,
+`source_title` y `source_url` para auditoría.
 
 ------------------------------------------------------------------------
 
@@ -79,12 +96,12 @@ etapas:
          │       └─ SÍ -> match_type: "synonym" (dist = 0)
          │
          ├───> 3. Suffix match (Normalización de sufijo latino)
-         │       └─ SÍ -> match_type: "suffix" (dist = 0)
+         │       └─ SÍ -> match_type: "suffix" (dist = 0; empate -> ambiguous_match)
          │
-         ├───> 4. Fuzzy match (Distancia Levenshtein/OSA acotada)
-         │       └─ SÍ -> match_type: "fuzzy" (dist = 1..max_dist)
+         ├───> 4. Fuzzy match (Distancia Levenshtein acotada)
+         │       └─ SÍ -> match_type: "fuzzy" (dist = 1..max_dist; empate -> ambiguous_match)
          │
-         ├───> 5. Genus match (Regulación a nivel genérico / sp.)
+         ├───> 5. Genus match (Consulta a nivel genérico / sp.)
          │       └─ SÍ -> match_type: "genus" (dist = 0)
          │
          └───> 6. Unmatched (Especie no incluida en CITES Perú)
@@ -100,22 +117,44 @@ etapas:
     nombre aceptado, se busca en la base de sinónimos oficiales del
     MINAM. Al encontrar coincidencia, se identifica el `accepted_name`
     oficial y se le asigna el Apéndice del taxón aceptado.
-3.  **Suffix Match (`suffix`):** Cuando la única diferencia respecto a
-    un taxón válido dentro del mismo género es la desinencia gramatical
-    latina (`-us`, `-a`, `-um`, `-is`, `-e`), se normaliza y se vincula
-    al taxón oficial.
-4.  **Fuzzy Match (`fuzzy`):** Busca coincidencias aproximadas
-    calculando la distancia de edición (Levenshtein / Optimal String
-    Alignment) dentro del mismo género según el umbral `max_dist` (por
-    defecto `1`). Si el género no se encuentra, evalúa géneros CITES
-    cercanos.
+3.  **Suffix Match (`suffix`):** Cuando existe una variación de sufijo
+    permitida dentro del mismo género, se vincula al candidato oficial.
+    El resultado queda marcado como `requires_taxonomic_validation`.
+4.  **Fuzzy Match (`fuzzy`):** Busca coincidencias aproximadas con
+    distancia de edición dentro del mismo género según el umbral
+    `max_dist` (por defecto `1`). Si el género no se encuentra, evalúa
+    géneros candidatos dentro del mismo presupuesto total. Si hay
+    empate, devuelve `ambiguous_match` sin asignar Apéndice.
 5.  **Genus Match (`genus`):** Se activa cuando el nombre ingresado
     representa un género (ej. `Cedrela sp.`, `Touit spp.`, o género
-    puro) o cuando se configura `genus_fallback = TRUE` para nombres
-    binominales sin coincidencia de especie pero pertenecientes a un
-    género sujeto a control integral.
+    puro) o cuando se configura `genus_fallback = TRUE` para binomios
+    sin coincidencia de especie. El resultado informa presencia en el
+    índice del género, no sustituye una identificación a nivel de
+    especie y recibe la categoría
+    `match_assessment = "requires_species_validation"`.
 6.  **Unmatched:** Si el nombre no supera ninguna de las fases previas,
     se marca con `is_cites = FALSE` y `match_type = "unmatched"`.
+
+Los empates en las fases `suffix` o `fuzzy` son un resultado
+transversal: se reportan como **`ambiguous_match`**, sin Apéndice y con
+`candidate_names` y `candidate_count`; no se resuelven eligiendo el
+primer registro disponible.
+
+### Lectura de `match_assessment`
+
+| Valor | Interpretación operativa |
+|----|----|
+| `matched` | Nombre aceptado o sinónimo oficial sin marcador de incertidumbre. |
+| `requires_taxonomic_validation` | Match por sufijo o fuzzy, o entrada con `cf.`, `aff.`, híbrido o rango infraespecífico. |
+| `requires_species_validation` | Coincidencia a nivel de género; debe determinarse la especie. |
+| `ambiguous_match` | Empate entre candidatos; no se asigna Apéndice. |
+| `not_listed` | No hubo coincidencia en el alcance elegido. |
+
+[`is_cites()`](https://paulesantos.github.io/citesperu/reference/is_cites.md)
+es una función booleana conservadora: devuelve `TRUE` solo para `exact`
+y `synonym` con `match_assessment = "matched"`. Para cualquier otro caso
+se debe usar
+[`cites_match()`](https://paulesantos.github.io/citesperu/reference/cites_match.md).
 
 ------------------------------------------------------------------------
 
@@ -131,7 +170,7 @@ library(citesperu)
 #> ✔ cites_fauna_peru_2018 496 spp.            ✔ cites_match()         matching engine
 #> ✔ cites_fauna_peru_2019 523 spp.            
 #> ℹ Listado de Especies de Flora y Fauna Silvestre CITES - Perú.
-#> Dirección General de Diversidad Biológica
+#> Autoridad Científica: MINAM / Dirección General de Diversidad Biológica
 ```
 
 ### Consulta integral de casos taxonómicos
@@ -149,17 +188,19 @@ nombres <- c(
 )
 
 resultado <- cites_match(nombres, max_dist = 1)
-resultado[, c("input_name", "matched_name", "accepted_name", "match_type", "is_cites", "apendice", "taxon")]
-#> # A tibble: 7 × 7
-#>   input_name       matched_name accepted_name match_type is_cites apendice taxon
-#>   <chr>            <chr>        <chr>         <chr>      <lgl>    <chr>    <chr>
-#> 1 Tremarctos orna… Tremarctos … Tremarctos o… exact      TRUE     I        fauna
-#> 2 Epipedobates fe… Epipedobate… Allobates fe… synonym    TRUE     II       fauna
-#> 3 Paphiopedilum b… Paphiopedil… Phragmipediu… synonym    TRUE     I        flora
-#> 4 Cedrela odoratus Cedrela odo… Cedrela odor… suffix     TRUE     III      flora
-#> 5 Tremarctos orna… Tremarctos … Tremarctos o… fuzzy      TRUE     I        fauna
-#> 6 Swietenia macro… Swietenia m… Swietenia ma… fuzzy      TRUE     II       flora
-#> 7 Canis familiaris NA           NA            unmatched  FALSE    NA       NA
+resultado[, c("input_name", "matched_name", "accepted_name", "match_type", "match_assessment", "is_cites", "apendice", "taxon", "edition_used", "source_dataset", "source_row_id")]
+#> # A tibble: 7 × 11
+#>   input_name     matched_name accepted_name match_type match_assessment is_cites
+#>   <chr>          <chr>        <chr>         <chr>      <chr>            <lgl>   
+#> 1 Tremarctos or… Tremarctos … Tremarctos o… exact      matched          TRUE    
+#> 2 Epipedobates … Epipedobate… Allobates fe… synonym    matched          TRUE    
+#> 3 Paphiopedilum… Paphiopedil… Phragmipediu… synonym    matched          TRUE    
+#> 4 Cedrela odora… Cedrela odo… Cedrela odor… suffix     requires_taxono… TRUE    
+#> 5 Tremarctos or… Tremarctos … Tremarctos o… fuzzy      requires_taxono… TRUE    
+#> 6 Swietenia mac… Swietenia m… Swietenia ma… fuzzy      requires_taxono… TRUE    
+#> 7 Canis familia… NA           NA            unmatched  not_listed       FALSE   
+#> # ℹ 5 more variables: apendice <chr>, taxon <chr>, edition_used <chr>,
+#> #   source_dataset <chr>, source_row_id <chr>
 ```
 
 ### Observaciones clave del resultado:
@@ -172,9 +213,13 @@ resultado[, c("input_name", "matched_name", "accepted_name", "match_type", "is_c
   botánico muy extendido en el mercado de orquídeas, el motor lo remonta
   a **`Phragmipedium besseae`**, asignándole el estatus de **Apéndice
   I**.
-- En **`Cedrela odoratus`**, la desinencia `-us` se normalizó
-  automáticamente a **`Cedrela odorata`** (`match_type: suffix`) sin
-  requerir penalización por distancia de edición.
+- En **`Cedrela odoratus`**, la desinencia `-us` se vincula a
+  **`Cedrela odorata`** (`match_type: suffix`), pero queda marcada para
+  validación taxonómica.
+- Cuando una entrada se resuelve como **`genus`**, `match_assessment`
+  toma el valor **`"requires_species_validation"`**. Ese resultado
+  señala que el género aparece en el índice consultado, pero exige
+  confirmar la especie antes de una decisión regulatoria.
 
 ------------------------------------------------------------------------
 
@@ -213,7 +258,16 @@ cites_match("Tremarctos ornatus", edition = "2018")[, c("input_name", "apendice"
 #> # A tibble: 1 × 2
 #>   input_name         apendice
 #>   <chr>              <chr>   
-#> 1 Tremarctos ornatus NA
+#> 1 Tremarctos ornatus I
+
+# La edición 2019 también conserva su procedencia
+cites_match("Tremarctos ornatus", edition = "2019")[, c(
+  "input_name", "apendice", "edition_used", "source_dataset", "source_row_id"
+)]
+#> # A tibble: 1 × 5
+#>   input_name         apendice edition_used source_dataset        source_row_id
+#>   <chr>              <chr>    <chr>        <chr>                 <chr>        
+#> 1 Tremarctos ornatus I        2019         cites_fauna_peru_2019 374
 ```
 
 ------------------------------------------------------------------------
@@ -259,7 +313,11 @@ inventario_validado
 
 ## 7. Conclusión
 
-El motor taxonómico de **`citesperu`** estandariza la verificación de
-listados CITES en el Perú, proporcionando una base rigurosa, auditable y
-de alto rendimiento para investigadores, autoridades ambientales y
-entidades de control.
+El motor taxonómico de **`citesperu`** estandariza la revisión inicial
+de listados CITES en el Perú, proporcionando una base auditable y
+reproducible para investigadores, autoridades ambientales y entidades de
+control. Los resultados `suffix`, `fuzzy`, `genus`, ambiguos o con
+calificadores taxonómicos requieren revisión según `match_assessment`;
+[`is_cites()`](https://paulesantos.github.io/citesperu/reference/is_cites.md)
+reserva `TRUE` para nombres exactos o sinónimos oficiales sin
+incertidumbre.

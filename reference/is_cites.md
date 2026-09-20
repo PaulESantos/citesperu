@@ -1,9 +1,11 @@
 # Verificación Booleana de Inclusión en los Apéndices CITES del Perú
 
 Comprueba de forma vectorizada si cada uno de los nombres científicos
-consultados se encuentra incluido en los Apéndices CITES del Perú (como
-taxón aceptado o sinónimo oficial). Devuelve un vector lógico del mismo
-largo y orden que el vector de entrada.
+consultados se encuentra incluido en los Apéndices CITES del Perú como
+taxón aceptado o sinónimo oficial sin calificadores de incertidumbre.
+Las coincidencias por género, sufijo o aproximación deben revisarse con
+[`cites_match()`](https://paulesantos.github.io/citesperu/reference/cites_match.md)
+y no devuelven `TRUE` en esta función.
 
 ## Usage
 

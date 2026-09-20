@@ -8,12 +8,10 @@ Silvestres (CITES)**, publicados por el **Ministerio del Ambiente
 (MINAM)** como Autoridad Científica CITES del país.
 
 **Estado actual:** Versión `0.1.0`. Incorpora los 4 listados oficiales
-nacionales (Fauna 2018, 2019, 2023 y Flora 2018), un backbone taxonómico
-unificado de más de 5,800 registros con resolución de sinónimos
-oficiales, un motor de concordancia secuencial en 6 etapas
-([`cites_match()`](https://paulesantos.github.io/citesperu/reference/cites_match.md))
-y mensajes interactivos estilo
-[tidyverse](https://tidyverse.tidyverse.org).
+nacionales (Fauna 2018, 2019, 2023 y Flora 2018), un backbone histórico
+unificado de más de 8,500 registros con procedencia por fila, resolución
+de sinónimos y un motor de concordancia secuencial en 6 etapas
+([`cites_match()`](https://paulesantos.github.io/citesperu/reference/cites_match.md)).
 
 ------------------------------------------------------------------------
 
@@ -113,128 +111,60 @@ el balance oficial nacional.*
 
 ------------------------------------------------------------------------
 
-## Arquitectura del Backbone Taxonómico y Flujo de Trabajo de Matching
+## Backbone taxonómico y flujo de concordancia
 
-Uno de los principales desafíos en el análisis de biodiversidad y
-comercio de vida silvestre es que los inventarios de campo, guías de
-transporte o decomisos suelen contener **sinónimos históricos,
-variaciones ortográficas de género gramatical en latín, errores
-tipográficos o nombres determinados solo a género (`sp.` / `spp.`)**.
+[`cites_match()`](https://paulesantos.github.io/citesperu/reference/cites_match.md)
+no consulta los archivos fuente en cada llamada. Trabaja con un backbone
+interno preindexado (`cites_backbone`) construido a partir de la fauna
+2023 y la flora 2018: la combinación que representa
+`edition = "latest"`. También conserva las ediciones de fauna 2018 y
+2019. El índice reúne nombres aceptados y sinonimias registradas en las
+fuentes del MINAM; cada coincidencia conserva el Apéndice CITES, la
+edición efectiva y la referencia de origen (`source_dataset`,
+`source_row_id`, `source_title` y `source_url`).
 
-Para resolver esto, **citesperu** integra un **backbone taxonómico
-pre-indexado** (`cites_backbone`) con más de **5,816 registros
-taxonómicos** (3,053 nombres aceptados y 2,763 sinónimos oficiales)
-derivados directamente de las publicaciones del MINAM.
-
-### 1. ¿Cómo se articulan las bases de Fauna y Flora?
-
-El backbone interno unifica ambas fuentes bajo un esquema canónico
-homogéneo: \* **Fauna:** Integra las enmiendas de la CoP19 de Panamá
-vigentes en la edición 2023, enlazando cada taxón con su Clase, Orden,
-Familia, Apéndice CITES, categoría nacional de amenaza (D.S. n.°
-004-2014-MINAGRI), categoría global UICN y autoridad sectorial
-competente (SERFOR para fauna terrestre, PRODUCE/SANIPES para acuática).
-\* **Flora:** Integra las 9 familias botánicas nativas reguladas
-(Orchidaceae con 2,215 taxa, Cactaceae con 186 taxa según el *CITES
-Cactaceae Checklist* de Hunt 2016, Cyatheaceae con 79 taxa, etc.),
-vinculando códigos departamentales y referencias de herbarios oficiales
-(USM, MOL, MO, US, NY, F). \* **Géneros regulados:** Se compila una
-tabla de control genérico (`cites_genera`) para taxones cuya regulación
-abarca a la totalidad del género o familia (por ejemplo: *Swietenia*,
-*Cedrela*, *Podocnemis*, *Touit*, o todas las especies no listadas
-individualmente en Orchidaceae y Cactaceae).
-
-### 2. ¿Cómo resuelve los sinónimos taxonómicos?
-
-Muchas especies han cambiado de género o epíteto debido a revisiones
-filogenéticas recientes. Si un usuario consulta un nombre que ya no es
-válido según la nomenclatura CITES actual, el motor no lo descarta como
-“no CITES”; en su lugar: 1. Detecta la coincidencia en la base de
-sinónimos oficiales del MINAM. 2. Identifica el **nombre CITES aceptado
-(`accepted_name`)**. 3. Recupera el **Apéndice CITES oficial** y la
-jerarquía taxonómica del taxón aceptado. 4. Etiqueta el resultado con
-`match_type = "synonym"`.
-
-**Ejemplos reales:** \* **Fauna:** *Epipedobates femoralis* (sinónimo
-histórico en dendrobátidos) se resuelve a **`Allobates femoralis`**
-(Apéndice II). \* **Flora:** *Paphiopedilum besseae* (sinónimo comercial
-frecuente) se resuelve a **`Phragmipedium besseae`** (Apéndice I).
-
-------------------------------------------------------------------------
-
-### 3. Pipeline Secuencial de Concordancia (`cites_match()`)
-
-Cuando se invoca
-[`cites_match()`](https://paulesantos.github.io/citesperu/reference/cites_match.md),
-cada nombre atraviesa una tubería secuencial optimizada de 6 etapas:
+El flujo es secuencial: una etapa solo recibe los nombres que no fueron
+resueltos por la anterior.
 
 ``` text
-[ Entrada del Usuario: Nombre científico o lista ]
-                         │
-                         ▼
-        ┌───────────────────────────────────┐
-        │ 0. Clasificación y Parsing        │ -> Extrae género, epíteto, rango infraespecífico,
-        │    (cites_classify_names)         │    autor y banderas (cf., aff., sp., spp.)
-        └─────────────────┬─────────────────┘
-                         │
-                         ▼
-        ┌───────────────────────────────────┐
-   SÍ   │ 1. Coincidencia Directa (Exacta)  │ -> match_type: "exact" (dist: 0)
-  ┌─────┤    ¿Nombre aceptado en CITES?     │    Recupera Apéndice y taxonomía
-  │     └─────────────────┬─────────────────┘
-  │                      NO
-  │                      ▼
-  │     ┌───────────────────────────────────┐
-  │ SÍ  │ 2. Coincidencia por Sinónimo      │ -> match_type: "synonym" (dist: 0)
-  ├─────┤    ¿Sinónimo oficial de MINAM?    │    Resuelve a accepted_name y Apéndice
-  │     └─────────────────┬─────────────────┘
-  │                      NO
-  │                      ▼
-  │     ┌───────────────────────────────────┐
-  │ SÍ  │ 3. Variación de Sufijo Latino     │ -> match_type: "suffix" (dist: 0)
-  ├─────┤    ¿Flexión gramatical (-us/-a)?  │    Normaliza declinación dentro del género
-  │     └─────────────────┬─────────────────┘
-  │                      NO
-  │                      ▼
-  │     ┌───────────────────────────────────┐
-  │ SÍ  │ 4. Concordancia Difusa (Fuzzy)    │ -> match_type: "fuzzy" (dist: 1..max_dist)
-  ├─────┤    ¿Distancia Levenshtein <= max? │    Acotada al mismo género o género cercano
-  │     └─────────────────┬─────────────────┘
-  │                      NO
-  │                      ▼
-  │     ┌───────────────────────────────────┐
-  │ SÍ  │ 5. Coincidencia a Nivel de Género │ -> match_type: "genus" (dist: 0)
-  ├─────┤    ¿sp., spp. o genus_fallback?   │    Verifica si el género cuenta con regulación
-  │     └─────────────────┬─────────────────┘
-  │                      NO
-  │                      ▼
-  │     ┌───────────────────────────────────┐
-  └────>│ 6. No Listado (Unmatched)         │ -> match_type: "unmatched" (is_cites: FALSE)
-        └───────────────────────────────────┘
+Entrada → clasificación del nombre
+        → exact → synonym → suffix → fuzzy → genus → unmatched
 ```
 
-#### Descripción de las etapas:
+| Etapa | `match_type` | Qué resuelve |
+|----|----|----|
+| Coincidencia exacta | `exact` | Un nombre aceptado del backbone. |
+| Sinonimia | `synonym` | Un sinónimo del backbone y su `accepted_name`. |
+| Sufijo latino | `suffix` | Variaciones permitidas de desinencia dentro del mismo género; requiere validación taxonómica. |
+| Coincidencia difusa | `fuzzy` | Errores de escritura mediante distancia de edición, limitada por `max_dist`; requiere validación taxonómica. |
+| Género | `genus` | Entradas a nivel de género, `sp.` o `spp.`; un binomio solo llega aquí con `genus_fallback = TRUE`. Se marca como `requires_species_validation`. |
+| Sin resolución | `unmatched` | No hubo coincidencia en el alcance consultado. |
+| Ambigua | `ambiguous_match` | Hay más de un candidato con la misma regla o distancia; no se asigna Apéndice. |
 
-1.  **`exact` (Direct match):** Búsqueda directa O(1) contra los nombres
-    taxonómicamente aceptados en los listados del MINAM. Distancia: `0`.
-2.  **`synonym` (Synonym match):** Búsqueda contra los sinónimos
-    oficiales recopilados por el MINAM, vinculando automáticamente el
-    Apéndice y la ficha del taxón válido. Distancia: `0`.
-3.  **`suffix` (Suffix match):** Resuelve discrepancias de concordancia
-    gramatical entre el género y los sufijos latinos del epíteto
-    específico (`-us`, `-a`, `-um`, `-is`, `-e`, etc.). Ejemplo:
-    *Cedrela odoratus* $`\rightarrow`$*Cedrela odorata*. Distancia: `0`.
-4.  **`fuzzy` (Fuzzy match):** Coincidencia aproximada mediante
-    distancia de edición (Levenshtein/OSA). Por defecto busca
-    variaciones tipográficas en el epíteto acotadas al género
-    (`max_dist = 1`). Si el género no existe, evalúa géneros CITES
-    candidatos cercanos dentro del umbral.
-5.  **`genus` (Genus match):** Si el espécimen fue determinado
-    únicamente a género (ej. *Touit sp.*, *Cedrela spp.*) o si se activa
-    `genus_fallback = TRUE` para binomios sin coincidencia específica,
-    verifica si el género posee estatus CITES integral.
-6.  **`unmatched`:** Si el taxón no figura en los listados CITES del
-    Perú, se reporta con `is_cites = FALSE` y metadatos `NA`.
+La clasificación inicial
+([`cites_classify_names()`](https://paulesantos.github.io/citesperu/reference/cites_classify_names.md))
+separa género, epíteto, rango infraespecífico, autoría y marcadores como
+`cf.`, `aff.`, `sp.` y `spp.`. La etapa `genus` usa un índice de géneros
+presentes en el backbone. Por ello, una coincidencia de género indica
+que hay registros CITES para ese género en el alcance elegido; no
+identifica una especie ni por sí sola prueba que toda especie del género
+esté incluida. El resultado conserva `is_cites = TRUE` para indicar la
+presencia del género en el listado y asigna
+`match_assessment = "requires_species_validation"`. Para decisiones
+regulatorias, se debe confirmar el taxón determinado y la fuente oficial
+aplicable.
+
+`match_assessment` expresa la certeza operativa del resultado: `matched`
+para un nombre aceptado o sinónimo sin calificadores;
+`requires_taxonomic_validation` para `suffix`, `fuzzy`, `cf.`, `aff.`,
+híbridos o rangos infraespecíficos; `requires_species_validation` para
+género; `ambiguous_match` para empates y `not_listed` cuando no hubo
+coincidencia. Los resultados ambiguos no reciben Apéndice y exponen
+`candidate_names` y `candidate_count`.
+
+La viñeta [“Flujo de Trabajo y Resolución
+Taxonómica”](https://paulesantos.github.io/citesperu/vignettes/flujo-matching-cites.md)
+documenta el procedimiento, sus parámetros y ejemplos reproducibles.
 
 ------------------------------------------------------------------------
 
@@ -247,8 +177,16 @@ cada nombre atraviesa una tubería secuencial optimizada de 6 etapas:
 | `edition` | `"latest"` (default), `"all"`, `"2023"`, `"2019"`, `"2018"` | Edición oficial a consultar. Por defecto combina Fauna 2023 + Flora 2018. |
 | `max_dist` | `integer` (default `1`) | Distancia máxima de edición permitida en la fase *fuzzy*. |
 | `allow_synonyms` | `TRUE` (default) / `FALSE` | Permite o desactiva la resolución automática de sinónimos oficiales. |
-| `genus_fallback` | `FALSE` (default) / `TRUE` | Si es `TRUE`, binomios sin match a nivel de especie heredan la regulación del género si está regulado. |
-| `output` | `"standard"` (default) / `"full"` | `"standard"` devuelve las 13 columnas esenciales para conservación; `"full"` incluye columnas de parsing y flags. |
+| `genus_fallback` | `FALSE` (default) / `TRUE` | Si es `TRUE`, binomios sin coincidencia específica se comparan también con el índice de géneros. |
+| `output` | `"standard"` (default) / `"full"` | `"standard"` devuelve las columnas esenciales, incluida `match_assessment`; `"full"` incluye además parsing y flags. |
+
+[`is_cites()`](https://paulesantos.github.io/citesperu/reference/is_cites.md)
+es deliberadamente más estricto: solo devuelve `TRUE` para coincidencias
+exactas o sinónimos oficiales sin calificadores de incertidumbre. Para
+resultados `genus`, `suffix`, `fuzzy`, ambiguos o con `cf.`, `aff.` e
+híbridos, usa
+[`cites_match()`](https://paulesantos.github.io/citesperu/reference/cites_match.md)
+y revisa `match_assessment`.
 
 ------------------------------------------------------------------------
 
@@ -261,26 +199,12 @@ Ideal para filtros lógicos inmediatos en pipelines de datos:
 ``` r
 
 library(citesperu)
-```
-
-``` R
-## ── citesperu ───────────────────────────────────────────────────────── v0.1.0 ──
-## ✔ cites_fauna_peru_2018    496 spp.            ✔ codigos_departamentos_pe 24 depts.      
-## ✔ cites_flora_peru_2018    2506 taxa           ✔ cites_fauna_peru_2023    568 spp.       
-## ✔ cites_fauna_peru_2019    523 spp.            ✔ cites_match()            matching engine
-## ℹ Autoridad Científica: MINAM | Autoridades Administrativas: SERFOR / PRODUCE
-## ℹ Usa cites_match() para concordancia o revisa la documentación (<https://paulesantos.github.io/citesperu/>)
-```
-
-``` r
 
 especies <- c("Tremarctos ornatus", "Cedrela odorata", "Homo sapiens")
 is_cites(especies)
 ```
 
-``` R
-## [1]  TRUE  TRUE FALSE
-```
+    ## [1]  TRUE  TRUE FALSE
 
 ### 2. Motor de concordancia taxonómica (`cites_match()`)
 
@@ -301,22 +225,22 @@ res <- cites_match(c(
 ), max_dist = 1)
 
 # Seleccionar columnas clave para visualización
-res[, c("input_name", "accepted_name", "match_type", "is_cites", "apendice", "taxon")]
+res[, c("input_name", "accepted_name", "match_type", "match_assessment",
+        "is_cites", "apendice", "edition_used", "source_dataset")]
 ```
 
-``` R
-## # A tibble: 8 × 6
-##   input_name             accepted_name        match_type is_cites apendice taxon
-##   <chr>                  <chr>                <chr>      <lgl>    <chr>    <chr>
-## 1 Tremarctos ornatus     Tremarctos ornatus   exact      TRUE     I        fauna
-## 2 Epipedobates femoralis Allobates femoralis  synonym    TRUE     II       fauna
-## 3 Paphiopedilum besseae  Phragmipedium besse… synonym    TRUE     I        flora
-## 4 Cedrela odoratus       Cedrela odorata      suffix     TRUE     III      flora
-## 5 Tremarctos ornatu      Tremarctos ornatus   fuzzy      TRUE     I        fauna
-## 6 Swietenia macrophyla   Swietenia macrophyl… fuzzy      TRUE     II       flora
-## 7 Touit sp.              Touit spp.           genus      TRUE     II       fauna
-## 8 Homo sapiens           <NA>                 unmatched  FALSE    <NA>     <NA>
-```
+    ## # A tibble: 8 x 8
+    ##   input_name         accepted_name match_type match_assessment is_cites apendice
+    ##   <chr>              <chr>         <chr>      <chr>            <lgl>    <chr>
+    ## 1 Tremarctos ornatus Tremarctos o~ exact      matched          TRUE     I
+    ## 2 Epipedobates femo~ Allobates fe~ synonym    matched          TRUE     II
+    ## 3 Paphiopedilum bes~ Phragmipediu~ synonym    matched          TRUE     I
+    ## 4 Cedrela odoratus   Cedrela odor~ suffix     requires_taxono~ TRUE     III
+    ## 5 Tremarctos ornatu  Tremarctos o~ fuzzy      requires_taxono~ TRUE     I
+    ## 6 Swietenia macroph~ Swietenia ma~ fuzzy      requires_taxono~ TRUE     II
+    ## 7 Touit sp.          Touit spp.    genus      requires_specie~ TRUE     II
+    ## 8 Homo sapiens       <NA>          unmatched  not_listed       FALSE    <NA>
+    ## # i 2 more variables: edition_used <chr>, source_dataset <chr>
 
 ### 3. Clasificación taxonómica y extracción de componentes (`cites_classify_names()`)
 
@@ -333,17 +257,15 @@ cites_classify_names(c(
 ))
 ```
 
-``` R
-## # A tibble: 4 × 14
-##   input_index input_name       canonical_name orig_genus orig_species infra_rank
-##         <int> <chr>            <chr>          <chr>      <chr>        <chr>     
-## 1           1 Swietenia macro… Swietenia mac… Swietenia  macrophylla  <NA>      
-## 2           2 Phragmipedium b… Phragmipedium… Phragmipe… boissierian… var.      
-## 3           3 Cedrela cf. odo… Cedrela odora… Cedrela    odorata      <NA>      
-## 4           4 Touit sp.        Touit          Touit      <NA>         <NA>      
-## # ℹ 8 more variables: orig_infraspecies <chr>, author <chr>, rank <dbl>,
-## #   has_cf <lgl>, has_aff <lgl>, is_sp <lgl>, is_spp <lgl>, had_hybrid <lgl>
-```
+    ## # A tibble: 4 x 14
+    ##   input_index input_name       canonical_name orig_genus orig_species infra_rank
+    ##         <int> <chr>            <chr>          <chr>      <chr>        <chr>
+    ## 1           1 Swietenia macro~ Swietenia mac~ Swietenia  macrophylla  <NA>
+    ## 2           2 Phragmipedium b~ Phragmipedium~ Phragmipe~ boissierian~ var.
+    ## 3           3 Cedrela cf. odo~ Cedrela odora~ Cedrela    odorata      <NA>
+    ## 4           4 Touit sp.        Touit          Touit      <NA>         <NA>
+    ## # i 8 more variables: orig_infraspecies <chr>, author <chr>, rank <dbl>,
+    ## #   has_cf <lgl>, has_aff <lgl>, is_sp <lgl>, is_spp <lgl>, had_hybrid <lgl>
 
 ### 4. Integración en flujos tabulares con `{dplyr}`
 
@@ -366,22 +288,22 @@ eval_cites <- cites_match(inventario$nombre_campo)
 
 inventario_evaluado <- bind_cols(
   inventario,
-  eval_cites %>% select(accepted_name, apendice, match_type, is_cites)
+  eval_cites %>% select(accepted_name, apendice, match_type, match_assessment,
+                        edition_used, source_dataset, source_row_id, is_cites)
 )
 
 inventario_evaluado
 ```
 
-``` R
-## # A tibble: 4 × 7
-##      id nombre_campo       cantidad_individuos accepted_name apendice match_type
-##   <int> <chr>                            <dbl> <chr>         <chr>    <chr>     
-## 1     1 Tremarctos ornatus                   2 Tremarctos o… I        exact     
-## 2     2 Epipedobates femo…                  15 Allobates fe… II       synonym   
-## 3     3 Cedrela odoratus                     1 Cedrela odor… III      suffix    
-## 4     4 Zea mays                           100 <NA>          <NA>     unmatched 
-## # ℹ 1 more variable: is_cites <lgl>
-```
+    ## # A tibble: 4 x 11
+    ##      id nombre_campo       cantidad_individuos accepted_name apendice match_type
+    ##   <int> <chr>                            <dbl> <chr>         <chr>    <chr>
+    ## 1     1 Tremarctos ornatus                   2 Tremarctos o~ I        exact
+    ## 2     2 Epipedobates femo~                  15 Allobates fe~ II       synonym
+    ## 3     3 Cedrela odoratus                     1 Cedrela odor~ III      suffix
+    ## 4     4 Zea mays                           100 <NA>          <NA>     unmatched
+    ## # i 5 more variables: match_assessment <chr>, edition_used <chr>,
+    ## #   source_dataset <chr>, source_row_id <chr>, is_cites <lgl>
 
 ------------------------------------------------------------------------
 
