@@ -61,20 +61,8 @@
 <!-- badges: start -->
 
 <p><strong>citesperu</strong> es un paquete de R para consultar, estructurar y contrastar de manera reproducible los listados oficiales de fauna y flora silvestres del Perú incluidas en los Apéndices de la <strong>Convención sobre el Comercio Internacional de Especies Amenazadas de Fauna y Flora Silvestres (CITES)</strong>, publicados por el <strong>Ministerio del Ambiente (MINAM)</strong> como Autoridad Científica CITES del país.</p>
-<p><strong>Estado actual:</strong> Versión <code>0.1.0</code>. Incorpora los 4 listados oficiales nacionales (Fauna 2018, 2019, 2023 y Flora 2018), un backbone histórico unificado de más de 8,500 registros con procedencia por fila, resolución de sinónimos y un motor de concordancia secuencial en 6 etapas (<code><a href="reference/cites_match.html">cites_match()</a></code>).</p>
+<p>Incorpora los 4 listados oficiales nacionales (Fauna 2018, 2019, 2023 y Flora 2018), un backbone histórico unificado de más de 8,500 registros con procedencia por fila, resolución de sinónimos y un motor de concordancia secuencial en 6 etapas (<code><a href="reference/cites_match.html">cites_match()</a></code>).</p>
 <hr>
-<div class="section level2">
-<h2 id="autor">Autor<a class="anchor" aria-label="anchor" href="#autor"></a>
-</h2>
-<p><strong>Paul E. Santos Andrade</strong> — autor, mantenedor y titular de derechos del software.</p>
-<ul>
-<li>Correo: <a href="mailto:paulefrens@gmail.com" class="email">paulefrens@gmail.com</a>
-</li>
-<li>ORCID: <a href="https://orcid.org/0000-0002-6635-0375" class="external-link">0000-0002-6635-0375</a>
-</li>
-</ul>
-<hr>
-</div>
 <div class="section level2">
 <h2 id="instalación">Instalación<a class="anchor" aria-label="anchor" href="#instalaci%C3%B3n"></a>
 </h2>
@@ -94,7 +82,6 @@
 <span><span class="co">#&gt; ✔ cites_fauna_peru_2019    523 spp.            ✔ cites_match()            matching engine</span></span>
 <span><span class="co">#&gt; ℹ Autoridad Científica: MINAM | Autoridades Administrativas: SERFOR / PRODUCE</span></span>
 <span><span class="co">#&gt; ℹ Usa cites_match() para concordancia o revisa la documentación (&lt;https://paulesantos.github.io/citesperu/&gt;)</span></span></code></pre></div>
-<p><em>(Si deseas silenciar el mensaje en entornos automatizados o scripts, usa <code>suppressPackageStartupMessages(library(citesperu))</code> o define <code>options(citesperu.quiet = TRUE)</code>).</em></p>
 <hr>
 </div>
 <div class="section level2">
@@ -116,14 +103,14 @@
 <h2 id="fuentes-oficiales-y-cobertura-minam-colección-609">Fuentes Oficiales y Cobertura (MINAM Colección 609)<a class="anchor" aria-label="anchor" href="#fuentes-oficiales-y-cobertura-minam-colecci%C3%B3n-609"></a>
 </h2>
 <p>Los datos empaquetados proceden del <a href="https://www.gob.pe/institucion/minam/colecciones/609-listados-de-especies-de-fauna-y-flora-cites-peru" class="external-link">compendio oficial del MINAM</a>, conservando estrictamente su integridad documental y alcance temporal:</p>
-<table class="table">
+<table style="width:100%;" class="table">
 <colgroup>
-<col width="12%">
-<col width="12%">
-<col width="20%">
-<col width="12%">
-<col width="20%">
-<col width="20%">
+<col width="16%">
+<col width="16%">
+<col width="16%">
+<col width="16%">
+<col width="16%">
+<col width="16%">
 </colgroup>
 <thead><tr>
 <th>Dataset</th>
@@ -322,17 +309,23 @@
 </h3>
 <p>Ideal para filtros lógicos inmediatos en pipelines de datos:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/PaulESantos/citesperu" class="external-link">citesperu</a></span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">especies</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Tremarctos ornatus"</span>, <span class="st">"Cedrela odorata"</span>, <span class="st">"Homo sapiens"</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/PaulESantos/citesperu" class="external-link">citesperu</a></span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="do">## ── citesperu ───────────────────────────────────────────────────────── v0.1.0 ──</span></span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="do">## ✔ cites_flora_peru_2018 2506 taxa           ✔ cites_fauna_peru_2023 568 spp.       </span></span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="do">## ✔ cites_fauna_peru_2018 496 spp.            ✔ cites_match()         matching engine</span></span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a><span class="do">## ✔ cites_fauna_peru_2019 523 spp.            </span></span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a><span class="do">## ℹ Listado de Especies de Flora y Fauna Silvestre CITES - Perú.</span></span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a><span class="do">## Autoridad Científica: MINAM / Dirección General de Diversidad Biológica</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">especies</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Tremarctos ornatus"</span>, <span class="st">"Cedrela odorata"</span>, <span class="st">"Homo sapiens"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="reference/is_cites.html">is_cites</a></span><span class="op">(</span><span class="va">especies</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## [1]  TRUE  TRUE FALSE</span></span></code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="do">## [1]  TRUE  TRUE FALSE</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="id_2-motor-de-concordancia-taxonómica-cites_match">2. Motor de concordancia taxonómica (<code>cites_match()</code>)<a class="anchor" aria-label="anchor" href="#id_2-motor-de-concordancia-taxon%C3%B3mica-cites_match"></a>
 </h3>
 <p>Demostración de los diferentes tipos de coincidencia en una sola consulta:</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">res</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/cites_match.html">cites_match</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
 <span>  <span class="st">"Tremarctos ornatus"</span>,      <span class="co"># 1. Exacto: Fauna Ap. I (Oso de anteojos)</span></span>
 <span>  <span class="st">"Epipedobates femoralis"</span>,  <span class="co"># 2. Sinónimo: Fauna Ap. II -&gt; Allobates femoralis</span></span>
@@ -347,46 +340,46 @@
 <span><span class="co"># Seleccionar columnas clave para visualización</span></span>
 <span><span class="va">res</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"input_name"</span>, <span class="st">"accepted_name"</span>, <span class="st">"match_type"</span>, <span class="st">"match_assessment"</span>,</span>
 <span>        <span class="st">"is_cites"</span>, <span class="st">"apendice"</span>, <span class="st">"edition_used"</span>, <span class="st">"source_dataset"</span><span class="op">)</span><span class="op">]</span></span></code></pre></div>
-<pre><code><span><span class="co">## # A tibble: 8 x 8</span></span>
-<span><span class="co">##   input_name         accepted_name match_type match_assessment is_cites apendice</span></span>
-<span><span class="co">##   &lt;chr&gt;              &lt;chr&gt;         &lt;chr&gt;      &lt;chr&gt;            &lt;lgl&gt;    &lt;chr&gt;</span></span>
-<span><span class="co">## 1 Tremarctos ornatus Tremarctos o~ exact      matched          TRUE     I</span></span>
-<span><span class="co">## 2 Epipedobates femo~ Allobates fe~ synonym    matched          TRUE     II</span></span>
-<span><span class="co">## 3 Paphiopedilum bes~ Phragmipediu~ synonym    matched          TRUE     I</span></span>
-<span><span class="co">## 4 Cedrela odoratus   Cedrela odor~ suffix     requires_taxono~ TRUE     III</span></span>
-<span><span class="co">## 5 Tremarctos ornatu  Tremarctos o~ fuzzy      requires_taxono~ TRUE     I</span></span>
-<span><span class="co">## 6 Swietenia macroph~ Swietenia ma~ fuzzy      requires_taxono~ TRUE     II</span></span>
-<span><span class="co">## 7 Touit sp.          Touit spp.    genus      requires_specie~ TRUE     II</span></span>
-<span><span class="co">## 8 Homo sapiens       &lt;NA&gt;          unmatched  not_listed       FALSE    &lt;NA&gt;</span></span>
-<span><span class="co">## # i 2 more variables: edition_used &lt;chr&gt;, source_dataset &lt;chr&gt;</span></span></code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="do">## # A tibble: 8 × 8</span></span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a><span class="do">##   input_name         accepted_name match_type match_assessment is_cites apendice</span></span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a><span class="do">##   &lt;chr&gt;              &lt;chr&gt;         &lt;chr&gt;      &lt;chr&gt;            &lt;lgl&gt;    &lt;chr&gt;   </span></span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a><span class="do">## 1 Tremarctos ornatus Tremarctos o… exact      matched          TRUE     I       </span></span>
+<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a><span class="do">## 2 Epipedobates femo… Allobates fe… synonym    matched          TRUE     II      </span></span>
+<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a><span class="do">## 3 Paphiopedilum bes… Phragmipediu… synonym    matched          TRUE     I       </span></span>
+<span id="cb9-7"><a href="#cb9-7" tabindex="-1"></a><span class="do">## 4 Cedrela odoratus   Cedrela odor… suffix     requires_taxono… TRUE     III     </span></span>
+<span id="cb9-8"><a href="#cb9-8" tabindex="-1"></a><span class="do">## 5 Tremarctos ornatu  Tremarctos o… fuzzy      requires_taxono… TRUE     I       </span></span>
+<span id="cb9-9"><a href="#cb9-9" tabindex="-1"></a><span class="do">## 6 Swietenia macroph… Swietenia ma… fuzzy      requires_taxono… TRUE     II      </span></span>
+<span id="cb9-10"><a href="#cb9-10" tabindex="-1"></a><span class="do">## 7 Touit sp.          Touit spp.    genus      requires_specie… TRUE     II      </span></span>
+<span id="cb9-11"><a href="#cb9-11" tabindex="-1"></a><span class="do">## 8 Homo sapiens       &lt;NA&gt;          unmatched  not_listed       FALSE    &lt;NA&gt;    </span></span>
+<span id="cb9-12"><a href="#cb9-12" tabindex="-1"></a><span class="do">## # ℹ 2 more variables: edition_used &lt;chr&gt;, source_dataset &lt;chr&gt;</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="id_3-clasificación-taxonómica-y-extracción-de-componentes-cites_classify_names">3. Clasificación taxonómica y extracción de componentes (<code>cites_classify_names()</code>)<a class="anchor" aria-label="anchor" href="#id_3-clasificaci%C3%B3n-taxon%C3%B3mica-y-extracci%C3%B3n-de-componentes-cites_classify_names"></a>
 </h3>
 <p>Descompone nombres científicos extrayendo rangos infraespecíficos, autores y marcadores de indeterminación:</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/cites_classify_names.html">cites_classify_names</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
 <span>  <span class="st">"Swietenia macrophylla King"</span>,</span>
 <span>  <span class="st">"Phragmipedium boissierianum var. czerwiakowianum"</span>,</span>
 <span>  <span class="st">"Cedrela cf. odorata"</span>,</span>
 <span>  <span class="st">"Touit sp."</span></span>
 <span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## # A tibble: 4 x 14</span></span>
-<span><span class="co">##   input_index input_name       canonical_name orig_genus orig_species infra_rank</span></span>
-<span><span class="co">##         &lt;int&gt; &lt;chr&gt;            &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt;        &lt;chr&gt;</span></span>
-<span><span class="co">## 1           1 Swietenia macro~ Swietenia mac~ Swietenia  macrophylla  &lt;NA&gt;</span></span>
-<span><span class="co">## 2           2 Phragmipedium b~ Phragmipedium~ Phragmipe~ boissierian~ var.</span></span>
-<span><span class="co">## 3           3 Cedrela cf. odo~ Cedrela odora~ Cedrela    odorata      &lt;NA&gt;</span></span>
-<span><span class="co">## 4           4 Touit sp.        Touit          Touit      &lt;NA&gt;         &lt;NA&gt;</span></span>
-<span><span class="co">## # i 8 more variables: orig_infraspecies &lt;chr&gt;, author &lt;chr&gt;, rank &lt;dbl&gt;,</span></span>
-<span><span class="co">## #   has_cf &lt;lgl&gt;, has_aff &lt;lgl&gt;, is_sp &lt;lgl&gt;, is_spp &lt;lgl&gt;, had_hybrid &lt;lgl&gt;</span></span></code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="do">## # A tibble: 4 × 14</span></span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a><span class="do">##   input_index input_name       canonical_name orig_genus orig_species infra_rank</span></span>
+<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a><span class="do">##         &lt;int&gt; &lt;chr&gt;            &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt;        &lt;chr&gt;     </span></span>
+<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a><span class="do">## 1           1 Swietenia macro… Swietenia mac… Swietenia  macrophylla  &lt;NA&gt;      </span></span>
+<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a><span class="do">## 2           2 Phragmipedium b… Phragmipedium… Phragmipe… boissierian… var.      </span></span>
+<span id="cb11-6"><a href="#cb11-6" tabindex="-1"></a><span class="do">## 3           3 Cedrela cf. odo… Cedrela odora… Cedrela    odorata      &lt;NA&gt;      </span></span>
+<span id="cb11-7"><a href="#cb11-7" tabindex="-1"></a><span class="do">## 4           4 Touit sp.        Touit          Touit      &lt;NA&gt;         &lt;NA&gt;      </span></span>
+<span id="cb11-8"><a href="#cb11-8" tabindex="-1"></a><span class="do">## # ℹ 8 more variables: orig_infraspecies &lt;chr&gt;, author &lt;chr&gt;, rank &lt;dbl&gt;,</span></span>
+<span id="cb11-9"><a href="#cb11-9" tabindex="-1"></a><span class="do">## #   has_cf &lt;lgl&gt;, has_aff &lt;lgl&gt;, is_sp &lt;lgl&gt;, is_spp &lt;lgl&gt;, had_hybrid &lt;lgl&gt;</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="id_4-integración-en-flujos-tabulares-con-dplyr">4. Integración en flujos tabulares con <code>{dplyr}</code>
 <a class="anchor" aria-label="anchor" href="#id_4-integraci%C3%B3n-en-flujos-tabulares-con-dplyr"></a>
 </h3>
 <p><code><a href="reference/cites_match.html">cites_match()</a></code> acepta directamente <code>data.frame</code> o <code>tibble</code>, facilitando la limpieza de inventarios biológicos o registros aduaneros:</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">inventario</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span>
@@ -405,15 +398,15 @@
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">inventario_evaluado</span></span></code></pre></div>
-<pre><code><span><span class="co">## # A tibble: 4 x 11</span></span>
-<span><span class="co">##      id nombre_campo       cantidad_individuos accepted_name apendice match_type</span></span>
-<span><span class="co">##   &lt;int&gt; &lt;chr&gt;                            &lt;dbl&gt; &lt;chr&gt;         &lt;chr&gt;    &lt;chr&gt;</span></span>
-<span><span class="co">## 1     1 Tremarctos ornatus                   2 Tremarctos o~ I        exact</span></span>
-<span><span class="co">## 2     2 Epipedobates femo~                  15 Allobates fe~ II       synonym</span></span>
-<span><span class="co">## 3     3 Cedrela odoratus                     1 Cedrela odor~ III      suffix</span></span>
-<span><span class="co">## 4     4 Zea mays                           100 &lt;NA&gt;          &lt;NA&gt;     unmatched</span></span>
-<span><span class="co">## # i 5 more variables: match_assessment &lt;chr&gt;, edition_used &lt;chr&gt;,</span></span>
-<span><span class="co">## #   source_dataset &lt;chr&gt;, source_row_id &lt;chr&gt;, is_cites &lt;lgl&gt;</span></span></code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="do">## # A tibble: 4 × 11</span></span>
+<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a><span class="do">##      id nombre_campo       cantidad_individuos accepted_name apendice match_type</span></span>
+<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a><span class="do">##   &lt;int&gt; &lt;chr&gt;                            &lt;dbl&gt; &lt;chr&gt;         &lt;chr&gt;    &lt;chr&gt;     </span></span>
+<span id="cb13-4"><a href="#cb13-4" tabindex="-1"></a><span class="do">## 1     1 Tremarctos ornatus                   2 Tremarctos o… I        exact     </span></span>
+<span id="cb13-5"><a href="#cb13-5" tabindex="-1"></a><span class="do">## 2     2 Epipedobates femo…                  15 Allobates fe… II       synonym   </span></span>
+<span id="cb13-6"><a href="#cb13-6" tabindex="-1"></a><span class="do">## 3     3 Cedrela odoratus                     1 Cedrela odor… III      suffix    </span></span>
+<span id="cb13-7"><a href="#cb13-7" tabindex="-1"></a><span class="do">## 4     4 Zea mays                           100 &lt;NA&gt;          &lt;NA&gt;     unmatched </span></span>
+<span id="cb13-8"><a href="#cb13-8" tabindex="-1"></a><span class="do">## # ℹ 5 more variables: match_assessment &lt;chr&gt;, edition_used &lt;chr&gt;,</span></span>
+<span id="cb13-9"><a href="#cb13-9" tabindex="-1"></a><span class="do">## #   source_dataset &lt;chr&gt;, source_row_id &lt;chr&gt;, is_cites &lt;lgl&gt;</span></span></code></pre></div>
 <hr>
 </div>
 </div>
@@ -421,7 +414,7 @@
 <h2 id="viñeta-técnica-de-consulta">Viñeta Técnica de Consulta<a class="anchor" aria-label="anchor" href="#vi%C3%B1eta-t%C3%A9cnica-de-consulta"></a>
 </h2>
 <p>Para un desglose metodológico exhaustivo, fundamentos biológicos y comparativas de rendimiento, consulta la viñeta incluida en el paquete:</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/vignette.html" class="external-link">vignette</a></span><span class="op">(</span><span class="st">"flujo-matching-cites"</span>, package <span class="op">=</span> <span class="st">"citesperu"</span><span class="op">)</span></span></code></pre></div>
 <hr>
 </div>

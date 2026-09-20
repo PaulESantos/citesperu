@@ -7,21 +7,11 @@ sobre el Comercio Internacional de Especies Amenazadas de Fauna y Flora
 Silvestres (CITES)**, publicados por el **Ministerio del Ambiente
 (MINAM)** como Autoridad Científica CITES del país.
 
-**Estado actual:** Versión `0.1.0`. Incorpora los 4 listados oficiales
-nacionales (Fauna 2018, 2019, 2023 y Flora 2018), un backbone histórico
-unificado de más de 8,500 registros con procedencia por fila, resolución
-de sinónimos y un motor de concordancia secuencial en 6 etapas
+Incorpora los 4 listados oficiales nacionales (Fauna 2018, 2019, 2023 y
+Flora 2018), un backbone histórico unificado de más de 8,500 registros
+con procedencia por fila, resolución de sinónimos y un motor de
+concordancia secuencial en 6 etapas
 ([`cites_match()`](https://paulesantos.github.io/citesperu/reference/cites_match.md)).
-
-------------------------------------------------------------------------
-
-## Autor
-
-**Paul E. Santos Andrade** — autor, mantenedor y titular de derechos del
-software.
-
-- Correo: <paulefrens@gmail.com>
-- ORCID: [0000-0002-6635-0375](https://orcid.org/0000-0002-6635-0375)
 
 ------------------------------------------------------------------------
 
@@ -56,10 +46,6 @@ library(citesperu)
 #> ℹ Autoridad Científica: MINAM | Autoridades Administrativas: SERFOR / PRODUCE
 #> ℹ Usa cites_match() para concordancia o revisa la documentación (<https://paulesantos.github.io/citesperu/>)
 ```
-
-*(Si deseas silenciar el mensaje en entornos automatizados o scripts,
-usa `suppressPackageStartupMessages(library(citesperu))` o define
-`options(citesperu.quiet = TRUE)`).*
 
 ------------------------------------------------------------------------
 
@@ -199,12 +185,26 @@ Ideal para filtros lógicos inmediatos en pipelines de datos:
 ``` r
 
 library(citesperu)
+```
+
+``` R
+## ── citesperu ───────────────────────────────────────────────────────── v0.1.0 ──
+## ✔ cites_flora_peru_2018 2506 taxa           ✔ cites_fauna_peru_2023 568 spp.       
+## ✔ cites_fauna_peru_2018 496 spp.            ✔ cites_match()         matching engine
+## ✔ cites_fauna_peru_2019 523 spp.            
+## ℹ Listado de Especies de Flora y Fauna Silvestre CITES - Perú.
+## Autoridad Científica: MINAM / Dirección General de Diversidad Biológica
+```
+
+``` r
 
 especies <- c("Tremarctos ornatus", "Cedrela odorata", "Homo sapiens")
 is_cites(especies)
 ```
 
-    ## [1]  TRUE  TRUE FALSE
+``` R
+## [1]  TRUE  TRUE FALSE
+```
 
 ### 2. Motor de concordancia taxonómica (`cites_match()`)
 
@@ -229,18 +229,20 @@ res[, c("input_name", "accepted_name", "match_type", "match_assessment",
         "is_cites", "apendice", "edition_used", "source_dataset")]
 ```
 
-    ## # A tibble: 8 x 8
-    ##   input_name         accepted_name match_type match_assessment is_cites apendice
-    ##   <chr>              <chr>         <chr>      <chr>            <lgl>    <chr>
-    ## 1 Tremarctos ornatus Tremarctos o~ exact      matched          TRUE     I
-    ## 2 Epipedobates femo~ Allobates fe~ synonym    matched          TRUE     II
-    ## 3 Paphiopedilum bes~ Phragmipediu~ synonym    matched          TRUE     I
-    ## 4 Cedrela odoratus   Cedrela odor~ suffix     requires_taxono~ TRUE     III
-    ## 5 Tremarctos ornatu  Tremarctos o~ fuzzy      requires_taxono~ TRUE     I
-    ## 6 Swietenia macroph~ Swietenia ma~ fuzzy      requires_taxono~ TRUE     II
-    ## 7 Touit sp.          Touit spp.    genus      requires_specie~ TRUE     II
-    ## 8 Homo sapiens       <NA>          unmatched  not_listed       FALSE    <NA>
-    ## # i 2 more variables: edition_used <chr>, source_dataset <chr>
+``` R
+## # A tibble: 8 × 8
+##   input_name         accepted_name match_type match_assessment is_cites apendice
+##   <chr>              <chr>         <chr>      <chr>            <lgl>    <chr>   
+## 1 Tremarctos ornatus Tremarctos o… exact      matched          TRUE     I       
+## 2 Epipedobates femo… Allobates fe… synonym    matched          TRUE     II      
+## 3 Paphiopedilum bes… Phragmipediu… synonym    matched          TRUE     I       
+## 4 Cedrela odoratus   Cedrela odor… suffix     requires_taxono… TRUE     III     
+## 5 Tremarctos ornatu  Tremarctos o… fuzzy      requires_taxono… TRUE     I       
+## 6 Swietenia macroph… Swietenia ma… fuzzy      requires_taxono… TRUE     II      
+## 7 Touit sp.          Touit spp.    genus      requires_specie… TRUE     II      
+## 8 Homo sapiens       <NA>          unmatched  not_listed       FALSE    <NA>    
+## # ℹ 2 more variables: edition_used <chr>, source_dataset <chr>
+```
 
 ### 3. Clasificación taxonómica y extracción de componentes (`cites_classify_names()`)
 
@@ -257,15 +259,17 @@ cites_classify_names(c(
 ))
 ```
 
-    ## # A tibble: 4 x 14
-    ##   input_index input_name       canonical_name orig_genus orig_species infra_rank
-    ##         <int> <chr>            <chr>          <chr>      <chr>        <chr>
-    ## 1           1 Swietenia macro~ Swietenia mac~ Swietenia  macrophylla  <NA>
-    ## 2           2 Phragmipedium b~ Phragmipedium~ Phragmipe~ boissierian~ var.
-    ## 3           3 Cedrela cf. odo~ Cedrela odora~ Cedrela    odorata      <NA>
-    ## 4           4 Touit sp.        Touit          Touit      <NA>         <NA>
-    ## # i 8 more variables: orig_infraspecies <chr>, author <chr>, rank <dbl>,
-    ## #   has_cf <lgl>, has_aff <lgl>, is_sp <lgl>, is_spp <lgl>, had_hybrid <lgl>
+``` R
+## # A tibble: 4 × 14
+##   input_index input_name       canonical_name orig_genus orig_species infra_rank
+##         <int> <chr>            <chr>          <chr>      <chr>        <chr>     
+## 1           1 Swietenia macro… Swietenia mac… Swietenia  macrophylla  <NA>      
+## 2           2 Phragmipedium b… Phragmipedium… Phragmipe… boissierian… var.      
+## 3           3 Cedrela cf. odo… Cedrela odora… Cedrela    odorata      <NA>      
+## 4           4 Touit sp.        Touit          Touit      <NA>         <NA>      
+## # ℹ 8 more variables: orig_infraspecies <chr>, author <chr>, rank <dbl>,
+## #   has_cf <lgl>, has_aff <lgl>, is_sp <lgl>, is_spp <lgl>, had_hybrid <lgl>
+```
 
 ### 4. Integración en flujos tabulares con `{dplyr}`
 
@@ -295,15 +299,17 @@ inventario_evaluado <- bind_cols(
 inventario_evaluado
 ```
 
-    ## # A tibble: 4 x 11
-    ##      id nombre_campo       cantidad_individuos accepted_name apendice match_type
-    ##   <int> <chr>                            <dbl> <chr>         <chr>    <chr>
-    ## 1     1 Tremarctos ornatus                   2 Tremarctos o~ I        exact
-    ## 2     2 Epipedobates femo~                  15 Allobates fe~ II       synonym
-    ## 3     3 Cedrela odoratus                     1 Cedrela odor~ III      suffix
-    ## 4     4 Zea mays                           100 <NA>          <NA>     unmatched
-    ## # i 5 more variables: match_assessment <chr>, edition_used <chr>,
-    ## #   source_dataset <chr>, source_row_id <chr>, is_cites <lgl>
+``` R
+## # A tibble: 4 × 11
+##      id nombre_campo       cantidad_individuos accepted_name apendice match_type
+##   <int> <chr>                            <dbl> <chr>         <chr>    <chr>     
+## 1     1 Tremarctos ornatus                   2 Tremarctos o… I        exact     
+## 2     2 Epipedobates femo…                  15 Allobates fe… II       synonym   
+## 3     3 Cedrela odoratus                     1 Cedrela odor… III      suffix    
+## 4     4 Zea mays                           100 <NA>          <NA>     unmatched 
+## # ℹ 5 more variables: match_assessment <chr>, edition_used <chr>,
+## #   source_dataset <chr>, source_row_id <chr>, is_cites <lgl>
+```
 
 ------------------------------------------------------------------------
 
