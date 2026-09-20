@@ -12,17 +12,22 @@ fauna y flora silvestres reguladas.
 
 Sin embargo, los datos reales procedentes de inventarios biológicos,
 guías de transporte forestal, manifiestos de aduana o incautaciones
-suelen presentar: 1. **Sinónimos históricos:** Especies reclasificadas
-en nuevos géneros o familias tras revisiones filogenéticas recientes. 2.
-**Discrepancias en sufijos latinos:** Discordancias comunes de género
-gramatical en latín entre el sustantivo genérico y el adjetivo
-específico (`-us`, `-a`, `-um`, `-is`, `-e`). 3. **Errores
-tipográficos:** Erratas de digitación u omisiones de caracteres en
-nombres biológicos complejos. 4. **Determinaciones genéricas
-incompletas:** Muestras rotuladas como morfoespecies (`sp.`, `spp.`,
-`indet.`) que pertenecen a géneros o familias cuya regulación es
-integral (como *Cedrela*, *Swietenia*, *Podocnemis* o las familias
-Orchidaceae y Cactaceae).
+suelen presentar:
+
+1.  **Sinónimos históricos:** Especies reclasificadas en nuevos géneros
+    o familias tras revisiones filogenéticas recientes.
+
+2.  **Discrepancias en sufijos latinos:** Discordancias comunes de
+    género gramatical en latín entre el sustantivo genérico y el
+    adjetivo específico (`-us`, `-a`, `-um`, `-is`, `-e`).
+
+3.  **Errores tipográficos:** Erratas de digitación u omisiones de
+    caracteres en nombres biológicos complejos.
+
+4.  **Determinaciones genéricas incompletas:** Muestras rotuladas como
+    morfoespecies (`sp.`, `spp.`, `indet.`) que pertenecen a géneros o
+    familias cuya regulación es integral (como *Cedrela*, *Swietenia*,
+    *Podocnemis* o las familias Orchidaceae y Cactaceae).
 
 El paquete **`citesperu`** provee un motor de concordancia taxonómica
 ([`cites_match()`](https://paulesantos.github.io/citesperu/reference/cites_match.md))
@@ -48,18 +53,17 @@ pre-indexado** (`cites_backbone`) integrado en el paquete:
   familias, incluyendo Orchidaceae con 2,215 taxa y Cactaceae con 186
   taxa tratadas según el estándar de Hunt 2016).
 - **Gobernanza asociada:** Cada registro enlaza el Apéndice CITES (I, II
-  o III), la categoría nacional de amenaza (D.S. n.° 004-2014-MINAGRI
-  para fauna o D.S. n.° 043-2006-AG para flora), la categoría global de
-  la UICN y la autoridad sectorial competente (SERFOR o
-  PRODUCE/SANIPES).
+  o III), la categoría nacional de amenaza (D.S. N.° 004-2014-MINAGRI
+  para fauna o D.S. N.° 043-2006-AG para flora), la categoría global de
+  la UICN y la autoridad sectorial competente.
 
 ------------------------------------------------------------------------
 
-## 3. Pipeline Secuencial de Concordancia (`cites_match`)
+## 3. Pipeline
 
 El motor de
 [`cites_match()`](https://paulesantos.github.io/citesperu/reference/cites_match.md)
-procesa los nombres de entrada a través de una tubería secuencial en 6
+procesa los nombres de entrada a través de un flujo secuencial en 6
 etapas:
 
 ``` text
@@ -141,13 +145,12 @@ nombres <- c(
   "Cedrela odoratus",        # 4. Variación de sufijo (-us por -a en Cedrela odorata)
   "Tremarctos ornatu",       # 5. Fuzzy match en epíteto (falta 's', dist = 1)
   "Swietenia macrophyla",    # 6. Fuzzy match en epíteto (falta 'l', dist = 1)
-  "Touit sp.",               # 7. Coincidencia a nivel de género (Ap. II)
-  "Canis familiaris"         # 8. No CITES (unmatched)
+  "Canis familiaris"         # 7. No CITES (unmatched)
 )
 
 resultado <- cites_match(nombres, max_dist = 1)
 resultado[, c("input_name", "matched_name", "accepted_name", "match_type", "is_cites", "apendice", "taxon")]
-#> # A tibble: 8 × 7
+#> # A tibble: 7 × 7
 #>   input_name       matched_name accepted_name match_type is_cites apendice taxon
 #>   <chr>            <chr>        <chr>         <chr>      <lgl>    <chr>    <chr>
 #> 1 Tremarctos orna… Tremarctos … Tremarctos o… exact      TRUE     I        fauna
@@ -156,8 +159,7 @@ resultado[, c("input_name", "matched_name", "accepted_name", "match_type", "is_c
 #> 4 Cedrela odoratus Cedrela odo… Cedrela odor… suffix     TRUE     III      flora
 #> 5 Tremarctos orna… Tremarctos … Tremarctos o… fuzzy      TRUE     I        fauna
 #> 6 Swietenia macro… Swietenia m… Swietenia ma… fuzzy      TRUE     II       flora
-#> 7 Touit sp.        Touit        Touit spp.    genus      TRUE     II       fauna
-#> 8 Canis familiaris NA           NA            unmatched  FALSE    NA       NA
+#> 7 Canis familiaris NA           NA            unmatched  FALSE    NA       NA
 ```
 
 ### Observaciones clave del resultado:
@@ -173,9 +175,6 @@ resultado[, c("input_name", "matched_name", "accepted_name", "match_type", "is_c
 - En **`Cedrela odoratus`**, la desinencia `-us` se normalizó
   automáticamente a **`Cedrela odorata`** (`match_type: suffix`) sin
   requerir penalización por distancia de edición.
-- En **`Touit sp.`**, al tratarse de un psitácido determinado solo a
-  género, el motor reconoció que el género *Touit* se encuentra
-  enteramente listado en el **Apéndice II**.
 
 ------------------------------------------------------------------------
 
@@ -221,8 +220,7 @@ cites_match("Tremarctos ornatus", edition = "2018")[, c("input_name", "apendice"
 
 ## 6. Integración en Flujos de Limpieza de Datos con `dplyr`
 
-En proyectos reales de conservación o auditorías aduaneras, los datos
-suelen presentarse en tablas de inventario:
+En proyectos reales los datos suelen presentarse en tablas:
 
 ``` r
 
