@@ -123,11 +123,11 @@ Carguemos el paquete:
 
 library(citesperu)
 #> ── citesperu ───────────────────────────────────────────────────────── v0.1.0 ──
-#> ✔ cites_fauna_peru_2018    496 spp.            ✔ codigos_departamentos_pe 24 depts.      
-#> ✔ cites_flora_peru_2018    2506 taxa           ✔ cites_fauna_peru_2023    568 spp.       
-#> ✔ cites_fauna_peru_2019    523 spp.            ✔ cites_match()            matching engine
-#> ℹ Autoridad Científica: MINAM | Autoridades Administrativas: SERFOR / PRODUCE
-#> ℹ Usa cites_match() para concordancia o revisa la documentación (<https://paulesantos.github.io/citesperu/>)
+#> ✔ cites_flora_peru_2018 2506 taxa           ✔ cites_fauna_peru_2023 568 spp.       
+#> ✔ cites_fauna_peru_2018 496 spp.            ✔ cites_match()         matching engine
+#> ✔ cites_fauna_peru_2019 523 spp.            
+#> ℹ Listado de Especies de Flora y Fauna Silvestre CITES - Perú.
+#> Dirección General de Diversidad Biológica
 ```
 
 ### Consulta integral de casos taxonómicos

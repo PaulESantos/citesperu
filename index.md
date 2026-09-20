@@ -263,12 +263,14 @@ Ideal para filtros lógicos inmediatos en pipelines de datos:
 library(citesperu)
 ```
 
-    ## ── citesperu ───────────────────────────────────────────────────────── v0.1.0 ──
-    ## ✔ cites_fauna_peru_2018    496 spp.            ✔ codigos_departamentos_pe 24 depts.
-    ## ✔ cites_flora_peru_2018    2506 taxa           ✔ cites_fauna_peru_2023    568 spp.
-    ## ✔ cites_fauna_peru_2019    523 spp.            ✔ cites_match()            matching engine
-    ## ℹ Autoridad Científica: MINAM | Autoridades Administrativas: SERFOR / PRODUCE
-    ## ℹ Usa cites_match() para concordancia o revisa la documentación (<https://paulesantos.github.io/citesperu/>)
+``` R
+## ── citesperu ───────────────────────────────────────────────────────── v0.1.0 ──
+## ✔ cites_fauna_peru_2018    496 spp.            ✔ codigos_departamentos_pe 24 depts.      
+## ✔ cites_flora_peru_2018    2506 taxa           ✔ cites_fauna_peru_2023    568 spp.       
+## ✔ cites_fauna_peru_2019    523 spp.            ✔ cites_match()            matching engine
+## ℹ Autoridad Científica: MINAM | Autoridades Administrativas: SERFOR / PRODUCE
+## ℹ Usa cites_match() para concordancia o revisa la documentación (<https://paulesantos.github.io/citesperu/>)
+```
 
 ``` r
 
@@ -276,7 +278,9 @@ especies <- c("Tremarctos ornatus", "Cedrela odorata", "Homo sapiens")
 is_cites(especies)
 ```
 
-    ## [1]  TRUE  TRUE FALSE
+``` R
+## [1]  TRUE  TRUE FALSE
+```
 
 ### 2. Motor de concordancia taxonómica (`cites_match()`)
 
@@ -300,17 +304,19 @@ res <- cites_match(c(
 res[, c("input_name", "accepted_name", "match_type", "is_cites", "apendice", "taxon")]
 ```
 
-    ## # A tibble: 8 × 6
-    ##   input_name             accepted_name        match_type is_cites apendice taxon
-    ##   <chr>                  <chr>                <chr>      <lgl>    <chr>    <chr>
-    ## 1 Tremarctos ornatus     Tremarctos ornatus   exact      TRUE     I        fauna
-    ## 2 Epipedobates femoralis Allobates femoralis  synonym    TRUE     II       fauna
-    ## 3 Paphiopedilum besseae  Phragmipedium besse… synonym    TRUE     I        flora
-    ## 4 Cedrela odoratus       Cedrela odorata      suffix     TRUE     III      flora
-    ## 5 Tremarctos ornatu      Tremarctos ornatus   fuzzy      TRUE     I        fauna
-    ## 6 Swietenia macrophyla   Swietenia macrophyl… fuzzy      TRUE     II       flora
-    ## 7 Touit sp.              Touit spp.           genus      TRUE     II       fauna
-    ## 8 Homo sapiens           <NA>                 unmatched  FALSE    <NA>     <NA>
+``` R
+## # A tibble: 8 × 6
+##   input_name             accepted_name        match_type is_cites apendice taxon
+##   <chr>                  <chr>                <chr>      <lgl>    <chr>    <chr>
+## 1 Tremarctos ornatus     Tremarctos ornatus   exact      TRUE     I        fauna
+## 2 Epipedobates femoralis Allobates femoralis  synonym    TRUE     II       fauna
+## 3 Paphiopedilum besseae  Phragmipedium besse… synonym    TRUE     I        flora
+## 4 Cedrela odoratus       Cedrela odorata      suffix     TRUE     III      flora
+## 5 Tremarctos ornatu      Tremarctos ornatus   fuzzy      TRUE     I        fauna
+## 6 Swietenia macrophyla   Swietenia macrophyl… fuzzy      TRUE     II       flora
+## 7 Touit sp.              Touit spp.           genus      TRUE     II       fauna
+## 8 Homo sapiens           <NA>                 unmatched  FALSE    <NA>     <NA>
+```
 
 ### 3. Clasificación taxonómica y extracción de componentes (`cites_classify_names()`)
 
@@ -327,15 +333,17 @@ cites_classify_names(c(
 ))
 ```
 
-    ## # A tibble: 4 × 14
-    ##   input_index input_name       canonical_name orig_genus orig_species infra_rank
-    ##         <int> <chr>            <chr>          <chr>      <chr>        <chr>
-    ## 1           1 Swietenia macro… Swietenia mac… Swietenia  macrophylla  <NA>
-    ## 2           2 Phragmipedium b… Phragmipedium… Phragmipe… boissierian… var.
-    ## 3           3 Cedrela cf. odo… Cedrela odora… Cedrela    odorata      <NA>
-    ## 4           4 Touit sp.        Touit          Touit      <NA>         <NA>
-    ## # ℹ 8 more variables: orig_infraspecies <chr>, author <chr>, rank <dbl>,
-    ## #   has_cf <lgl>, has_aff <lgl>, is_sp <lgl>, is_spp <lgl>, had_hybrid <lgl>
+``` R
+## # A tibble: 4 × 14
+##   input_index input_name       canonical_name orig_genus orig_species infra_rank
+##         <int> <chr>            <chr>          <chr>      <chr>        <chr>     
+## 1           1 Swietenia macro… Swietenia mac… Swietenia  macrophylla  <NA>      
+## 2           2 Phragmipedium b… Phragmipedium… Phragmipe… boissierian… var.      
+## 3           3 Cedrela cf. odo… Cedrela odora… Cedrela    odorata      <NA>      
+## 4           4 Touit sp.        Touit          Touit      <NA>         <NA>      
+## # ℹ 8 more variables: orig_infraspecies <chr>, author <chr>, rank <dbl>,
+## #   has_cf <lgl>, has_aff <lgl>, is_sp <lgl>, is_spp <lgl>, had_hybrid <lgl>
+```
 
 ### 4. Integración en flujos tabulares con `{dplyr}`
 
@@ -364,14 +372,16 @@ inventario_evaluado <- bind_cols(
 inventario_evaluado
 ```
 
-    ## # A tibble: 4 × 7
-    ##      id nombre_campo       cantidad_individuos accepted_name apendice match_type
-    ##   <int> <chr>                            <dbl> <chr>         <chr>    <chr>
-    ## 1     1 Tremarctos ornatus                   2 Tremarctos o… I        exact
-    ## 2     2 Epipedobates femo…                  15 Allobates fe… II       synonym
-    ## 3     3 Cedrela odoratus                     1 Cedrela odor… III      suffix
-    ## 4     4 Zea mays                           100 <NA>          <NA>     unmatched
-    ## # ℹ 1 more variable: is_cites <lgl>
+``` R
+## # A tibble: 4 × 7
+##      id nombre_campo       cantidad_individuos accepted_name apendice match_type
+##   <int> <chr>                            <dbl> <chr>         <chr>    <chr>     
+## 1     1 Tremarctos ornatus                   2 Tremarctos o… I        exact     
+## 2     2 Epipedobates femo…                  15 Allobates fe… II       synonym   
+## 3     3 Cedrela odoratus                     1 Cedrela odor… III      suffix    
+## 4     4 Zea mays                           100 <NA>          <NA>     unmatched 
+## # ℹ 1 more variable: is_cites <lgl>
+```
 
 ------------------------------------------------------------------------
 
