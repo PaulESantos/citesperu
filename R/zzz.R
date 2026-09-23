@@ -101,9 +101,9 @@ citesperu_attach_message <- function() {
 citesperu_conflicts <- function() {
   my_funs <- c(
     "cites_classify_names",
+    "cites_classify_spnames",
     "cites_match",
     "cites_matching",
-    "classify_spnames",
     "is_cites",
     "is_cites_pe",
     "match_cites_pe"

@@ -223,4 +223,4 @@ cites_classify_names <- function(splist, name_col = NULL) {
 
 #' @rdname cites_classify_names
 #' @export
-classify_spnames <- cites_classify_names
+cites_classify_spnames <- cites_classify_names

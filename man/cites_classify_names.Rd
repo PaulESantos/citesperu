@@ -2,12 +2,12 @@
 % Please edit documentation in R/classify_names.R
 \name{cites_classify_names}
 \alias{cites_classify_names}
-\alias{classify_spnames}
+\alias{cites_classify_spnames}
 \title{Clasificar y Normalizar Nombres Científicos en Componentes Taxonómicos}
 \usage{
 cites_classify_names(splist, name_col = NULL)
 
-classify_spnames(splist, name_col = NULL)
+cites_classify_spnames(splist, name_col = NULL)
 }
 \arguments{
 \item{splist}{Vector de caracteres con nombres científicos, o un data frame / tibble

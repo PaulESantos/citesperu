@@ -3,6 +3,7 @@
 \name{is_cites}
 \alias{is_cites}
 \alias{is_cites_pe}
+\alias{cites_is_cites}
 \title{Verificación Booleana de Inclusión en los Apéndices CITES del Perú}
 \usage{
 is_cites(
@@ -13,6 +14,13 @@ is_cites(
 )
 
 is_cites_pe(
+  splist,
+  taxon = c("all", "fauna", "flora"),
+  edition = c("latest", "all", "2023", "2019", "2018"),
+  allow_synonyms = TRUE
+)
+
+cites_is_cites(
   splist,
   taxon = c("all", "fauna", "flora"),
   edition = c("latest", "all", "2023", "2019", "2018"),

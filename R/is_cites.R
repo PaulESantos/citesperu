@@ -61,3 +61,7 @@ is_cites <- function(splist,
 #' @rdname is_cites
 #' @export
 is_cites_pe <- is_cites
+
+#' @rdname is_cites
+#' @export
+cites_is_cites <- is_cites

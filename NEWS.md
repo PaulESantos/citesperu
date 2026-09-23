@@ -1,3 +1,12 @@
+# citesperu (development version)
+
+* **Alineación con el ecosistema `perufauna` (Tidyverse Style):**
+  * Se añadieron alias canónicos con prefijo de dominio `cites_*`:
+    * `cites_classify_spnames()`: clasificador taxonómico CITES formalmente exportado.
+    * `cites_classify_names()`: clasificador taxonómico principal.
+  * **Resolución de colisiones de namespace:** Se retiró la exportación de `classify_spnames()` (manteniéndose accesible vía `cites_classify_spnames()` y `cites_classify_names()`) para eliminar la colisión con `perufaunads004` al cargar el metapaquete `perufauna`.
+  * Se mantiene la retrocompatibilidad en `cites_match()`, `cites_matching()`, `match_cites_pe()`, `is_cites()` e `is_cites_pe()`.
+
 # citesperu 0.1.0
 
 * **Base documental y gobernanza CITES:**
