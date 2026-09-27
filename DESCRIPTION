@@ -5,7 +5,7 @@ Authors@R:
     person("Paul E.", "Santos Andrade", , "paulefrens@gmail.com",
            role = c("aut", "cre", "cph"),
            comment = c(ORCID = "0000-0002-6635-0375"))
-Description: An R package for working with Peruvian fauna
+Description: Provides tools and official datasets for working with Peruvian fauna
     and flora checklists published by the Ministry of the Environment (MINAM)
     under the Convention on International Trade in Endangered Species of
     Wild Fauna and Flora (CITES). Includes official datasets for fauna (2018,

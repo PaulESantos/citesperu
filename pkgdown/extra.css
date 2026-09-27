@@ -117,11 +117,35 @@ code a:hover {
   color: var(--peru-red-dark);
 }
 
-pre.sourceCode, pre {
-  background-color: #FAF6F0 !important;
-  border: 1px solid #EADBCE;
+pre.sourceCode, div.sourceCode pre {
+  background-color: #272223 !important;
+  color: #F8F6F2 !important;
+  border: 1px solid #43393B;
   border-radius: 8px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+pre.sourceCode code, div.sourceCode pre code {
+  background-color: transparent !important;
+  color: inherit !important;
+}
+
+/* Cajas de resultados de consola (Output: ## [1], tibbles, mensajes) */
+pre:not(.sourceCode), .cell-output pre, .output pre {
+  background-color: #F6EFEA !important;
+  color: #1E1E24 !important;
+  border: 1px solid #E2D5C8 !important;
+  border-left: 4px solid var(--peru-red) !important;
+  border-radius: 6px;
+  font-size: 0.88em;
+  padding: 0.85em 1.1em;
+  box-shadow: 0 1px 3px rgba(107, 19, 23, 0.03);
+}
+
+pre:not(.sourceCode) code, .cell-output pre code {
+  background-color: transparent !important;
+  color: #1E1E24 !important;
+  padding: 0;
 }
 
 /* Píldoras, Badges y Alertas ---------------------------------------------- */

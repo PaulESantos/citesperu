@@ -1,4 +1,4 @@
-# citesperu (development version)
+# citesperu 0.1.0
 
 * **Alineación con el ecosistema `perufauna` (Tidyverse Style):**
   * Se añadieron alias canónicos con prefijo de dominio `cites_*`:
@@ -7,7 +7,6 @@
   * **Resolución de colisiones de namespace:** Se retiró la exportación de `classify_spnames()` (manteniéndose accesible vía `cites_classify_spnames()` y `cites_classify_names()`) para eliminar la colisión con `perufaunads004` al cargar el metapaquete `perufauna`.
   * Se mantiene la retrocompatibilidad en `cites_match()`, `cites_matching()`, `match_cites_pe()`, `is_cites()` e `is_cites_pe()`.
 
-# citesperu 0.1.0
 
 * **Base documental y gobernanza CITES:**
   * Se incorporó el marco institucional oficial del Perú: el Ministerio del Ambiente (MINAM) como Autoridad Científica CITES, el Servicio Nacional Forestal y de Fauna Silvestre (SERFOR) y el Ministerio de la Producción (PRODUCE/SANIPES) como Autoridades Administrativas, y la SUNAT, PNP (DIRMEAMB), DICAPI y FEMA como Entidades de Observancia (`docs/CONTEXTO_CITES_PERU.md`).

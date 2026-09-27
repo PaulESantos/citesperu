@@ -249,8 +249,7 @@
 #' @noRd
 .genus_match <- function(df_unresolved, bb, genus_fallback = FALSE) {
   # El índice se deriva del backbone ya filtrado para respetar taxon y edition.
-  gen_table <- bb |>
-    dplyr::filter(.data$taxon_status == "accepted")
+  gen_table <- dplyr::filter(bb, .data$taxon_status == "accepted")
   matched_rows <- list()
   remaining_idx <- integer()
 

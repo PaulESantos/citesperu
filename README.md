@@ -7,15 +7,9 @@
 
 [![Lifecycle:
 stable](https://img.shields.io/badge/lifecycle-stable-green.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
-[![CRAN
-status](https://www.r-pkg.org/badges/version/citesperu)](https://CRAN.R-project.org/package=citesperu)
 [![R-CMD-check](https://github.com/PaulESantos/citesperu/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/PaulESantos/citesperu/actions/workflows/R-CMD-check.yaml)
 [![Codecov test
 coverage](https://codecov.io/gh/PaulESantos/citesperu/branch/main/graph/badge.svg)](https://app.codecov.io/gh/PaulESantos/citesperu)
-[![CRAN
-downloads](https://cranlogs.r-pkg.org/badges/grand-total/citesperu?color=green)](https://cran.r-project.org/package=citesperu)
-[![CRAN downloads last
-week](https://cranlogs.r-pkg.org/badges/last-week/citesperu?color=green)](https://cran.r-project.org/package=citesperu)
 <!-- badges: end -->
 
 **citesperu** es un paquete de R para consultar, estructurar y
@@ -97,7 +91,7 @@ conservando estrictamente su integridad documental y alcance temporal:
 | Dataset | Edición / Título Oficial | Grupo | Cobertura Oficial | Registros | Formato de Origen |
 |----|----|:--:|----|:--:|:--:|
 | `cites_fauna_peru_2018` | [Listado Fauna CITES Perú - 2018](https://www.gob.pe/institucion/minam/informes-publicaciones/395692-listado-fauna-cites-peru-2018) | Fauna | **496 especies** oficiales (48 Ap. I, 448 Ap. II, más 16 en Ap. III\*) | 512 | PDF / Excel oficial |
-| `cites_fauna_peru_2019` | [Listado de Fauna CITES Perú 2019](https://www.gob.pe/institucion/minam/informes-publicaciones/395694-listado-de-fauna-cites-peru-2019) | Fauna | **523 registros** (con ámbito ecológico y género) | 523 | Excel oficial |
+| `cites_fauna_peru_2019` | [Listado de Fauna CITES Perú 2019](https://www.gob.pe/institucion/minam/informes-publicaciones/395688-listado-fauna-cites-peru-2019-version-1-noviembre-del-2019) | Fauna | **523 registros** (con ámbito ecológico y género) | 523 | Excel oficial |
 | `cites_fauna_peru_2023` | [Listado de Fauna CITES Perú 2023](https://www.gob.pe/institucion/minam/informes-publicaciones/4109405-listado-de-fauna-cites-peru-2023) | Fauna | **568 especies** (48 Ap. I, 503 Ap. II, 17 Ap. III; CoP19 Panamá) | 568 | Excel oficial |
 | `cites_flora_peru_2018` | [Listado Flora CITES Perú - 2018](https://www.gob.pe/institucion/minam/informes-publicaciones/395685-listado-flora-cites-peru-2018) | Flora | **2506 taxa** en 9 familias botánicas (12 Ap. I, 2493 Ap. II, 1 Ap. III) | 2506 | PDF / Excel oficial |
 | `codigos_departamentos_pe` | Acrónimos Biogeográficos de Lamas & Encarnación (1976) | Geografía | 24 acrónimos estándar departamentales y códigos UBIGEO del INEI | 24 | Referencia técnica |

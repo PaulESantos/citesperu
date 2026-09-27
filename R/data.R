@@ -114,7 +114,7 @@ NULL
 #' @source
 #' Ministerio del Ambiente (MINAM). 2019. \emph{Listado de Fauna CITES Perú v.2019-01}.
 #' Dirección General de Diversidad Biológica, Lima, Perú.
-#' Ficha oficial en Gob.pe: \url{https://www.gob.pe/institucion/minam/informes-publicaciones/395694-listado-de-fauna-cites-peru-2019}
+#' Ficha oficial en Gob.pe: \url{https://www.gob.pe/institucion/minam/informes-publicaciones/395688-listado-fauna-cites-peru-2019-version-1-noviembre-del-2019}
 #'
 #' @examples
 #' data(cites_fauna_peru_2019)

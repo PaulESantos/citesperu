@@ -1,0 +1,22 @@
+package_version <- if (!is.null(meta$Version)) meta$Version else "0.1.0"
+
+bibentry(
+  bibtype = "Manual",
+  title = "citesperu: Peruvian Species Checklists from CITES Publications",
+  author = person(
+    given = "Paul E.",
+    family = "Santos Andrade",
+    email = "paulefrens@gmail.com",
+    comment = c(ORCID = "0000-0002-6635-0375")
+  ),
+  year = "2026",
+  note = paste("R package version", package_version),
+  url = "https://paulesantos.github.io/citesperu/",
+  textVersion = paste(
+    "Santos Andrade, P. E. (2026).",
+    "citesperu: Peruvian Species Checklists from CITES Publications.",
+    paste0("R package version ", package_version, "."),
+    "https://paulesantos.github.io/citesperu/"
+  ),
+  header = "To cite citesperu in publications, please use:"
+)
