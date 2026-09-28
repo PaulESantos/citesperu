@@ -8,8 +8,10 @@
 [![Lifecycle:
 stable](https://img.shields.io/badge/lifecycle-stable-green.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![R-CMD-check](https://github.com/PaulESantos/citesperu/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/PaulESantos/citesperu/actions/workflows/R-CMD-check.yaml)
+[![Development
+status](https://img.shields.io/badge/development-active-355E3B.svg)](https://github.com/PaulESantos/citesperu)
 [![Codecov test
-coverage](https://codecov.io/gh/PaulESantos/citesperu/branch/main/graph/badge.svg)](https://app.codecov.io/gh/PaulESantos/citesperu)
+coverage](https://codecov.io/gh/PaulESantos/citesperu/graph/badge.svg)](https://app.codecov.io/gh/PaulESantos/citesperu)
 <!-- badges: end -->
 
 **citesperu** es un paquete de R para consultar, estructurar y
@@ -76,9 +78,11 @@ niveles institucionales:
   Perú (DIRMEAMB), DICAPI (Autoridad Marítima / Guardacostas) y FEMA
   (Fiscalías Especializadas en Materia Ambiental).
 
-Para mayor detalle sobre el marco legal (D.S. 030-2005-AG, D.S.
-004-2014-MINAGRI, D.S. 043-2006-AG), consulta la [Guía Técnica de
-Contexto CITES en el Perú](docs/CONTEXTO_CITES_PERU.md).
+Para mayor detalle sobre las competencias institucionales, el marco
+normativo (D.S. 030-2005-AG, D.S. 004-2014-MINAGRI, D.S. 043-2006-AG),
+los Apéndices CITES y los códigos departamentales de Lamas &
+Encarnación, consulta la viñeta del paquete mediante
+`vignette("contexto-cites-peru")`.
 
 ------------------------------------------------------------------------
 
@@ -152,9 +156,15 @@ género; `ambiguous_match` para empates y `not_listed` cuando no hubo
 coincidencia. Los resultados ambiguos no reciben Apéndice y exponen
 `candidate_names` y `candidate_count`.
 
-La viñeta [“Flujo de Trabajo y Resolución
-Taxonómica”](vignettes/flujo-matching-cites.html) documenta el
-procedimiento, sus parámetros y ejemplos reproducibles.
+El paquete incluye dos viñetas oficiales de acceso público: \* [**Flujo
+de Trabajo y Resolución
+Taxonómica**](https://paulesantos.github.io/citesperu/articles/flujo-matching-cites.html)
+(`vignette("flujo-matching-cites")`): procedimiento paso a paso,
+parámetros y ejemplos reproducibles de matching. \* **Marco
+Institucional, Legal y Contexto CITES en el Perú**
+(`vignette("contexto-cites-peru")`): arquitectura institucional (MINAM /
+SERFOR / PRODUCE), marco legal, apéndices I, II y III, y códigos
+geográficos.
 
 ------------------------------------------------------------------------
 
@@ -313,7 +323,8 @@ vignette("flujo-matching-cites", package = "citesperu")
 ## Licencia y Atribución
 
 El software y código fuente de **citesperu** se distribuyen bajo la
-licencia de código abierto [MIT](LICENSE.md).
+licencia de código abierto
+[MIT](https://github.com/PaulESantos/citesperu/blob/main/LICENSE.md).
 
 La información original de los listados pertenece al **Ministerio del
 Ambiente del Perú (MINAM)**. Los datasets empaquetados preservan

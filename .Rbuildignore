@@ -11,3 +11,4 @@
 ^pkgdown$
 ^Fauna_CITES_Peru_2018\.rds$
 ^dev$
+^README\.html$

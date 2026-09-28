@@ -66,6 +66,8 @@ navbar:
       menu:
         - text: "Flujo de Trabajo y Matching Taxonómico"
           href: articles/flujo-matching-cites.html
+        - text: "Marco Institucional y Contexto CITES Perú"
+          href: articles/contexto-cites-peru.html
     news:
       text: "Novedades"
       href: news/index.html
@@ -80,7 +82,7 @@ reference:
       - is_cites
       - is_cites_pe
       - cites_classify_names
-      - classify_spnames
+      - cites_classify_spnames
 
   - title: "Listados Oficiales de Fauna CITES (MINAM)"
     desc: "Bases de datos oficiales de especies de fauna silvestre reguladas."

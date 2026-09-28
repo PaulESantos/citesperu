@@ -9,7 +9,7 @@
 
 
 * **Base documental y gobernanza CITES:**
-  * Se incorporó el marco institucional oficial del Perú: el Ministerio del Ambiente (MINAM) como Autoridad Científica CITES, el Servicio Nacional Forestal y de Fauna Silvestre (SERFOR) y el Ministerio de la Producción (PRODUCE/SANIPES) como Autoridades Administrativas, y la SUNAT, PNP (DIRMEAMB), DICAPI y FEMA como Entidades de Observancia (`docs/CONTEXTO_CITES_PERU.md`).
+  * Se incorporó el marco institucional oficial del Perú: el Ministerio del Ambiente (MINAM) como Autoridad Científica CITES, el Servicio Nacional Forestal y de Fauna Silvestre (SERFOR) y el Ministerio de la Producción (PRODUCE/SANIPES) como Autoridades Administrativas, y la SUNAT, PNP (DIRMEAMB), DICAPI y FEMA como Entidades de Observancia (documentado en la viñeta `vignette("contexto-cites-peru")`).
   * Se especificó la articulación con el Decreto Supremo n.° 030-2005-AG (Reglamento CITES Perú), el D.S. n.° 004-2014-MINAGRI (fauna silvestre amenazada) y el D.S. n.° 043-2006-AG (flora silvestre amenazada).
 
 * **Especificación técnica del Listado de Fauna CITES Perú (2018):**
