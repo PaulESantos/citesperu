@@ -91,7 +91,7 @@ Un data frame con 523 observaciones y 17 variables:
 Ministerio del Ambiente (MINAM). 2019. *Listado de Fauna CITES Perú
 v.2019-01*. Dirección General de Diversidad Biológica, Lima, Perú. Ficha
 oficial en Gob.pe:
-<https://www.gob.pe/institucion/minam/informes-publicaciones/395694-listado-de-fauna-cites-peru-2019>
+<https://www.gob.pe/institucion/minam/informes-publicaciones/395688-listado-fauna-cites-peru-2019-version-1-noviembre-del-2019>
 
 ## Details
 

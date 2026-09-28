@@ -11,16 +11,16 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/PaulESantos/citesperu/blob/main/DESCRIPTION)
+[`inst/CITATION`](https://github.com/PaulESantos/citesperu/blob/main/inst/CITATION)
 
-Santos Andrade P (2026). *citesperu: Peruvian Species Checklists from
-CITES Publications*. R package version 0.1.0,
-<https://github.com/PaulESantos/citesperu>.
+Santos Andrade, P. E. (2026). citesperu: Peruvian Species Checklists
+from CITES Publications. R package version 0.1.0.
+https://paulesantos.github.io/citesperu/
 
     @Manual{,
       title = {citesperu: Peruvian Species Checklists from CITES Publications},
       author = {Paul E. {Santos Andrade}},
       year = {2026},
       note = {R package version 0.1.0},
-      url = {https://github.com/PaulESantos/citesperu},
+      url = {https://paulesantos.github.io/citesperu/},
     }

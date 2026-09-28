@@ -39,6 +39,7 @@
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-gu-as" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Guías</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-gu-as">
 <li><a class="dropdown-item" href="articles/flujo-matching-cites.html">Flujo de Trabajo y Matching Taxonómico</a></li>
+    <li><a class="dropdown-item" href="articles/contexto-cites-peru.html">Marco Institucional y Contexto CITES Perú</a></li>
   </ul>
 </li>
 <li class="nav-item"><a class="nav-link" href="news/index.html">Novedades</a></li>
@@ -96,7 +97,7 @@
 <li>
 <strong>Entidades de Observancia:</strong> SUNAT (Aduanas), Policía Nacional del Perú (DIRMEAMB), DICAPI (Autoridad Marítima / Guardacostas) y FEMA (Fiscalías Especializadas en Materia Ambiental).</li>
 </ul>
-<p>Para mayor detalle sobre el marco legal (D.S. 030-2005-AG, D.S. 004-2014-MINAGRI, D.S. 043-2006-AG), consulta la <a href="docs/CONTEXTO_CITES_PERU.html">Guía Técnica de Contexto CITES en el Perú</a>.</p>
+<p>Para mayor detalle sobre las competencias institucionales, el marco normativo (D.S. 030-2005-AG, D.S. 004-2014-MINAGRI, D.S. 043-2006-AG), los Apéndices CITES y los códigos departamentales de Lamas &amp; Encarnación, consulta la viñeta del paquete mediante <code><a href="articles/contexto-cites-peru.html">vignette("contexto-cites-peru")</a></code>.</p>
 <hr>
 </div>
 <div class="section level2">
@@ -132,7 +133,7 @@
 </tr>
 <tr>
 <td><code>cites_fauna_peru_2019</code></td>
-<td><a href="https://www.gob.pe/institucion/minam/informes-publicaciones/395694-listado-de-fauna-cites-peru-2019" class="external-link">Listado de Fauna CITES Perú 2019</a></td>
+<td><a href="https://www.gob.pe/institucion/minam/informes-publicaciones/395688-listado-fauna-cites-peru-2019-version-1-noviembre-del-2019" class="external-link">Listado de Fauna CITES Perú 2019</a></td>
 <td align="center">Fauna</td>
 <td>
 <strong>523 registros</strong> (con ámbito ecológico y género)</td>
@@ -228,7 +229,7 @@
 </table>
 <p>La clasificación inicial (<code><a href="reference/cites_classify_names.html">cites_classify_names()</a></code>) separa género, epíteto, rango infraespecífico, autoría y marcadores como <code>cf.</code>, <code>aff.</code>, <code>sp.</code> y <code>spp.</code>. La etapa <code>genus</code> usa un índice de géneros presentes en el backbone. Por ello, una coincidencia de género indica que hay registros CITES para ese género en el alcance elegido; no identifica una especie ni por sí sola prueba que toda especie del género esté incluida. El resultado conserva <code>is_cites = TRUE</code> para indicar la presencia del género en el listado y asigna <code>match_assessment = "requires_species_validation"</code>. Para decisiones regulatorias, se debe confirmar el taxón determinado y la fuente oficial aplicable.</p>
 <p><code>match_assessment</code> expresa la certeza operativa del resultado: <code>matched</code> para un nombre aceptado o sinónimo sin calificadores; <code>requires_taxonomic_validation</code> para <code>suffix</code>, <code>fuzzy</code>, <code>cf.</code>, <code>aff.</code>, híbridos o rangos infraespecíficos; <code>requires_species_validation</code> para género; <code>ambiguous_match</code> para empates y <code>not_listed</code> cuando no hubo coincidencia. Los resultados ambiguos no reciben Apéndice y exponen <code>candidate_names</code> y <code>candidate_count</code>.</p>
-<p>La viñeta <a href="vignettes/flujo-matching-cites.html">“Flujo de Trabajo y Resolución Taxonómica”</a> documenta el procedimiento, sus parámetros y ejemplos reproducibles.</p>
+<p>El paquete incluye dos viñetas oficiales de acceso público: * <a href="https://paulesantos.github.io/citesperu/articles/flujo-matching-cites.html"><strong>Flujo de Trabajo y Resolución Taxonómica</strong></a> (<code><a href="articles/flujo-matching-cites.html">vignette("flujo-matching-cites")</a></code>): procedimiento paso a paso, parámetros y ejemplos reproducibles de matching. * <strong>Marco Institucional, Legal y Contexto CITES en el Perú</strong> (<code><a href="articles/contexto-cites-peru.html">vignette("contexto-cites-peru")</a></code>): arquitectura institucional (MINAM / SERFOR / PRODUCE), marco legal, apéndices I, II y III, y códigos geográficos.</p>
 <hr>
 </div>
 <div class="section level2">
@@ -421,7 +422,7 @@
 <div class="section level2">
 <h2 id="licencia-y-atribución">Licencia y Atribución<a class="anchor" aria-label="anchor" href="#licencia-y-atribuci%C3%B3n"></a>
 </h2>
-<p>El software y código fuente de <strong>citesperu</strong> se distribuyen bajo la licencia de código abierto <a href="LICENSE.html">MIT</a>.</p>
+<p>El software y código fuente de <strong>citesperu</strong> se distribuyen bajo la licencia de código abierto <a href="https://github.com/PaulESantos/citesperu/blob/main/LICENSE.md" class="external-link">MIT</a>.</p>
 <p>La información original de los listados pertenece al <strong>Ministerio del Ambiente del Perú (MINAM)</strong>. Los datasets empaquetados preservan íntegramente la cita a las publicaciones oficiales de origen y a sus respectivos autores técnicos.</p>
 </div>
 </div>
@@ -469,11 +470,9 @@
 <h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
 <li><a href="https://lifecycle.r-lib.org/articles/stages.html#stable" class="external-link"><img src="https://img.shields.io/badge/lifecycle-stable-green.svg" alt="Lifecycle: stable"></a></li>
-<li><a href="https://CRAN.R-project.org/package=citesperu" class="external-link"><img src="https://www.r-pkg.org/badges/version/citesperu" alt="CRAN status"></a></li>
 <li><a href="https://github.com/PaulESantos/citesperu/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/PaulESantos/citesperu/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
-<li><a href="https://app.codecov.io/gh/PaulESantos/citesperu" class="external-link"><img src="https://codecov.io/gh/PaulESantos/citesperu/branch/main/graph/badge.svg" alt="Codecov test coverage"></a></li>
-<li><a href="https://cran.r-project.org/package=citesperu" class="external-link"><img src="https://cranlogs.r-pkg.org/badges/grand-total/citesperu?color=green" alt="CRAN downloads"></a></li>
-<li><a href="https://cran.r-project.org/package=citesperu" class="external-link"><img src="https://cranlogs.r-pkg.org/badges/last-week/citesperu?color=green" alt="CRAN downloads last week"></a></li>
+<li><a href="https://github.com/PaulESantos/citesperu" class="external-link"><img src="https://img.shields.io/badge/development-active-355E3B.svg" alt="Development status"></a></li>
+<li><a href="https://app.codecov.io/gh/PaulESantos/citesperu" class="external-link"><img src="https://codecov.io/gh/PaulESantos/citesperu/graph/badge.svg" alt="Codecov test coverage"></a></li>
 </ul>
 </div>
 

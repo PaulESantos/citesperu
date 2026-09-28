@@ -23,6 +23,13 @@ is_cites_pe(
   edition = c("latest", "all", "2023", "2019", "2018"),
   allow_synonyms = TRUE
 )
+
+cites_is_cites(
+  splist,
+  taxon = c("all", "fauna", "flora"),
+  edition = c("latest", "all", "2023", "2019", "2018"),
+  allow_synonyms = TRUE
+)
 ```
 
 ## Arguments

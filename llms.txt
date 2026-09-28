@@ -69,10 +69,11 @@ niveles institucionales:
   Perú (DIRMEAMB), DICAPI (Autoridad Marítima / Guardacostas) y FEMA
   (Fiscalías Especializadas en Materia Ambiental).
 
-Para mayor detalle sobre el marco legal (D.S. 030-2005-AG, D.S.
-004-2014-MINAGRI, D.S. 043-2006-AG), consulta la [Guía Técnica de
-Contexto CITES en el
-Perú](https://paulesantos.github.io/citesperu/docs/CONTEXTO_CITES_PERU.md).
+Para mayor detalle sobre las competencias institucionales, el marco
+normativo (D.S. 030-2005-AG, D.S. 004-2014-MINAGRI, D.S. 043-2006-AG),
+los Apéndices CITES y los códigos departamentales de Lamas &
+Encarnación, consulta la viñeta del paquete mediante
+[`vignette("contexto-cites-peru")`](https://paulesantos.github.io/citesperu/articles/contexto-cites-peru.md).
 
 ------------------------------------------------------------------------
 
@@ -85,7 +86,7 @@ conservando estrictamente su integridad documental y alcance temporal:
 | Dataset | Edición / Título Oficial | Grupo | Cobertura Oficial | Registros | Formato de Origen |
 |----|----|:--:|----|:--:|:--:|
 | `cites_fauna_peru_2018` | [Listado Fauna CITES Perú - 2018](https://www.gob.pe/institucion/minam/informes-publicaciones/395692-listado-fauna-cites-peru-2018) | Fauna | **496 especies** oficiales (48 Ap. I, 448 Ap. II, más 16 en Ap. III\*) | 512 | PDF / Excel oficial |
-| `cites_fauna_peru_2019` | [Listado de Fauna CITES Perú 2019](https://www.gob.pe/institucion/minam/informes-publicaciones/395694-listado-de-fauna-cites-peru-2019) | Fauna | **523 registros** (con ámbito ecológico y género) | 523 | Excel oficial |
+| `cites_fauna_peru_2019` | [Listado de Fauna CITES Perú 2019](https://www.gob.pe/institucion/minam/informes-publicaciones/395688-listado-fauna-cites-peru-2019-version-1-noviembre-del-2019) | Fauna | **523 registros** (con ámbito ecológico y género) | 523 | Excel oficial |
 | `cites_fauna_peru_2023` | [Listado de Fauna CITES Perú 2023](https://www.gob.pe/institucion/minam/informes-publicaciones/4109405-listado-de-fauna-cites-peru-2023) | Fauna | **568 especies** (48 Ap. I, 503 Ap. II, 17 Ap. III; CoP19 Panamá) | 568 | Excel oficial |
 | `cites_flora_peru_2018` | [Listado Flora CITES Perú - 2018](https://www.gob.pe/institucion/minam/informes-publicaciones/395685-listado-flora-cites-peru-2018) | Flora | **2506 taxa** en 9 familias botánicas (12 Ap. I, 2493 Ap. II, 1 Ap. III) | 2506 | PDF / Excel oficial |
 | `codigos_departamentos_pe` | Acrónimos Biogeográficos de Lamas & Encarnación (1976) | Geografía | 24 acrónimos estándar departamentales y códigos UBIGEO del INEI | 24 | Referencia técnica |
@@ -148,9 +149,15 @@ género; `ambiguous_match` para empates y `not_listed` cuando no hubo
 coincidencia. Los resultados ambiguos no reciben Apéndice y exponen
 `candidate_names` y `candidate_count`.
 
-La viñeta [“Flujo de Trabajo y Resolución
-Taxonómica”](https://paulesantos.github.io/citesperu/vignettes/flujo-matching-cites.md)
-documenta el procedimiento, sus parámetros y ejemplos reproducibles.
+El paquete incluye dos viñetas oficiales de acceso público: \* [**Flujo
+de Trabajo y Resolución
+Taxonómica**](https://paulesantos.github.io/citesperu/articles/flujo-matching-cites.html)
+([`vignette("flujo-matching-cites")`](https://paulesantos.github.io/citesperu/articles/flujo-matching-cites.md)):
+procedimiento paso a paso, parámetros y ejemplos reproducibles de
+matching. \* **Marco Institucional, Legal y Contexto CITES en el Perú**
+([`vignette("contexto-cites-peru")`](https://paulesantos.github.io/citesperu/articles/contexto-cites-peru.md)):
+arquitectura institucional (MINAM / SERFOR / PRODUCE), marco legal,
+apéndices I, II y III, y códigos geográficos.
 
 ------------------------------------------------------------------------
 
@@ -329,7 +336,7 @@ vignette("flujo-matching-cites", package = "citesperu")
 
 El software y código fuente de **citesperu** se distribuyen bajo la
 licencia de código abierto
-[MIT](https://paulesantos.github.io/citesperu/LICENSE.md).
+[MIT](https://github.com/PaulESantos/citesperu/blob/main/LICENSE.md).
 
 La información original de los listados pertenece al **Ministerio del
 Ambiente del Perú (MINAM)**. Los datasets empaquetados preservan
@@ -349,9 +356,10 @@ y parsing taxonómico.
   : Consultar y Contrastar Especies con los Apéndices CITES del Perú
 - [`is_cites()`](https://paulesantos.github.io/citesperu/reference/is_cites.md)
   [`is_cites_pe()`](https://paulesantos.github.io/citesperu/reference/is_cites.md)
+  [`cites_is_cites()`](https://paulesantos.github.io/citesperu/reference/is_cites.md)
   : Verificación Booleana de Inclusión en los Apéndices CITES del Perú
 - [`cites_classify_names()`](https://paulesantos.github.io/citesperu/reference/cites_classify_names.md)
-  [`classify_spnames()`](https://paulesantos.github.io/citesperu/reference/cites_classify_names.md)
+  [`cites_classify_spnames()`](https://paulesantos.github.io/citesperu/reference/cites_classify_names.md)
   : Clasificar y Normalizar Nombres Científicos en Componentes
   Taxonómicos
 
@@ -387,5 +395,7 @@ códigos UBIGEO del INEI.
 
 ### All vignettes
 
+- [Marco Institucional, Legal y Contexto CITES en el
+  Perú](https://paulesantos.github.io/citesperu/articles/contexto-cites-peru.md):
 - [Flujo de Trabajo y Resolución Taxonómica en
   citesperu](https://paulesantos.github.io/citesperu/articles/flujo-matching-cites.md):

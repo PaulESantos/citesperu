@@ -31,7 +31,7 @@ Esta función sigue la convención establecida en paquetes como
 ``` r
 cites_classify_names(splist, name_col = NULL)
 
-classify_spnames(splist, name_col = NULL)
+cites_classify_spnames(splist, name_col = NULL)
 ```
 
 ## Arguments

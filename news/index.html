@@ -21,6 +21,7 @@
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-gu-as" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Guías</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-gu-as"><li><a class="dropdown-item" href="../articles/flujo-matching-cites.html">Flujo de Trabajo y Matching Taxonómico</a></li>
+    <li><a class="dropdown-item" href="../articles/contexto-cites-peru.html">Marco Institucional y Contexto CITES Perú</a></li>
   </ul></li>
 <li class="active nav-item"><a class="nav-link" href="../news/index.html">Novedades</a></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
@@ -41,8 +42,20 @@
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.1.0" id="citesperu-010">citesperu 0.1.0<a class="anchor" aria-label="anchor" href="#citesperu-010"></a></h2>
 <ul><li>
+<strong>Alineación con el ecosistema <code>perufauna</code> (Tidyverse Style):</strong>
+<ul><li>Se añadieron alias canónicos con prefijo de dominio <code>cites_*</code>:
+<ul><li>
+<code><a href="../reference/cites_classify_names.html">cites_classify_spnames()</a></code>: clasificador taxonómico CITES formalmente exportado.</li>
+<li>
+<code><a href="../reference/cites_classify_names.html">cites_classify_names()</a></code>: clasificador taxonómico principal.</li>
+</ul></li>
+<li>
+<strong>Resolución de colisiones de namespace:</strong> Se retiró la exportación de <code>classify_spnames()</code> (manteniéndose accesible vía <code><a href="../reference/cites_classify_names.html">cites_classify_spnames()</a></code> y <code><a href="../reference/cites_classify_names.html">cites_classify_names()</a></code>) para eliminar la colisión con <code>perufaunads004</code> al cargar el metapaquete <code>perufauna</code>.</li>
+<li>Se mantiene la retrocompatibilidad en <code><a href="../reference/cites_match.html">cites_match()</a></code>, <code><a href="../reference/cites_match.html">cites_matching()</a></code>, <code><a href="../reference/cites_match.html">match_cites_pe()</a></code>, <code><a href="../reference/is_cites.html">is_cites()</a></code> e <code><a href="../reference/is_cites.html">is_cites_pe()</a></code>.</li>
+</ul></li>
+<li>
 <strong>Base documental y gobernanza CITES:</strong>
-<ul><li>Se incorporó el marco institucional oficial del Perú: el Ministerio del Ambiente (MINAM) como Autoridad Científica CITES, el Servicio Nacional Forestal y de Fauna Silvestre (SERFOR) y el Ministerio de la Producción (PRODUCE/SANIPES) como Autoridades Administrativas, y la SUNAT, PNP (DIRMEAMB), DICAPI y FEMA como Entidades de Observancia (<code>docs/CONTEXTO_CITES_PERU.md</code>).</li>
+<ul><li>Se incorporó el marco institucional oficial del Perú: el Ministerio del Ambiente (MINAM) como Autoridad Científica CITES, el Servicio Nacional Forestal y de Fauna Silvestre (SERFOR) y el Ministerio de la Producción (PRODUCE/SANIPES) como Autoridades Administrativas, y la SUNAT, PNP (DIRMEAMB), DICAPI y FEMA como Entidades de Observancia (documentado en la viñeta <code><a href="../articles/contexto-cites-peru.html">vignette("contexto-cites-peru")</a></code>).</li>
 <li>Se especificó la articulación con el Decreto Supremo n.° 030-2005-AG (Reglamento CITES Perú), el D.S. n.° 004-2014-MINAGRI (fauna silvestre amenazada) y el D.S. n.° 043-2006-AG (flora silvestre amenazada).</li>
 </ul></li>
 <li>
@@ -79,7 +92,7 @@
 <strong>Sistema de consulta y concordancia taxonómica (matching):</strong>
 <ul><li>Se implementó el motor de matching taxonómico inspirado en la arquitectura de <code>wcvpmatch</code>, optimizado en R puro:
 <ul><li>
-<code><a href="../reference/cites_classify_names.html">cites_classify_names()</a></code> (y alias <code><a href="../reference/cites_classify_names.html">classify_spnames()</a></code>): clasificador y normalizador de nombres binominales y trinominales, separando género, epíteto específico, rango infraespecífico, epíteto infraespecífico, autoría y banderas (<code>has_cf</code>, <code>has_aff</code>, <code>is_sp</code>, <code>is_spp</code>, <code>had_hybrid</code>).</li>
+<code><a href="../reference/cites_classify_names.html">cites_classify_names()</a></code> (y alias <code>classify_spnames()</code>): clasificador y normalizador de nombres binominales y trinominales, separando género, epíteto específico, rango infraespecífico, epíteto infraespecífico, autoría y banderas (<code>has_cf</code>, <code>has_aff</code>, <code>is_sp</code>, <code>is_spp</code>, <code>had_hybrid</code>).</li>
 <li>
 <code><a href="../reference/cites_match.html">cites_match()</a></code> (y alias <code><a href="../reference/cites_match.html">cites_matching()</a></code>, <code><a href="../reference/cites_match.html">match_cites_pe()</a></code>): tubería secuencial optimizada con direct match (coincidencia exacta), synonym match (resolución de sinónimos oficiales a taxón CITES aceptado y su Apéndice), suffix match (flexión de género en sufijos latinos), fuzzy match acotado al género por distancia de edición (<code>max_dist</code>), y genus match para taxones regulados a nivel genérico o con calificador <code>sp.</code>/<code>spp.</code>.</li>
 <li>

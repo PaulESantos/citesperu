@@ -11,9 +11,10 @@ y parsing taxonómico.
   : Consultar y Contrastar Especies con los Apéndices CITES del Perú
 - [`is_cites()`](https://paulesantos.github.io/citesperu/reference/is_cites.md)
   [`is_cites_pe()`](https://paulesantos.github.io/citesperu/reference/is_cites.md)
+  [`cites_is_cites()`](https://paulesantos.github.io/citesperu/reference/is_cites.md)
   : Verificación Booleana de Inclusión en los Apéndices CITES del Perú
 - [`cites_classify_names()`](https://paulesantos.github.io/citesperu/reference/cites_classify_names.md)
-  [`classify_spnames()`](https://paulesantos.github.io/citesperu/reference/cites_classify_names.md)
+  [`cites_classify_spnames()`](https://paulesantos.github.io/citesperu/reference/cites_classify_names.md)
   : Clasificar y Normalizar Nombres Científicos en Componentes
   Taxonómicos
 

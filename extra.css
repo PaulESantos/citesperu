@@ -117,11 +117,70 @@ code a:hover {
   color: var(--peru-red-dark);
 }
 
-pre.sourceCode, pre {
-  background-color: #FAF6F0 !important;
-  border: 1px solid #EADBCE;
-  border-radius: 8px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+/* ==============================================================================
+   Cajas de Código (Input) y Cajas de Resultados (Output de Funciones) - Tema Claro
+   ============================================================================== */
+
+/* 1. Bloques de CÓDIGO FUENTE (Input) - Paleta clara cálida y elegante */
+pre.downlit,
+div.sourceCode pre,
+pre.sourceCode,
+div.sourceCode {
+  background-color: #FAF7F2 !important;
+  color: #1E1E24 !important;
+  border: 1px solid #E8DDD2 !important;
+  border-radius: 8px !important;
+  box-shadow: 0 1px 4px rgba(107, 19, 23, 0.04) !important;
+}
+
+pre.downlit code,
+div.sourceCode pre code,
+pre.sourceCode code {
+  background-color: transparent !important;
+  color: #1E1E24 !important;
+}
+
+/* 2. Cajas de RESULTADOS de funciones (Output: tibbles, vectores, ##, #>) - Tono crema contrastado */
+div.sourceCode:has(.do) pre,
+div.sourceCode:has(.co) pre,
+pre.sourceCode:has(.do),
+pre.sourceCode:has(.co),
+pre:not(.sourceCode):not(.downlit),
+pre.r-output,
+.cell-output pre,
+div.output pre {
+  background-color: #F2EAE0 !important;
+  color: #1E1E24 !important;
+  border: 1px solid #DFCFC0 !important;
+  border-left: 4px solid var(--peru-red) !important;
+  border-radius: 6px !important;
+  font-size: 0.88em !important;
+  padding: 0.85em 1.15em !important;
+  box-shadow: 0 1px 3px rgba(107, 19, 23, 0.04) !important;
+}
+
+div.sourceCode:has(.do) pre code,
+div.sourceCode:has(.co) pre code,
+pre.sourceCode:has(.do) code,
+pre.sourceCode:has(.co) code,
+pre:not(.sourceCode) code,
+.cell-output pre code {
+  background-color: transparent !important;
+  color: #1E1E24 !important;
+  padding: 0 !important;
+}
+
+div.sourceCode:has(.do) pre span,
+div.sourceCode:has(.co) pre span,
+pre.sourceCode:has(.do) span,
+pre.sourceCode:has(.co) span {
+  color: #2B2526 !important;
+}
+
+div.sourceCode:has(.do) pre span.do,
+div.sourceCode:has(.co) pre span.co {
+  color: #5D4B4E !important;
+  font-weight: 500 !important;
 }
 
 /* Píldoras, Badges y Alertas ---------------------------------------------- */

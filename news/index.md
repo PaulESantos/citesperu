@@ -2,13 +2,34 @@
 
 ## citesperu 0.1.0
 
+- **Alineación con el ecosistema `perufauna` (Tidyverse Style):**
+  - Se añadieron alias canónicos con prefijo de dominio `cites_*`:
+    - [`cites_classify_spnames()`](https://paulesantos.github.io/citesperu/reference/cites_classify_names.md):
+      clasificador taxonómico CITES formalmente exportado.
+    - [`cites_classify_names()`](https://paulesantos.github.io/citesperu/reference/cites_classify_names.md):
+      clasificador taxonómico principal.
+  - **Resolución de colisiones de namespace:** Se retiró la exportación
+    de `classify_spnames()` (manteniéndose accesible vía
+    [`cites_classify_spnames()`](https://paulesantos.github.io/citesperu/reference/cites_classify_names.md)
+    y
+    [`cites_classify_names()`](https://paulesantos.github.io/citesperu/reference/cites_classify_names.md))
+    para eliminar la colisión con `perufaunads004` al cargar el
+    metapaquete `perufauna`.
+  - Se mantiene la retrocompatibilidad en
+    [`cites_match()`](https://paulesantos.github.io/citesperu/reference/cites_match.md),
+    [`cites_matching()`](https://paulesantos.github.io/citesperu/reference/cites_match.md),
+    [`match_cites_pe()`](https://paulesantos.github.io/citesperu/reference/cites_match.md),
+    [`is_cites()`](https://paulesantos.github.io/citesperu/reference/is_cites.md)
+    e
+    [`is_cites_pe()`](https://paulesantos.github.io/citesperu/reference/is_cites.md).
 - **Base documental y gobernanza CITES:**
   - Se incorporó el marco institucional oficial del Perú: el Ministerio
     del Ambiente (MINAM) como Autoridad Científica CITES, el Servicio
     Nacional Forestal y de Fauna Silvestre (SERFOR) y el Ministerio de
     la Producción (PRODUCE/SANIPES) como Autoridades Administrativas, y
     la SUNAT, PNP (DIRMEAMB), DICAPI y FEMA como Entidades de
-    Observancia (`docs/CONTEXTO_CITES_PERU.md`).
+    Observancia (documentado en la viñeta
+    [`vignette("contexto-cites-peru")`](https://paulesantos.github.io/citesperu/articles/contexto-cites-peru.md)).
   - Se especificó la articulación con el Decreto Supremo n.° 030-2005-AG
     (Reglamento CITES Perú), el D.S. n.° 004-2014-MINAGRI (fauna
     silvestre amenazada) y el D.S. n.° 043-2006-AG (flora silvestre
@@ -58,12 +79,11 @@
   - Se implementó el motor de matching taxonómico inspirado en la
     arquitectura de `wcvpmatch`, optimizado en R puro:
     - [`cites_classify_names()`](https://paulesantos.github.io/citesperu/reference/cites_classify_names.md)
-      (y alias
-      [`classify_spnames()`](https://paulesantos.github.io/citesperu/reference/cites_classify_names.md)):
-      clasificador y normalizador de nombres binominales y trinominales,
-      separando género, epíteto específico, rango infraespecífico,
-      epíteto infraespecífico, autoría y banderas (`has_cf`, `has_aff`,
-      `is_sp`, `is_spp`, `had_hybrid`).
+      (y alias `classify_spnames()`): clasificador y normalizador de
+      nombres binominales y trinominales, separando género, epíteto
+      específico, rango infraespecífico, epíteto infraespecífico,
+      autoría y banderas (`has_cf`, `has_aff`, `is_sp`, `is_spp`,
+      `had_hybrid`).
     - [`cites_match()`](https://paulesantos.github.io/citesperu/reference/cites_match.md)
       (y alias
       [`cites_matching()`](https://paulesantos.github.io/citesperu/reference/cites_match.md),
